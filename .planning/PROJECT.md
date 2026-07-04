@@ -22,7 +22,8 @@ mode must work, because an inaccessible disability-equity site is a contradictio
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] Static build deploys to GitHub Pages under the repo base path — *Validated in Phase 1 (live green at https://wolfwdavid.github.io/diversityincludesdisability_two/, FOUND-01/02/03)*
+- [x] DID blue/orange brand palette applied via design tokens, contrast-checked (WCAG AA+) — *Validated in Phase 1 (6/6 token pairs pass WCAG 2.2 AA via automated gate, A11Y-06)*
 
 ### Active
 
@@ -40,8 +41,6 @@ mode must work, because an inaccessible disability-equity site is a contradictio
 - [ ] Keyboard-first navigation; visible focus states throughout; screen-reader tested
 - [ ] Responsive layout (mobile → desktop) in BOTH modes
 - [ ] 3D assets lazy-loaded and code-split so Accessible mode never downloads WebGL payload
-- [ ] Static build deploys to GitHub Pages under the repo base path
-- [ ] DID blue/orange brand palette applied via design tokens, contrast-checked (WCAG AA+)
 
 ### Out of Scope
 
@@ -111,4 +110,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-07-04 after initialization*
+*Last updated: 2026-07-04 — Phase 1 complete (live GitHub Pages deploy verified, DID tokens contrast-gated)*
