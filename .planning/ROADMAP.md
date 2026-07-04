@@ -45,10 +45,13 @@ Plans:
   1. Editing a single typed content module (`lib/content/*.ts`) is the only change needed to update that copy — no per-mode duplication exists
   2. Every user-facing string and CTA (nav, services, bio, contact, SEO) is sourced from the typed modules, populated from the current Wix site
   3. Unfilled social-proof slots are explicitly marked "content pending" in data; no testimonial or engagement is fabricated
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 02-01: TBD during plan-phase
+- [ ] 02-01-PLAN.md — Type contracts (Slot<T> anti-fabrication union) + Nyquist invariant spec harness (CONT-01/02/03)
+- [ ] 02-02-PLAN.md — Real marketing/structural content: site identity, nav model, 4 services, per-route SEO (CONT-01/02)
+- [ ] 02-03-PLAN.md — People & social-proof: contact, pending social links, MBP engagement, About scaffold + human content-capture (CONT-02/03)
+- [ ] 02-04-PLAN.md — Single content barrel ($lib/content) + full parity/type gate (CONT-01/02/03)
 
 ### Phase 3: Mode State System & Toggle
 **Goal**: A persistent, accessible mode toggle switches the whole site between Premium and Accessible with no flash, correct default precedence, and full keyboard/screen-reader support — before any 3D exists.
@@ -116,7 +119,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation, Tokens & Live Deploy | 3/3 | Complete | 2026-07-04 |
-| 2. Content Source of Truth | 0/TBD | Not started | - |
+| 2. Content Source of Truth | 0/4 | Planned | - |
 | 3. Mode State System & Toggle | 0/TBD | Not started | - |
 | 4. Accessible Section Components | 0/TBD | Not started | - |
 | 5. Premium 3D Layer | 0/TBD | Not started | - |
