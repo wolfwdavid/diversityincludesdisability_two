@@ -1,7 +1,10 @@
-# pnpm 11 moved settings that previously lived under the package.json "pnpm" field
-# (overrides, onlyBuiltDependencies) into this file. The package.json pnpm.overrides
-# entry is kept for parity/documentation; this file is what pnpm 11 actually reads.
-onlyBuiltDependencies:
-  - esbuild
+# pnpm 11.6 settings (moved out of the package.json "pnpm" field).
+# - `allowBuilds`: approve dependency build scripts. pnpm 11.6 renamed the old
+#   `onlyBuiltDependencies` list to this package -> boolean map; the old key is
+#   silently ignored, which left esbuild's postinstall un-run and broke `vite
+#   build` in CI (ERR_PNPM_IGNORED_BUILDS). esbuild must build to link its binary.
+# - `overrides`: force the single pinned three version across the tree.
+allowBuilds:
+  esbuild: true
 overrides:
   three: 0.175.0
