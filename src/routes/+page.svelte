@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 </script>
 
 <main>
@@ -7,7 +7,7 @@
 	<p style="color: var(--color-text)">Foundation deploy placeholder — DID design tokens live.</p>
 	<a
 		class="cta"
-		href="{base}/"
+		href={resolve('/')}
 		style="background: var(--color-accent); color: var(--did-ink); border: 2px solid var(--color-accent-border); padding: .5rem 1rem; border-radius: .375rem; text-decoration: none; display: inline-block;"
 		>Let's Connect</a
 	>
