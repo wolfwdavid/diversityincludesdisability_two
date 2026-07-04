@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Scaffold SvelteKit on the pinned stack; adapter-static config, trailingSlash/fallback, .nojekyll, exact three@0.175.0 + lockfile gate (FOUND-01/02/03/04)
+- [x] 01-01-PLAN.md — Scaffold SvelteKit on the pinned stack; adapter-static config, trailingSlash/fallback, .nojekyll, exact three@0.175.0 + lockfile gate (FOUND-01/02/03/04)
 - [ ] 01-02-PLAN.md — DID design tokens (single typed source + CSS), culori WCAG contrast gate, lib/premium ESLint import guard (A11Y-06)
 - [ ] 01-03-PLAN.md — Official GitHub Pages deploy workflow + human UAT (set Pages source, verify live subpath) (FOUND-01/02/03)
 

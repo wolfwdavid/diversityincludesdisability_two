@@ -7,10 +7,10 @@
 
 ### Foundation & Deploy
 
-- [ ] **FOUND-01**: Site builds as a fully static, prerendered bundle via `@sveltejs/adapter-static`
-- [ ] **FOUND-02**: Site deploys to GitHub Pages at the repo subpath with all assets (including `_app/`) loading correctly (`paths.base`, `.nojekyll`)
-- [ ] **FOUND-03**: Deep links and page refreshes resolve without a 404 (trailingSlash / fallback handled)
-- [ ] **FOUND-04**: `three` is pinned to an exact version compatible with the installed Threlte v8, enforced via the lockfile
+- [x] **FOUND-01**: Site builds as a fully static, prerendered bundle via `@sveltejs/adapter-static`
+- [x] **FOUND-02**: Site deploys to GitHub Pages at the repo subpath with all assets (including `_app/`) loading correctly (`paths.base`, `.nojekyll`)
+- [x] **FOUND-03**: Deep links and page refreshes resolve without a 404 (trailingSlash / fallback handled)
+- [x] **FOUND-04**: `three` is pinned to an exact version compatible with the installed Threlte v8, enforced via the lockfile
 
 ### Mode System
 
@@ -102,10 +102,10 @@ Explicitly excluded from this project.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01 | Phase 1 | Pending |
-| FOUND-02 | Phase 1 | Pending |
-| FOUND-03 | Phase 1 | Pending |
-| FOUND-04 | Phase 1 | Pending |
+| FOUND-01 | Phase 1 | Complete |
+| FOUND-02 | Phase 1 | Complete |
+| FOUND-03 | Phase 1 | Complete |
+| FOUND-04 | Phase 1 | Complete |
 | A11Y-06 | Phase 1 | Pending |
 | CONT-01 | Phase 2 | Pending |
 | CONT-02 | Phase 2 | Pending |

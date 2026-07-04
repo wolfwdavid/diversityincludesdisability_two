@@ -1,3 +1,17 @@
+---
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: milestone
+status: unknown
+stopped_at: Completed 01-01-PLAN.md (scaffold + static config + three-pin gate)
+last_updated: "2026-07-04T22:15:55.551Z"
+progress:
+  total_phases: 6
+  completed_phases: 0
+  total_plans: 3
+  completed_plans: 1
+---
+
 # Project State
 
 ## Project Reference
@@ -5,20 +19,17 @@
 See: .planning/PROJECT.md (updated 2026-07-04)
 
 **Core value:** Every visitor gets a first-class experience of DID's work — the premium 3D showcase never comes at the cost of accessibility, and the Accessible mode is a genuine peer, not a degraded fallback.
-**Current focus:** Phase 1 — Foundation, Tokens & Live Deploy
+**Current focus:** Phase 01 — foundation-tokens-live-deploy
 
 ## Current Position
 
-Phase: 1 of 6 (Foundation, Tokens & Live Deploy)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-07-04 — Roadmap created (6 phases, 38/38 requirements mapped)
-
-Progress: [░░░░░░░░░░] 0%
+Phase: 01 (foundation-tokens-live-deploy) — EXECUTING
+Plan: 2 of 3
 
 ## Performance Metrics
 
 **Velocity:**
+
 - Total plans completed: 0
 - Average duration: — min
 - Total execution time: 0.0 hours
@@ -30,10 +41,12 @@ Progress: [░░░░░░░░░░] 0%
 | - | - | - | - |
 
 **Recent Trend:**
+
 - Last 5 plans: —
 - Trend: —
 
 *Updated after each plan completion*
+| Phase 01 P01 | 35 | 3 tasks | 30 files |
 
 ## Accumulated Context
 
@@ -44,6 +57,8 @@ Recent decisions affecting current work:
 
 - Phase 1: adapter-static + GitHub Pages; lock `paths.base`, `trailingSlash: 'always'`, `static/.nojekyll`, exact `three@0.175.0` pin against Threlte v8
 - Architecture: Accessible mode is the prerendered baseline; Premium is a client-only enhancement behind one dynamic import — nothing in phases 1–4 may import from `lib/premium/`
+- [Phase 01]: sv 0.16.1 embeds SvelteKit config in vite.config.ts; authored svelte.config.js (adapter-static) and reduced vite.config.ts to sveltekit()
+- [Phase 01]: pnpm 11.6 ignores package.json pnpm.overrides; effective three@0.175.0 override + esbuild build lives in pnpm-workspace.yaml
 
 ### Pending Todos
 
@@ -61,6 +76,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-04
-Stopped at: ROADMAP.md and STATE.md created; REQUIREMENTS.md traceability populated
+Last session: 2026-07-04T22:15:55.545Z
+Stopped at: Completed 01-01-PLAN.md (scaffold + static config + three-pin gate)
 Resume file: None
