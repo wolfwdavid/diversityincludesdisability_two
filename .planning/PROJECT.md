@@ -1,0 +1,114 @@
+# Diversity Includes Disability — Premium Website (v2)
+
+## What This Is
+
+A modern, premium marketing website for **Diversity Includes Disability (DID)**, the
+intersectional disability-equity venture founded by **Eman Rimawi** (trainings & facilitation,
+disability consulting, modeling for representation, speaking & panels). The site ships with a
+persistent **in-page mode toggle** that swaps between a **full-3D "Premium" experience** (nearly
+every section rendered as an interactive WebGL scene, maximum visual impact) and a **fully
+WCAG-accessible "Accessible" experience** (no WebGL, static/2D equivalents, high contrast, low
+motion). Built with SvelteKit + Threlte, deployed as a static site to GitHub Pages. It is a
+rebuild/replacement for the current Wix site at diversityincludesdisability.org.
+
+## Core Value
+
+**Every visitor gets a first-class experience of DID's work — the toggle guarantees that the
+premium 3D showcase never comes at the cost of accessibility, and the accessible mode is a
+genuine peer, not a degraded fallback.** If everything else fails, the mode toggle + accessible
+mode must work, because an inaccessible disability-equity site is a contradiction.
+
+## Requirements
+
+### Validated
+
+(None yet — ship to validate)
+
+### Active
+
+- [ ] Persistent mode toggle (Premium 3D ⇄ Accessible), state saved to localStorage
+- [ ] Toggle defaults to Accessible when `prefers-reduced-motion: reduce` is set
+- [ ] Premium mode: full-3D hero + 3D scenes across most content sections (Threlte/Three.js)
+- [ ] Accessible mode: no WebGL, static/2D equivalents of every section, high contrast, low motion
+- [ ] Content parity — both modes present the same information and CTAs, nothing hidden in one
+- [ ] Home page (hero, mission, services overview, CTA)
+- [ ] Services detail (trainings & facilitation, consulting, modeling for representation, speaking)
+- [ ] About Eman Rimawi page
+- [ ] Contact / "Let's Connect" (emanrimawi@gmail.com) + social links (FB, X/Twitter, LinkedIn, IG)
+- [ ] Accessibility statement page, linked from primary nav (scope.org.uk model)
+- [ ] Skip links (to content / nav), semantic heading hierarchy, descriptive link text, ARIA-expanded menus
+- [ ] Keyboard-first navigation; visible focus states throughout; screen-reader tested
+- [ ] Responsive layout (mobile → desktop) in BOTH modes
+- [ ] 3D assets lazy-loaded and code-split so Accessible mode never downloads WebGL payload
+- [ ] Static build deploys to GitHub Pages under the repo base path
+- [ ] DID blue/orange brand palette applied via design tokens, contrast-checked (WCAG AA+)
+
+### Out of Scope
+
+- Authentication / member login — the Wix site's "Log In" is not needed for a marketing site
+- CMS / dynamic backend — static content, no server; content lives in the repo
+- E-commerce / donations checkout — may come later; v1 links out (Zeffy/PayPal) at most, no in-site payment
+- Any credentials, EINs, portal logins, or personal address — SECURITY: never enter this repo
+- Grant tracker — lives separately in `Websites/Rimawi/`, not part of this site
+- Blog / CMS-driven news feed — defer; not in the current Wix site
+
+## Context
+
+- **Source of content:** current Wix site diversityincludesdisability.org (services, headshots,
+  Eman's bio, socials). Brand reads professional; DID blue/orange palette; low-vision-friendly
+  intent already present in prior DID work.
+- **Accessibility model:** scope.org.uk — skip links (content/search/nav), semantic headings,
+  descriptive anchor text, ARIA-expanded disclosure menus, prominent accessibility statement in
+  primary nav, progressive enhancement, keyboard-first.
+- **Prior work in this org:** a self-contained accessible grant-tracker was delivered in
+  `Websites/Rimawi/` (separate track). The org is an S-corp LLC with **501(c)(3) pending** — not
+  relevant to the marketing site's content but noted for tone (no "donate, tax-deductible" claims).
+- **Sibling dir:** `diversityincludesdisability_one/` exists but is an empty git repo; this is the
+  real build (`_two`).
+- **Design intelligence:** use the `ui-ux-pro-max` skill for palette, type pairing, layout, and
+  a11y guidance during UI phases.
+
+## Constraints
+
+- **Tech stack**: SvelteKit + Threlte (Svelte wrapper over Three.js) + `@sveltejs/adapter-static` —
+  because the deploy target is static GitHub Pages and 3D is a hard requirement.
+- **Deployment**: GitHub Pages, repo `wolfwdavid/diversityincludesdisability_two`. Requires correct
+  `paths.base` for the repo subpath and a `.nojekyll` file so `_app/` assets serve.
+- **Accessibility**: WCAG 2.2 AA minimum across BOTH modes; Accessible mode targets AAA where
+  feasible. Non-negotiable given the org's mission.
+- **Performance**: 3D must be lazy-loaded/code-split; Accessible mode must ship zero WebGL bytes.
+  Premium mode must degrade gracefully on low-end GPUs / no-WebGL browsers.
+- **Security**: no credentials/PII in the repo (plaintext creds exist in the org's Notion source —
+  excluded by design).
+- **Tooling**: Node 24, pnpm 11 available locally. Windows dev environment (Git Bash + PowerShell).
+
+## Key Decisions
+
+| Decision | Rationale | Outcome |
+|----------|-----------|---------|
+| Single site + in-page mode toggle (not two deployed sites) | One codebase, guaranteed content parity, one deploy | — Pending |
+| Full-3D Premium mode (not accent-only) | User wants maximum visual impact | — Pending |
+| Threlte over raw Three.js | Svelte-native, declarative, less boilerplate, SSR-safe patterns | — Pending |
+| adapter-static + GitHub Pages | Free hosting, no backend needed for marketing content | — Pending |
+| Accessible mode = zero WebGL, not "3D with reduced motion" | True peer experience; reliable on any device/AT | — Pending |
+| Default to Accessible when prefers-reduced-motion set | Respects OS-level user intent; ethical default | — Pending |
+
+## Evolution
+
+This document evolves at phase transitions and milestone boundaries.
+
+**After each phase transition** (via `/gsd:transition`):
+1. Requirements invalidated? → Move to Out of Scope with reason
+2. Requirements validated? → Move to Validated with phase reference
+3. New requirements emerged? → Add to Active
+4. Decisions to log? → Add to Key Decisions
+5. "What This Is" still accurate? → Update if drifted
+
+**After each milestone** (via `/gsd:complete-milestone`):
+1. Full review of all sections
+2. Core Value check — still the right priority?
+3. Audit Out of Scope — reasons still valid?
+4. Update Context with current state
+
+---
+*Last updated: 2026-07-04 after initialization*
