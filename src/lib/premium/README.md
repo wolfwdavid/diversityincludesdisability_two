@@ -1,0 +1,1 @@
+Client-only Premium 3D (Threlte/three) lands here in Phase 5. NOTHING outside `src/lib/premium/` may import from `$lib/premium/*` in Phases 1–4 — this keeps the Accessible bundle at zero WebGL bytes (PREM-03). The single dynamic-import entry gate is added in Phase 5.
