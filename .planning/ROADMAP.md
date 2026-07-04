@@ -35,7 +35,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 Plans:
 - [x] 01-01-PLAN.md — Scaffold SvelteKit on the pinned stack; adapter-static config, trailingSlash/fallback, .nojekyll, exact three@0.175.0 + lockfile gate (FOUND-01/02/03/04)
 - [x] 01-02-PLAN.md — DID design tokens (single typed source + CSS), culori WCAG contrast gate, lib/premium ESLint import guard (A11Y-06)
-- [ ] 01-03-PLAN.md — Official GitHub Pages deploy workflow + human UAT (set Pages source, verify live subpath) (FOUND-01/02/03)
+- [x] 01-03-PLAN.md — Official GitHub Pages deploy workflow + human UAT (set Pages source, verify live subpath) (FOUND-01/02/03)
 
 ### Phase 2: Content Source of Truth
 **Goal**: All site copy and data live in one typed, mode-agnostic source so content parity between modes is a structural property, not a maintenance chore.
@@ -115,7 +115,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation, Tokens & Live Deploy | 0/3 | Not started | - |
+| 1. Foundation, Tokens & Live Deploy | 3/3 | Complete | 2026-07-04 |
 | 2. Content Source of Truth | 0/TBD | Not started | - |
 | 3. Mode State System & Toggle | 0/TBD | Not started | - |
 | 4. Accessible Section Components | 0/TBD | Not started | - |
