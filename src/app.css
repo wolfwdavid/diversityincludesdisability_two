@@ -1,0 +1,4 @@
+/* src/app.css — global base; extended with DID tokens in plan 02 */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: system-ui, sans-serif; line-height: 1.5; }
