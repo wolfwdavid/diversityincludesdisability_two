@@ -1,0 +1,7 @@
+# pnpm 11 moved settings that previously lived under the package.json "pnpm" field
+# (overrides, onlyBuiltDependencies) into this file. The package.json pnpm.overrides
+# entry is kept for parity/documentation; this file is what pnpm 11 actually reads.
+onlyBuiltDependencies:
+  - esbuild
+overrides:
+  three: 0.175.0
