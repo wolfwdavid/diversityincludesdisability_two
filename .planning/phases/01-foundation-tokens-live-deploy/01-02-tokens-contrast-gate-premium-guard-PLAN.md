@@ -91,7 +91,7 @@ WCAG 2.2 AA thresholds: AA-normal 4.5 · AA-large 3 · AA-ui 3 (SC 1.4.3 / 1.4.1
   <read_first>
     - .planning/phases/01-foundation-tokens-live-deploy/01-RESEARCH.md (§ Pattern 4 token structure; Pitfall 4 orange-as-body-text; Open Question 1 hex selection)
     - src/routes/+page.svelte (scaffold-generated home page being replaced)
-    - src/app.css (scaffold-generated global stylesheet)
+    - src/app.css (created in plan 01 Task 2 — the minimal scaffold does NOT ship it; this task EXTENDS it with the token @import + base-token rules, it does not create it)
   </read_first>
   <behavior>
     - After this task, `scripts/check-contrast.mjs` (Task 2) run over these tokens must report PASS for every pair.
@@ -131,7 +131,7 @@ WCAG 2.2 AA thresholds: AA-normal 4.5 · AA-large 3 · AA-ui 3 (SC 1.4.3 / 1.4.1
          { name: 'orange UI border vs white', fg: 'orangeDeep', bg: 'white',      level: 'AA-ui'     }  // 4.12
        ];
        ```
-       (If `keyof typeof import(...)` syntax is awkward, instead `import { palette } from './colors';` and type `fg`/`bg` as `keyof typeof palette`.)
+       Keep the palette reference TYPE-ONLY (`keyof typeof import('./colors').palette`) — it is fully erased at build. Do NOT add a runtime `import { palette } from './colors'` here: `pairs.ts` is loaded by `check-contrast.mjs` via Node 24 type-stripping, which requires an explicit `.ts` extension on runtime imports, so an extensionless runtime import would crash the gate. If you prefer a named alias, use `import type { palette as _P } from './colors';` (still erased) and type `fg`/`bg` as `keyof typeof _P`.
     3. Create `src/lib/tokens/tokens.css` — `:root` custom properties whose hexes MIRROR colors.ts EXACTLY:
        ```css
        :root {
@@ -150,7 +150,7 @@ WCAG 2.2 AA thresholds: AA-normal 4.5 · AA-large 3 · AA-ui 3 (SC 1.4.3 / 1.4.1
          --color-surface: var(--did-white);
        }
        ```
-    4. In `src/app.css`, add `@import './lib/tokens/tokens.css';` at the top, then apply base tokens: set `body { color: var(--color-text); background: var(--color-surface); }`, links `a { color: var(--color-link); }`, and a visible focus style `:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }`.
+    4. In `src/app.css` (already created in plan 01 Task 2), add `@import './lib/tokens/tokens.css';` at the top (above the existing base reset), then apply base tokens: set `body { color: var(--color-text); background: var(--color-surface); }`, links `a { color: var(--color-link); }`, and a visible focus style `:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }`.
     5. Replace `src/routes/+page.svelte` with a minimal styled home placeholder that PROVES the tokens render — a single `<h1>` in `--color-heading`, a paragraph in `--color-text`, and one CTA button styled `background: var(--color-accent); color: var(--did-ink); border: 2px solid var(--color-accent-border);` with a base-aware link:
        ```svelte
        <script lang="ts">

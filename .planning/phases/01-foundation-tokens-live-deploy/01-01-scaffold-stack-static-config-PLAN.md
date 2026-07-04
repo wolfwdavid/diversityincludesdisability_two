@@ -13,6 +13,7 @@ files_modified:
   - src/routes/+layout.ts
   - src/routes/+layout.svelte
   - src/app.html
+  - src/app.css
   - static/.nojekyll
   - scripts/check-three-pin.mjs
 autonomous: true
@@ -101,6 +102,7 @@ Existing files to PRESERVE during scaffold: .git/ .planning/ CLAUDE.md
        `pnpm add -D @sveltejs/adapter-static@3.0.10`
        `pnpm add three@0.175.0`
        `pnpm add -D @types/three@0.175.0 @threlte/core@8.5.16 @threlte/extras@9.21.0`
+       Then pin Vite to the Threlte-v8 dev-tested major (the scaffold may otherwise pull Vite 8): `pnpm add -D vite@^7`. Confirm `package.json` devDependencies shows `"vite": "^7..."` and `pnpm why vite` resolves a single `7.x`.
     4. Edit `package.json` to add these EXACT fields (verbatim values):
        ```jsonc
        {
@@ -125,12 +127,13 @@ Existing files to PRESERVE during scaffold: .git/ .planning/ CLAUDE.md
     7. Re-run `pnpm install` so `pnpm.overrides` is applied and `pnpm-lock.yaml` is regenerated. Then run `pnpm why three` and confirm a single resolved `0.175.0`. Commit `pnpm-lock.yaml`.
   </action>
   <verify>
-    <automated>test -f package.json && test -f pnpm-lock.yaml && test -f svelte.config.js && grep -q '"three": "0.175.0"' package.json && ! grep -q '"three": "\^' package.json && grep -q '"packageManager": "pnpm@11' package.json</automated>
+    <automated>test -f package.json && test -f pnpm-lock.yaml && test -f svelte.config.js && grep -q '"three": "0.175.0"' package.json && ! grep -q '"three": "\^' package.json && grep -q '"packageManager": "pnpm@11' package.json && grep -q '"vite": "\^7' package.json</automated>
   </verify>
   <acceptance_criteria>
     - `package.json` contains `"three": "0.175.0"` (exact) and NO `"^"` on the three dependency
     - `package.json` contains `"packageManager": "pnpm@11.6.0"`, an `engines` block, and `pnpm.overrides.three = "0.175.0"`
     - `.nvmrc` contains `24`; `.npmrc` contains `public-hoist-pattern[]=*three*`
+    - `package.json` devDependencies pins `"vite": "^7..."` and `pnpm why vite` resolves a single `7.x` (matches the locked Threlte-v8 pairing; NOT Vite 8)
     - `pnpm-lock.yaml` exists; `pnpm why three` reports only `0.175.0`
     - `svelte.config.js`, `vite.config.ts`/`vitest.config.ts`, `eslint.config.js`, and a Playwright config all exist (scaffold + addons succeeded)
     - `.git/`, `.planning/`, and `CLAUDE.md` are intact
@@ -140,9 +143,10 @@ Existing files to PRESERVE during scaffold: .git/ .planning/ CLAUDE.md
 
 <task type="auto">
   <name>Task 2: Configure adapter-static for the Pages subpath (prerender, trailingSlash, .nojekyll)</name>
-  <files>svelte.config.js, src/routes/+layout.ts, src/routes/+layout.svelte, src/app.html, static/.nojekyll</files>
+  <files>svelte.config.js, src/routes/+layout.ts, src/routes/+layout.svelte, src/app.html, src/app.css, static/.nojekyll</files>
   <read_first>
     - svelte.config.js (the scaffold-generated file being replaced)
+    - src/app.html and src/routes/ (the `sv create --template minimal` output; note: minimal does NOT ship `src/app.css` or `src/routes/+layout.svelte` — this task CREATES both)
     - .planning/phases/01-foundation-tokens-live-deploy/01-RESEARCH.md (§ Pattern 1 svelte.config.js verbatim; § Pattern 2 deep-link resolution; Pitfall 1, Pitfall 2)
     - CLAUDE.md (Stack Patterns: `paths.base`, `%sveltekit.assets%`, `.nojekyll` guidance)
   </read_first>
@@ -175,7 +179,14 @@ Existing files to PRESERVE during scaffold: .git/ .planning/ CLAUDE.md
        export const prerender = true;
        export const trailingSlash = 'always';
        ```
-    3. Create `src/routes/+layout.svelte` as a minimal shell that renders children and pulls in global styles (real header/footer come in Phase 4). Use Svelte 5 runes:
+    3. Create `src/app.css` (the `minimal` scaffold does NOT ship it, so `import '../app.css'` in the next step would fail the build if it is absent). Author a minimal global base reset now; plan 02 Task 1 EXTENDS this same file with the token `@import` and base-token rules:
+       ```css
+       /* src/app.css — global base; extended with DID tokens in plan 02 */
+       *, *::before, *::after { box-sizing: border-box; }
+       html { -webkit-text-size-adjust: 100%; }
+       body { margin: 0; font-family: system-ui, sans-serif; line-height: 1.5; }
+       ```
+    4. Create `src/routes/+layout.svelte` as a minimal shell that renders children and pulls in the global stylesheet from step 3 (real header/footer come in Phase 4). Use Svelte 5 runes:
        ```svelte
        <script lang="ts">
          import '../app.css';
@@ -184,17 +195,18 @@ Existing files to PRESERVE during scaffold: .git/ .planning/ CLAUDE.md
 
        {@render children()}
        ```
-       (If the scaffold already created `+layout.svelte`, edit it to this shape; keep `import '../app.css'`.)
-    4. In `src/app.html`, ensure any hard-coded asset uses `%sveltekit.assets%` (the scaffold default favicon link should read `href="%sveltekit.assets%/favicon.png"` or similar). Do NOT hard-code `/diversityincludesdisability_two` anywhere — base comes from `$app/paths` / `BASE_PATH`.
-    5. Create an empty file `static/.nojekyll` (zero bytes).
-    6. Run a local production build to prove static output: `pnpm build`. Confirm `build/index.html` and `build/404.html` exist and there is NO `build/server` directory. Confirm `build/.nojekyll` and `build/_app/` exist.
+       (`minimal` does not emit `+layout.svelte`; create it. `src/app.css` now exists from step 3, so `import '../app.css'` resolves.)
+    5. In `src/app.html`, ensure any hard-coded asset uses `%sveltekit.assets%` (the scaffold default favicon link should read `href="%sveltekit.assets%/favicon.png"` or similar). Do NOT hard-code `/diversityincludesdisability_two` anywhere — base comes from `$app/paths` / `BASE_PATH`.
+    6. Create an empty file `static/.nojekyll` (zero bytes).
+    7. Run a local production build to prove static output: `pnpm build`. Confirm `build/index.html` and `build/404.html` exist and there is NO `build/server` directory. Confirm `build/.nojekyll` and `build/_app/` exist.
   </action>
   <verify>
-    <automated>pnpm build && test -f build/index.html && test -f build/404.html && test -f build/.nojekyll && test -d build/_app && test ! -d build/server && grep -q "trailingSlash" src/routes/+layout.ts && grep -q "fallback: '404.html'" svelte.config.js && grep -q "process.env.BASE_PATH" svelte.config.js</automated>
+    <automated>test -f src/app.css && pnpm build && test -f build/index.html && test -f build/404.html && test -f build/.nojekyll && test -d build/_app && test ! -d build/server && grep -q "trailingSlash" src/routes/+layout.ts && grep -q "fallback: '404.html'" svelte.config.js && grep -q "process.env.BASE_PATH" svelte.config.js</automated>
   </verify>
   <acceptance_criteria>
     - `svelte.config.js` contains `fallback: '404.html'`, `strict: true`, and `paths.base = process.env.BASE_PATH ?? ''`
     - `src/routes/+layout.ts` contains `export const prerender = true;` and `export const trailingSlash = 'always';`
+    - `src/app.css` exists (created by this plan, not the scaffold) and `src/routes/+layout.svelte` imports it
     - `static/.nojekyll` exists and is empty
     - `pnpm build` succeeds and produces `build/index.html`, `build/404.html`, `build/.nojekyll`, `build/_app/`, and NO `build/server/` directory
     - No literal `/diversityincludesdisability_two` string appears hard-coded in `src/app.html` or `svelte.config.js` (base is env-driven)
