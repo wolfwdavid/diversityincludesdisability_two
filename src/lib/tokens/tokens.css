@@ -1,0 +1,17 @@
+/* DID design tokens — CSS custom properties.
+   Hexes MIRROR src/lib/tokens/colors.ts EXACTLY (no drift; enforced by check-contrast.mjs). */
+:root {
+	--did-blue-900: #0b2a4a;
+	--did-orange-500: #e8730c;
+	--did-orange-deep: #c85f08;
+	--did-ink: #12181f;
+	--did-white: #ffffff;
+
+	--color-text: var(--did-ink);
+	--color-link: var(--did-blue-900);
+	--color-heading: var(--did-blue-900);
+	--color-accent: var(--did-orange-500);
+	--color-accent-border: var(--did-orange-deep);
+	--color-focus-ring: var(--did-blue-900);
+	--color-surface: var(--did-white);
+}
