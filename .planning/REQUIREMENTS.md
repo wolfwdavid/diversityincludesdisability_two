@@ -100,17 +100,52 @@ Explicitly excluded from this project.
 
 ## Traceability
 
-Populated during roadmap creation.
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (filled by roadmapper) | — | Pending |
+| FOUND-01 | Phase 1 | Pending |
+| FOUND-02 | Phase 1 | Pending |
+| FOUND-03 | Phase 1 | Pending |
+| FOUND-04 | Phase 1 | Pending |
+| A11Y-06 | Phase 1 | Pending |
+| CONT-01 | Phase 2 | Pending |
+| CONT-02 | Phase 2 | Pending |
+| CONT-03 | Phase 2 | Pending |
+| MODE-01 | Phase 3 | Pending |
+| MODE-02 | Phase 3 | Pending |
+| MODE-03 | Phase 3 | Pending |
+| MODE-04 | Phase 3 | Pending |
+| MODE-05 | Phase 3 | Pending |
+| MODE-06 | Phase 3 | Pending |
+| MODE-07 | Phase 3 | Pending |
+| SECT-01 | Phase 4 | Pending |
+| SECT-02 | Phase 4 | Pending |
+| SECT-03 | Phase 4 | Pending |
+| SECT-04 | Phase 4 | Pending |
+| SECT-05 | Phase 4 | Pending |
+| SECT-06 | Phase 4 | Pending |
+| SECT-07 | Phase 4 | Pending |
+| A11Y-01 | Phase 4 | Pending |
+| A11Y-02 | Phase 4 | Pending |
+| A11Y-03 | Phase 4 | Pending |
+| A11Y-04 | Phase 4 | Pending |
+| A11Y-05 | Phase 4 | Pending |
+| A11Y-07 | Phase 4 | Pending |
+| A11Y-08 | Phase 4 | Pending |
+| PREM-01 | Phase 5 | Pending |
+| PREM-02 | Phase 5 | Pending |
+| PREM-03 | Phase 5 | Pending |
+| PREM-04 | Phase 5 | Pending |
+| PREM-05 | Phase 5 | Pending |
+| PREM-06 | Phase 5 | Pending |
+| QA-01 | Phase 6 | Pending |
+| QA-02 | Phase 6 | Pending |
+| QA-03 | Phase 6 | Pending |
 
 **Coverage:**
 - v1 requirements: 38 total
-- Mapped to phases: (pending roadmap)
-- Unmapped: (pending roadmap)
+- Mapped to phases: 38
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-07-04*
-*Last updated: 2026-07-04 after initial definition*
+*Last updated: 2026-07-04 after roadmap creation (traceability populated)*
