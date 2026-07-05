@@ -24,9 +24,9 @@
 
 ### Content
 
-- [ ] **CONT-01**: All site copy and data live in a single typed source consumed by both modes, making content parity structural
-- [ ] **CONT-02**: Both modes present identical information and CTAs — nothing is reachable in only one mode
-- [ ] **CONT-03**: Social-proof content uses only real, attributable material; unfilled slots are clearly marked "content pending" and never fabricated
+- [x] **CONT-01**: All site copy and data live in a single typed source consumed by both modes, making content parity structural
+- [x] **CONT-02**: Both modes present identical information and CTAs — nothing is reachable in only one mode
+- [x] **CONT-03**: Social-proof content uses only real, attributable material; unfilled slots are clearly marked "content pending" and never fabricated
 
 ### Sections & Pages
 
@@ -107,9 +107,9 @@ Explicitly excluded from this project.
 | FOUND-03 | Phase 1 | Complete |
 | FOUND-04 | Phase 1 | Complete |
 | A11Y-06 | Phase 1 | Complete |
-| CONT-01 | Phase 2 | Pending |
-| CONT-02 | Phase 2 | Pending |
-| CONT-03 | Phase 2 | Pending |
+| CONT-01 | Phase 2 | Complete |
+| CONT-02 | Phase 2 | Complete |
+| CONT-03 | Phase 2 | Complete |
 | MODE-01 | Phase 3 | Pending |
 | MODE-02 | Phase 3 | Pending |
 | MODE-03 | Phase 3 | Pending |

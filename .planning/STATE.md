@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 01-03-PLAN.md (Pages deploy workflow live — FOUND-01/02/03 proven green at the subpath)
-last_updated: "2026-07-04T23:05:05.145Z"
+stopped_at: Completed 02-01-PLAN.md (content type contract + RED invariant harness — CONT-01/02/03 encoded)
+last_updated: "2026-07-05T00:12:27.663Z"
 progress:
   total_phases: 6
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
+  total_plans: 7
+  completed_plans: 4
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-04)
 
 **Core value:** Every visitor gets a first-class experience of DID's work — the premium 3D showcase never comes at the cost of accessibility, and the Accessible mode is a genuine peer, not a degraded fallback.
-**Current focus:** Phase 01 — foundation-tokens-live-deploy
+**Current focus:** Phase 02 — content-source-of-truth
 
 ## Current Position
 
-Phase: 2
-Plan: Not started
+Phase: 02 (content-source-of-truth) — EXECUTING
+Plan: 2 of 4
 
 ## Performance Metrics
 
@@ -49,6 +49,7 @@ Plan: Not started
 | Phase 01 P01 | 35 | 3 tasks | 30 files |
 | Phase 01 P02 | 12 | 3 tasks | 10 files |
 | Phase 01 P03 | 35 | 2 tasks | 2 files |
+| Phase 02 P01 | 3 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -65,6 +66,8 @@ Recent decisions affecting current work:
 - [Phase 01]: lib/premium/ zero-WebGL invariant enforced structurally via ESLint no-restricted-imports; base-aware internal links use resolve() from $app/paths
 - [Phase 01]: pnpm 11.6 renamed onlyBuiltDependencies to the allowBuilds package->boolean map; the old key is silently ignored (esbuild postinstall skipped -> ERR_PNPM_IGNORED_BUILDS in CI). Register build-script deps under allowBuilds in pnpm-workspace.yaml.
 - [Phase 01]: Deploy via the official GitHub Pages Action (deploy-pages@v5 + upload-pages-artifact@v5), bypassing Jekyll with no committed build output; Pages source = GitHub Actions. Site live green at the subpath.
+- [Phase 02]: CONT-03 enforced by tsc: Published<T> intersection makes attribution non-optional, so a social-proof item without a source is unrepresentable (not a lint rule)
+- [Phase 02]: SocialLink.link modeled as Slot<{url}> — a published link without an https URL is a type error; pending links carry only a reason
 
 ### Pending Todos
 
@@ -82,6 +85,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-04T22:56:27.002Z
-Stopped at: Completed 01-03-PLAN.md (Pages deploy workflow live — FOUND-01/02/03 proven green at the subpath)
+Last session: 2026-07-05T00:12:10.214Z
+Stopped at: Completed 02-01-PLAN.md (content type contract + RED invariant harness — CONT-01/02/03 encoded)
 Resume file: None
