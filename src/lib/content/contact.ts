@@ -14,7 +14,10 @@ export const contact = {
 
 // All four platforms are structurally present (SECT-05) but unpublished until Eman confirms
 // the real handles. Candidates from research are noted in `reason`, NOT shipped as live URLs.
-export const socialLinks = [
+// Typed as the `SocialLink[]` union (not `as const`) so each `link` keeps its full
+// Slot<{url}> breadth — a consumer can branch on published(url) vs pending(reason) without
+// a "no overlap" type error. Every SocialLink field is `readonly`, so it stays immutable.
+export const socialLinks: readonly SocialLink[] = [
 	{
 		platform: 'Facebook',
 		label: 'Diversity Includes Disability on Facebook',
@@ -44,4 +47,4 @@ export const socialLinks = [
 			reason: 'Confirm handle with Eman. Candidate: instagram.com/the_eman_meow_rimawi_show'
 		}
 	}
-] as const satisfies readonly SocialLink[];
+];
