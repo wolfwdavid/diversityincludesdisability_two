@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-01-PLAN.md (content type contract + RED invariant harness — CONT-01/02/03 encoded)
-last_updated: "2026-07-05T00:12:27.663Z"
+stopped_at: Completed 02-02-PLAN.md (site identity + nav model + services + per-route SEO; nav.spec/seo.spec GREEN)
+last_updated: "2026-07-05T00:19:10.842Z"
 progress:
   total_phases: 6
   completed_phases: 1
   total_plans: 7
-  completed_plans: 4
+  completed_plans: 5
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 02 (content-source-of-truth) — EXECUTING
-Plan: 2 of 4
+Plan: 3 of 4
 
 ## Performance Metrics
 
@@ -50,6 +50,7 @@ Plan: 2 of 4
 | Phase 01 P02 | 12 | 3 tasks | 10 files |
 | Phase 01 P03 | 35 | 2 tasks | 2 files |
 | Phase 02 P01 | 3 | 2 tasks | 5 files |
+| Phase 02 P02 | 4 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -68,6 +69,7 @@ Recent decisions affecting current work:
 - [Phase 01]: Deploy via the official GitHub Pages Action (deploy-pages@v5 + upload-pages-artifact@v5), bypassing Jekyll with no committed build output; Pages source = GitHub Actions. Site live green at the subpath.
 - [Phase 02]: CONT-03 enforced by tsc: Published<T> intersection makes attribution non-optional, so a social-proof item without a source is unrepresentable (not a lint rule)
 - [Phase 02]: SocialLink.link modeled as Slot<{url}> — a published link without an https URL is a type error; pending links carry only a reason
+- [Phase 02]: Nav omits the Wix auth item and includes the Accessibility Statement in the primary nav (CONT-02 parity spine); route keys only, resolved via resolve() downstream
 
 ### Pending Todos
 
@@ -85,6 +87,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T00:12:10.214Z
-Stopped at: Completed 02-01-PLAN.md (content type contract + RED invariant harness — CONT-01/02/03 encoded)
+Last session: 2026-07-05T00:19:10.837Z
+Stopped at: Completed 02-02-PLAN.md (site identity + nav model + services + per-route SEO; nav.spec/seo.spec GREEN)
 Resume file: None
