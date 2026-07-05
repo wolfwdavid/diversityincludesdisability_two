@@ -27,20 +27,21 @@ mode must work, because an inaccessible disability-equity site is a contradictio
 - [x] Single-source, no-fabrication content layer (`$lib/content` barrel) that makes cross-mode parity structural — *Validated in Phase 2 (CONT-01/02/03; `Slot<T>` type contract, 4 invariant specs GREEN, single barrel is the sole import surface; unconfirmed bio/mission/social handles ship as explicit `pending` slots — nothing fabricated). Pages consume the barrel in Phase 3+.*
 - [x] Persistent mode toggle (Premium 3D ⇄ Accessible), state saved to localStorage — *Validated in Phase 3 (MODE-01/02/04/05/06; accessible `role="switch"` toggle in a sticky header drives a Svelte 5 runes store, persists to `did2:mode`, applied pre-paint via inline head script — no flash, aria-live announce, focus/scroll preserved; E2E 3/3 GREEN)*
 - [x] Toggle defaults to Accessible when `prefers-reduced-motion: reduce` is set — *Validated in Phase 3 (MODE-03/07; pure `resolveMode()` precedence ladder `stored > reduced-motion > no-WebGL > premium`, 7/7 truth-table specs GREEN, parity guard prevents inline-script drift)*
+- [x] Accessible mode: no WebGL, static/2D equivalents of every section — *Validated in Phase 4 (A11Y-08; static prerender of all 5 routes, independent runtime scan of `build/_app` for `WebGLRenderer|@threlte|'three'|THREE.` = 0 matches)*
+- [x] Home page (hero, mission, services overview, CTA) — *Validated in Phase 4 (SECT-01; Hero/Mission/ServicesOverview from the `$lib/content` barrel, single `<h1>`, mailto CTA)*
+- [x] Services detail (trainings & facilitation, consulting, modeling, speaking) — *Validated in Phase 4 (SECT-02; ServicesDetail four-pillar section, all copy from the barrel)*
+- [x] About Eman Rimawi page — *Validated in Phase 4 (SECT-03; 3 attributable bio paragraphs, pending mission renders nothing — no fabrication)*
+- [x] Contact / "Let's Connect" + social links — *Validated in Phase 4 (SECT-05; mailto CTA, all 4 social platforms Slot-branched published→link / pending→text, currently all pending so no dead anchors)*
+- [x] Accessibility statement page, linked from primary nav (scope.org.uk model) — *Validated in Phase 4 (SECT-06; 7-part WCAG 2.2 AA statement, in primary nav)*
+- [x] Skip links, semantic heading hierarchy, descriptive link text, ARIA-expanded menus — *Validated in Phase 4 (A11Y-01/03/04/05; SkipLinks to `#main`/`#nav`, runes disclosure with `aria-expanded`/Escape/focus-restore; axe WCAG 2.2 AA = 0 violations on all 5 routes, keyboard E2E 3/3)*
+- [x] Responsive layout (mobile → desktop) — Accessible mode — *Validated in Phase 4 (SECT-07/A11Y-07; 320px reflow E2E 5/5, no horizontal scroll). Premium-mode responsive pending Phase 5.*
 
 ### Active
 
 - [ ] Premium mode: full-3D hero + 3D scenes across most content sections (Threlte/Three.js)
-- [ ] Accessible mode: no WebGL, static/2D equivalents of every section, high contrast, low motion
-- [ ] Content parity — both modes present the same information and CTAs, nothing hidden in one
-- [ ] Home page (hero, mission, services overview, CTA)
-- [ ] Services detail (trainings & facilitation, consulting, modeling for representation, speaking)
-- [ ] About Eman Rimawi page
-- [ ] Contact / "Let's Connect" (emanrimawi@gmail.com) + social links (FB, X/Twitter, LinkedIn, IG)
-- [ ] Accessibility statement page, linked from primary nav (scope.org.uk model)
-- [ ] Skip links (to content / nav), semantic heading hierarchy, descriptive link text, ARIA-expanded menus
-- [ ] Keyboard-first navigation; visible focus states throughout; screen-reader tested
-- [ ] Responsive layout (mobile → desktop) in BOTH modes
+- [ ] Content parity — both modes present the same information and CTAs, nothing hidden in one (structural in Accessible mode; Premium peer pending Phase 5)
+- [ ] Screen-reader tested (NVDA/VoiceOver smoke walkthrough) — deferred to Phase 6 QA (QA-03)
+- [ ] Responsive layout in Premium mode
 - [ ] 3D assets lazy-loaded and code-split so Accessible mode never downloads WebGL payload
 
 ### Out of Scope
@@ -90,7 +91,7 @@ mode must work, because an inaccessible disability-equity site is a contradictio
 | Full-3D Premium mode (not accent-only) | User wants maximum visual impact | — Pending |
 | Threlte over raw Three.js | Svelte-native, declarative, less boilerplate, SSR-safe patterns | — Pending |
 | adapter-static + GitHub Pages | Free hosting, no backend needed for marketing content | — Pending |
-| Accessible mode = zero WebGL, not "3D with reduced motion" | True peer experience; reliable on any device/AT | — Pending |
+| Accessible mode = zero WebGL, not "3D with reduced motion" | True peer experience; reliable on any device/AT | ✓ Validated in Phase 4 (all 5 routes prerendered, `build/_app` runtime scan = 0 WebGL/Three/Threlte references) |
 | Default to Accessible when prefers-reduced-motion set | Respects OS-level user intent; ethical default | ✓ Validated in Phase 3 (`resolveMode` precedence; stored choice still wins) |
 
 ## Evolution
@@ -111,4 +112,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-07-05 — Phase 3 complete (mode-state system: pre-paint no-flash resolution, `did2:mode` persistence, accessible `role="switch"` toggle with aria-live/keyboard/focus, precedence truth table — all before any 3D exists; 39/39 unit + 3/3 E2E GREEN)*
+*Last updated: 2026-07-05 — Phase 4 complete (Accessible-mode section components: real Home/Services/About/Contact/Accessibility pages + nav/skip-link chrome, all from the no-fabrication content barrel; the whole Accessible site is now live and enforced by automated gates — axe WCAG 2.2 AA 0 violations on all 5 routes, 320px reflow, keyboard operability, zero-WebGL prerender; 74/74 unit + 19/19 E2E GREEN. Next: Phase 5 premium-3d-layer.)*
