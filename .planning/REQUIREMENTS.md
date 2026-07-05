@@ -46,8 +46,8 @@
 - [x] **A11Y-04**: Navigation disclosure menus expose `aria-expanded` state and close on Escape/blur
 - [x] **A11Y-05**: All interactive elements are keyboard-operable with visible focus states
 - [x] **A11Y-06**: Text and UI meet WCAG 2.2 AA contrast against the DID blue/orange palette
-- [ ] **A11Y-07**: Content stays usable at 200% zoom / resized text without loss of function
-- [ ] **A11Y-08**: Accessible mode contains zero WebGL and no non-essential motion
+- [x] **A11Y-07**: Content stays usable at 200% zoom / resized text without loss of function
+- [x] **A11Y-08**: Accessible mode contains zero WebGL and no non-essential motion
 
 ### Premium 3D
 
@@ -129,8 +129,8 @@ Explicitly excluded from this project.
 | A11Y-03 | Phase 4 | Complete |
 | A11Y-04 | Phase 4 | Complete |
 | A11Y-05 | Phase 4 | Complete |
-| A11Y-07 | Phase 4 | Pending |
-| A11Y-08 | Phase 4 | Pending |
+| A11Y-07 | Phase 4 | Complete |
+| A11Y-08 | Phase 4 | Complete |
 | PREM-01 | Phase 5 | Pending |
 | PREM-02 | Phase 5 | Pending |
 | PREM-03 | Phase 5 | Pending |
