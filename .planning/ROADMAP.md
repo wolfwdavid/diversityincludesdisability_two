@@ -67,7 +67,7 @@ Plans:
 
 Plans:
 - [x] 03-01-PLAN.md — Precedence source of truth (resolveMode truth table) + pnpm tooling fix (MODE-02/03/07)
-- [ ] 03-02-PLAN.md — Runes store + no-flash inline head script + CSS hooks + resolver-parity guard (MODE-01/02/04)
+- [x] 03-02-PLAN.md — Runes store + no-flash inline head script + CSS hooks + resolver-parity guard (MODE-01/02/04)
 - [ ] 03-03-PLAN.md — ModeToggle switch (ARIA/keyboard/aria-live) + header slot + Playwright E2E (MODE-01/05/06)
 
 ### Phase 4: Accessible Section Components

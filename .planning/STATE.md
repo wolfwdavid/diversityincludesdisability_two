@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-01-PLAN.md (mode precedence source of truth; resolve.spec 7/7 GREEN; pnpm check exit 0)
-last_updated: "2026-07-05T02:37:27.570Z"
+stopped_at: Completed 03-02-PLAN.md (runes mode store + no-flash inline script + parity guard; unit 31/31 GREEN, pnpm check exit 0)
+last_updated: "2026-07-05T02:52:09.022Z"
 progress:
   total_phases: 6
   completed_phases: 2
   total_plans: 10
-  completed_plans: 8
+  completed_plans: 9
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 03 (mode-state-system-toggle) — EXECUTING
-Plan: 2 of 3
+Plan: 3 of 3
 
 ## Performance Metrics
 
@@ -54,6 +54,7 @@ Plan: 2 of 3
 | Phase 02 P03 | 10 | 3 tasks | 3 files |
 | Phase 02 P04 | 27 | 1 tasks | 3 files |
 | Phase 03 P01 | 4 | 2 tasks | 5 files |
+| Phase 03 P02 | 9 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -80,6 +81,8 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-01: LOCKED default = premium for capable/no-preference/no-stored visitor (Open Q#1)
 - [Phase 03]: 03-01: mode storage key namespaced 'did2:mode' (shared *.github.io origin, Pitfall 3); resolveMode kept pure, hasWebGL() split out
 - [Phase 03]: 03-01: playwright webServer.env pins BASE_PATH=/diversityincludesdisability_two so local preview mirrors prod subpath; tooling routed through pnpm (no bare npm run)
+- [Phase 03]: 03-02: runes store SEEDS from stamped data-mode (never re-resolves); imports STORAGE_KEY/DATA_ATTR/Mode from constants (no re-derivation); write-through inside setMode, no module-level $effect
+- [Phase 03]: 03-02: inline <head> no-flash script stamps data-mode before %sveltekit.head% (MODE-04); parity.spec.ts guards it against resolve.ts drift (Pitfall 5)
 
 ### Pending Todos
 
@@ -97,6 +100,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T02:37:07.632Z
-Stopped at: Completed 03-01-PLAN.md (mode precedence source of truth; resolve.spec 7/7 GREEN; pnpm check exit 0)
+Last session: 2026-07-05T02:51:37.953Z
+Stopped at: Completed 03-02-PLAN.md (runes mode store + no-flash inline script + parity guard; unit 31/31 GREEN, pnpm check exit 0)
 Resume file: None
