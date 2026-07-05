@@ -5,7 +5,19 @@
 // SECURITY: never add credentials, EIN, phone number, or a personal address here.
 import type { Slot, Mission } from './types';
 
-export const about = {
+// Explicitly TYPED (not `as const`) so `mission` stays the wide `Slot<Mission>` union —
+// consumers branch on `status` for BOTH arms, the pending marker renders nothing, and no
+// mission is ever fabricated (CONT-03). Mirrors the socialProof Slot-union typing; an
+// `as const` here collapses `about.mission` to its pending literal and makes every
+// `status === 'published'` guard an "unintentional comparison" type error. Runtime value
+// is unchanged (mission is still pending).
+export const about: {
+	readonly displayName: string;
+	readonly legalName: string;
+	readonly intro: string;
+	readonly bio: readonly string[];
+	readonly mission: Slot<Mission>;
+} = {
 	displayName: 'Eman Rimawi',
 	legalName: 'Eman Rimawi-Doster',
 	intro: 'My name is Eman Rimawi',
@@ -18,10 +30,4 @@ export const about = {
 		status: 'pending',
 		reason: "Capture Eman's own mission wording from the live site during the human-capture checkpoint"
 	}
-} as const satisfies {
-	displayName: string;
-	legalName: string;
-	intro: string;
-	bio: readonly string[];
-	mission: Slot<Mission>;
 };
