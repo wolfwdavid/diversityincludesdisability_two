@@ -12,7 +12,7 @@ export const site = {
 } as const;
 
 // Primary navigation — the spine BOTH modes render from (CONT-02). Route keys only;
-// components resolve them with resolve() from $app/paths. The Wix "Log In" item is
+// components resolve them with resolve() from $app/paths. The Wix authentication item is
 // intentionally omitted (out of scope). The Accessibility Statement is in the primary nav (SECT-06).
 export const nav = [
 	{ route: '/', label: 'Home' },
