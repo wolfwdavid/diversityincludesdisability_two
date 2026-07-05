@@ -2,7 +2,7 @@
 	// Home hero (SECT-01): the site's lead voice + the primary "Let's Connect" CTA.
 	// Text/CSS only — no image dependency (RESEARCH Open Q#1) so the accessible baseline
 	// ships zero non-essential bytes. All copy comes from the $lib/content barrel
-	// (CONT-01/02) — nothing hard-coded. This component hosts the page <h1> (it is the
+	// (CONT-01/02) — nothing hard-coded. This component hosts the page h1 (it is the
 	// lead); +page.svelte adds no second h1, keeping exactly one h1 for the route (A11Y-02).
 	// It builds only a `mailto:` string, so it MUST NOT import resolve from $app/paths
 	// (an unused import would fail the no-unused-vars eslint gate — 04-06).

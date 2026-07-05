@@ -1,14 +1,21 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
+	// Home route (SECT-01). Composes the three accessible section components in order.
+	// Hero hosts the page's single h1 (A11Y-02); this route adds no second heading-one and no
+	// inline styles — all presentation lives in the sections' scoped <style>. SEO metadata
+	// comes from the $lib/content barrel (seo.home) and is baked into the prerendered HTML.
+	import Hero from '$lib/components/sections/Hero.svelte';
+	import Mission from '$lib/components/sections/Mission.svelte';
+	import ServicesOverview from '$lib/components/sections/ServicesOverview.svelte';
+	import { seo } from '$lib/content';
+
+	const meta = seo.home;
 </script>
 
-<main>
-	<h1 style="color: var(--color-heading)">Diversity Includes Disability</h1>
-	<p style="color: var(--color-text)">Foundation deploy placeholder — DID design tokens live.</p>
-	<a
-		class="cta"
-		href={resolve('/')}
-		style="background: var(--color-accent); color: var(--did-ink); border: 2px solid var(--color-accent-border); padding: .5rem 1rem; border-radius: .375rem; text-decoration: none; display: inline-block;"
-		>Let's Connect</a
-	>
-</main>
+<svelte:head>
+	<title>{meta.title}</title>
+	<meta name="description" content={meta.description} />
+</svelte:head>
+
+<Hero />
+<Mission />
+<ServicesOverview />
