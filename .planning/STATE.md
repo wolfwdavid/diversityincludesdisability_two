@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: "Completed 04-01-PLAN.md (chrome+nav: SkipLinks/Nav disclosure/full shell; client 13/13, check 0/0, eslint clean)"
-last_updated: "2026-07-05T09:32:09.277Z"
+stopped_at: "Completed 04-03-PLAN.md (services page: ServicesDetail 4 pillars + real /services route; client 5/5, my files clean)"
+last_updated: "2026-07-05T09:47:20.133Z"
 progress:
   total_phases: 6
   completed_phases: 3
   total_plans: 16
-  completed_plans: 11
+  completed_plans: 12
 ---
 
 # Project State
@@ -57,6 +57,7 @@ Plan: 2 of 6
 | Phase 03 P02 | 9 | 2 tasks | 5 files |
 | Phase 03 P03 | 56 | 3 tasks | 4 files |
 | Phase 04 P01 | 12 | 3 tasks | 11 files |
+| Phase 04 P03 | 8 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -91,6 +92,7 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-01: Nav disclosure wrapper is role=presentation (real landmark is layout <nav id=nav>); clears svelte-check a11y_no_static_element_interactions with no duplicate landmark
 - [Phase 04]: 04-01: route stubs registered FIRST so typed resolve() (closed RouteId union) compiles over the barrel nav with zero casts; Wave-2 plans replace each stub
 - [Phase 04]: 04-01: component specs for route-aware components mock $app/state to mount at a fixed URL; $app/paths left real (base='')
+- [Phase 04]: 04-03: ServicesDetail is a pure barrel consumer (services + seo.services) — pillar copy never hard-coded in the component (CONT-01); route owns the single h1, sections own h2 (A11Y-02)
 
 ### Pending Todos
 
@@ -108,6 +110,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T09:31:48.636Z
-Stopped at: Completed 04-01-PLAN.md (chrome+nav: SkipLinks/Nav disclosure/full shell; client 13/13, check 0/0, eslint clean)
+Last session: 2026-07-05T09:46:31.637Z
+Stopped at: Completed 04-03-PLAN.md (services page: ServicesDetail 4 pillars + real /services route; client 5/5, my files clean)
 Resume file: None
