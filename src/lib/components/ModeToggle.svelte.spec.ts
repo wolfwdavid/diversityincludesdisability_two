@@ -1,4 +1,4 @@
-import { page } from 'vitest/browser';
+import { page, userEvent } from 'vitest/browser';
 import { describe, it, expect, beforeEach } from 'vitest';
 import { render } from 'vitest-browser-svelte';
 import ModeToggle from './ModeToggle.svelte';
@@ -57,7 +57,7 @@ describe('ModeToggle.svelte (MODE-01/05/06)', () => {
 		const el = sw.element() as HTMLButtonElement;
 		el.focus();
 		expect(document.activeElement).toBe(el);
-		await page.keyboard.press('Enter');
+		await userEvent.keyboard('{Enter}');
 		await expect.element(sw).toHaveAttribute('aria-checked', 'true');
 		expect(document.documentElement.getAttribute('data-mode')).toBe('premium');
 	});
@@ -67,7 +67,7 @@ describe('ModeToggle.svelte (MODE-01/05/06)', () => {
 		const sw = page.getByRole('switch', { name: /Premium 3D mode/i });
 		const el = sw.element() as HTMLButtonElement;
 		el.focus();
-		await page.keyboard.press('Space');
+		await userEvent.keyboard(' ');
 		await expect.element(sw).toHaveAttribute('aria-checked', 'true');
 		expect(document.documentElement.getAttribute('data-mode')).toBe('premium');
 	});
