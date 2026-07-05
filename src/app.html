@@ -4,6 +4,36 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="text-scale" content="scale" />
+		<!-- MIRRORS src/lib/mode/resolve.ts — keep in sync (Pitfall 5). Runs synchronously in <head> so data-mode exists on <html> before first paint (MODE-04). Values: 'premium' | 'accessible'. -->
+		<script>
+			(function () {
+				var KEY = 'did2:mode'; // NAMESPACED — shared-origin GH Pages (Pitfall 3)
+				var m;
+				try {
+					m = localStorage.getItem(KEY);
+				} catch (e) {
+					m = null;
+				}
+				if (m !== 'premium' && m !== 'accessible') {
+					var reduce = false;
+					try {
+						reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+					} catch (e) {}
+					var webgl = false;
+					try {
+						var c = document.createElement('canvas');
+						webgl = !!(
+							window.WebGLRenderingContext &&
+							(c.getContext('webgl') || c.getContext('experimental-webgl'))
+						);
+					} catch (e) {
+						webgl = false;
+					}
+					m = (reduce || !webgl) ? 'accessible' : 'premium'; // LOCKED default (Open Q#1)
+				}
+				document.documentElement.setAttribute('data-mode', m);
+			})();
+		</script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

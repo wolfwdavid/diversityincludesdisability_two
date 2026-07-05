@@ -23,3 +23,37 @@ a {
 	outline: 2px solid var(--color-focus-ring);
 	outline-offset: 2px;
 }
+
+/* Screen-reader-only utility: visually hidden but announced (e.g. aria-live region). */
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* No initial-transition flash: until the layout stamps data-mode-ready after first
+   paint, suppress the toggle track animation so the pre-paint mode stamp is silent. */
+:root:not([data-mode-ready]) .mode-toggle__track {
+	transition: none !important;
+}
+
+/* Honor OS-level reduced-motion: never animate the toggle track. */
+@media (prefers-reduced-motion: reduce) {
+	.mode-toggle__track {
+		transition: none !important;
+	}
+}
+
+/* Whole-site mode hooks. Phase 4+ fills these with mode-conditional styling. */
+:root[data-mode='premium'] {
+	/* premium (3D) surface overrides — populated in later phases */
+}
+:root[data-mode='accessible'] {
+	/* accessible (zero-WebGL) surface overrides — populated in later phases */
+}
