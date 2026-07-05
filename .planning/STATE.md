@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: "Completed 04-03-PLAN.md (services page: ServicesDetail 4 pillars + real /services route; client 5/5, my files clean)"
-last_updated: "2026-07-05T09:47:20.133Z"
+stopped_at: Completed 04-05-PLAN.md (Contact section + /contact + /accessibility WCAG 2.2 AA statement; client 6/6, plan files check-clean, eslint clean)
+last_updated: "2026-07-05T09:52:10.189Z"
 progress:
   total_phases: 6
   completed_phases: 3
   total_plans: 16
-  completed_plans: 12
+  completed_plans: 13
 ---
 
 # Project State
@@ -58,6 +58,7 @@ Plan: 2 of 6
 | Phase 03 P03 | 56 | 3 tasks | 4 files |
 | Phase 04 P01 | 12 | 3 tasks | 11 files |
 | Phase 04 P03 | 8 | 2 tasks | 3 files |
+| Phase 04 P05 | 12 | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -93,6 +94,8 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-01: route stubs registered FIRST so typed resolve() (closed RouteId union) compiles over the barrel nav with zero casts; Wave-2 plans replace each stub
 - [Phase 04]: 04-01: component specs for route-aware components mock $app/state to mount at a fixed URL; $app/paths left real (base='')
 - [Phase 04]: 04-03: ServicesDetail is a pure barrel consumer (services + seo.services) — pillar copy never hard-coded in the component (CONT-01); route owns the single h1, sections own h2 (A11Y-02)
+- [Phase 04]: 04-05: pending social links render as plain text (never dead href=#); published social handles are external absolute URLs (rel=noopener external, no resolve()) — scoped eslint-disable
+- [Phase 04]: 04-05: accessibility statement feedback reuses contact.email from the barrel (CONT-01) so it cannot drift from the Contact page
 
 ### Pending Todos
 
@@ -110,6 +113,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T09:46:31.637Z
-Stopped at: Completed 04-03-PLAN.md (services page: ServicesDetail 4 pillars + real /services route; client 5/5, my files clean)
+Last session: 2026-07-05T09:51:38.016Z
+Stopped at: Completed 04-05-PLAN.md (Contact section + /contact + /accessibility WCAG 2.2 AA statement; client 6/6, plan files check-clean, eslint clean)
 Resume file: None

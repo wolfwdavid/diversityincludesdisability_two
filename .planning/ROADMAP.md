@@ -87,7 +87,7 @@ Plans:
 - [ ] 04-02-PLAN.md — Home page: Hero + Mission + ServicesOverview, single h1 + seo.home (SECT-01, A11Y-02)
 - [x] 04-03-PLAN.md — Services detail: 4 pillars as labelled h2 regions (SECT-02)
 - [ ] 04-04-PLAN.md — About + SocialProof: bio + published MBP engagement + pending markers (SECT-03, SECT-04)
-- [ ] 04-05-PLAN.md — Contact + Accessibility Statement: mailto CTA + Slot social links + WCAG 2.2 AA statement (SECT-05, SECT-06)
+- [x] 04-05-PLAN.md — Contact + Accessibility Statement: mailto CTA + Slot social links + WCAG 2.2 AA statement (SECT-05, SECT-06)
 - [ ] 04-06-PLAN.md — A11y & responsive verification: pages/reflow/axe/keyboard E2E + zero-WebGL gate (SECT-06/07, A11Y-02/03/05/07/08)
 
 ### Phase 5: Premium 3D Layer
