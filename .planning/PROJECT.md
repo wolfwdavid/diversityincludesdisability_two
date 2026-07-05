@@ -25,11 +25,11 @@ mode must work, because an inaccessible disability-equity site is a contradictio
 - [x] Static build deploys to GitHub Pages under the repo base path — *Validated in Phase 1 (live green at https://wolfwdavid.github.io/diversityincludesdisability_two/, FOUND-01/02/03)*
 - [x] DID blue/orange brand palette applied via design tokens, contrast-checked (WCAG AA+) — *Validated in Phase 1 (6/6 token pairs pass WCAG 2.2 AA via automated gate, A11Y-06)*
 - [x] Single-source, no-fabrication content layer (`$lib/content` barrel) that makes cross-mode parity structural — *Validated in Phase 2 (CONT-01/02/03; `Slot<T>` type contract, 4 invariant specs GREEN, single barrel is the sole import surface; unconfirmed bio/mission/social handles ship as explicit `pending` slots — nothing fabricated). Pages consume the barrel in Phase 3+.*
+- [x] Persistent mode toggle (Premium 3D ⇄ Accessible), state saved to localStorage — *Validated in Phase 3 (MODE-01/02/04/05/06; accessible `role="switch"` toggle in a sticky header drives a Svelte 5 runes store, persists to `did2:mode`, applied pre-paint via inline head script — no flash, aria-live announce, focus/scroll preserved; E2E 3/3 GREEN)*
+- [x] Toggle defaults to Accessible when `prefers-reduced-motion: reduce` is set — *Validated in Phase 3 (MODE-03/07; pure `resolveMode()` precedence ladder `stored > reduced-motion > no-WebGL > premium`, 7/7 truth-table specs GREEN, parity guard prevents inline-script drift)*
 
 ### Active
 
-- [ ] Persistent mode toggle (Premium 3D ⇄ Accessible), state saved to localStorage
-- [ ] Toggle defaults to Accessible when `prefers-reduced-motion: reduce` is set
 - [ ] Premium mode: full-3D hero + 3D scenes across most content sections (Threlte/Three.js)
 - [ ] Accessible mode: no WebGL, static/2D equivalents of every section, high contrast, low motion
 - [ ] Content parity — both modes present the same information and CTAs, nothing hidden in one
@@ -86,12 +86,12 @@ mode must work, because an inaccessible disability-equity site is a contradictio
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Single site + in-page mode toggle (not two deployed sites) | One codebase, guaranteed content parity, one deploy | — Pending |
+| Single site + in-page mode toggle (not two deployed sites) | One codebase, guaranteed content parity, one deploy | ✓ Validated in Phase 3 (one runes store + header toggle drives whole-site `data-mode`) |
 | Full-3D Premium mode (not accent-only) | User wants maximum visual impact | — Pending |
 | Threlte over raw Three.js | Svelte-native, declarative, less boilerplate, SSR-safe patterns | — Pending |
 | adapter-static + GitHub Pages | Free hosting, no backend needed for marketing content | — Pending |
 | Accessible mode = zero WebGL, not "3D with reduced motion" | True peer experience; reliable on any device/AT | — Pending |
-| Default to Accessible when prefers-reduced-motion set | Respects OS-level user intent; ethical default | — Pending |
+| Default to Accessible when prefers-reduced-motion set | Respects OS-level user intent; ethical default | ✓ Validated in Phase 3 (`resolveMode` precedence; stored choice still wins) |
 
 ## Evolution
 
@@ -111,4 +111,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-07-05 — Phase 2 complete (content source-of-truth layer: `Slot<T>` no-fabrication contract, single `$lib/content` barrel, invariant suite GREEN)*
+*Last updated: 2026-07-05 — Phase 3 complete (mode-state system: pre-paint no-flash resolution, `did2:mode` persistence, accessible `role="switch"` toggle with aria-live/keyboard/focus, precedence truth table — all before any 3D exists; 39/39 unit + 3/3 E2E GREEN)*
