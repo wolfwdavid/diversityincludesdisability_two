@@ -20,6 +20,7 @@ must_haves:
     - "SocialProof renders the one published engagement (Manhattan Borough President / Mark Levine training) with its attribution (SECT-04)"
     - "SocialProof renders pending testimonials/press as an explicit 'coming soon' note (role=note), never as fabricated content (SECT-04, CONT-03)"
     - "All bio + engagement copy is sourced from $lib/content — no hard-coded strings (CONT-01)"
+    - "The 04-01 placeholder stub at src/routes/about/+page.svelte is fully REPLACED by the real page (no TODO stub marker remains)"
     - "<svelte:head> sets title/description from seo.about; sections start at h2 (A11Y-02)"
   artifacts:
     - path: "src/lib/components/sections/About.svelte"
@@ -31,7 +32,7 @@ must_haves:
       contains: "status === 'published'"
       min_lines: 20
     - path: "src/routes/about/+page.svelte"
-      provides: "About route: single h1 (about.displayName) + <svelte:head> seo.about + About + SocialProof"
+      provides: "About route (replaces 04-01 stub): single h1 (about.displayName) + <svelte:head> seo.about + About + SocialProof"
       contains: "<h1"
   key_links:
     - from: "src/lib/components/sections/SocialProof.svelte"
@@ -49,13 +50,14 @@ Build the About page (SECT-03) and the Social-proof section (SECT-04). `About.sv
 attributable bio paragraphs and honors the pending `about.mission` slot (no fabrication). `SocialProof.svelte`
 branches on `Slot<T>.status`: it renders the ONE published engagement (the Manhattan Borough President /
 Mark Levine training with its attribution) and renders the pending testimonials/press as an honest
-"coming soon" note — never inventing testimonials or logos (CONT-03). The `/about` route composes both under a
-single `<h1>` (`about.displayName`) with `seo.about` in `<svelte:head>`.
+"coming soon" note — never inventing testimonials or logos (CONT-03). The `/about` route (currently a 04-01
+placeholder stub) is REPLACED with the real page composing both under a single `<h1>` (`about.displayName`)
+with `seo.about` in `<svelte:head>`.
 
 Purpose: SECT-03 (About bio) + SECT-04 (real engagement shown, future slots marked pending) with the
 anti-fabrication guarantee made visible by branching on the Slot union.
 
-Output: `src/lib/components/sections/{About,SocialProof}.svelte` (+ specs); new `src/routes/about/+page.svelte`.
+Output: `src/lib/components/sections/{About,SocialProof}.svelte` (+ specs); real `src/routes/about/+page.svelte`.
 </objective>
 
 <execution_context>
@@ -81,6 +83,8 @@ export const testimonials: readonly (Published<Testimonial> | { status:'pending'
 export const press: readonly (Published<Press> | { status:'pending'; reason:string })[];               // all pending
 export const seo: { about: { title: string; description: string }, ... };
 ```
+The `/about` route already exists as a 04-01 placeholder stub (`<h1>About</h1>` + `TODO(04-04)` comment).
+This plan REPLACES that stub file entirely — overwrite it, do not create a second file.
 RESEARCH Pattern 5 (SocialProof): `{#each engagements as e}{#if e.status === 'published'}<li><h3>{e.title}</h3><p>{e.partner}</p><p class="attribution">{e.attribution}</p></li>{/if}{/each}` then `{#if testimonials.every((t)=>t.status==='pending')}<p class="pending" role="note">Client testimonials are coming soon.</p>{/if}`.
 CSS: --color-* tokens; mobile-first responsive; no non-essential motion; no raw hex.
 </interfaces>
@@ -158,21 +162,22 @@ CSS: --color-* tokens; mobile-first responsive; no non-essential motion; no raw 
 </task>
 
 <task type="auto">
-  <name>Task 3: Create the /about route (+page.svelte)</name>
+  <name>Task 3: Replace the /about stub with the real route (+page.svelte)</name>
   <files>src/routes/about/+page.svelte</files>
   <read_first>
+    - src/routes/about/+page.svelte (the 04-01 placeholder stub: `<h1>About</h1>` + `TODO(04-04)` comment — REPLACE it entirely)
     - src/lib/content/{about,seo}.ts (about.displayName, seo.about)
     - src/lib/components/sections/{About,SocialProof}.svelte (Tasks 1–2)
   </read_first>
   <action>
-    Create `src/routes/about/+page.svelte`:
+    REPLACE the existing 04-01 placeholder stub `src/routes/about/+page.svelte` entirely (it currently holds only `<h1>About</h1>` + a `TODO(04-04)` comment — no leftover TODO or bare stub may remain):
     - `<script lang="ts"> import About from '$lib/components/sections/About.svelte'; import SocialProof from '$lib/components/sections/SocialProof.svelte'; import { about, seo } from '$lib/content'; const meta = seo.about; </script>`
     - `<svelte:head><title>{meta.title}</title><meta name="description" content={meta.description} /></svelte:head>`
     - `<h1>{about.displayName}</h1>` (single route h1) then `<About /> <SocialProof />`.
     - No inline styles; no `+page.ts` (inherits prerender/trailingSlash).
   </action>
   <acceptance_criteria>
-    - File `src/routes/about/+page.svelte` exists; `grep -c '<h1' src/routes/about/+page.svelte` equals 1 AND `grep -q 'about.displayName' src/routes/about/+page.svelte`.
+    - `src/routes/about/+page.svelte` is the real page (stub replaced); `grep -c '<h1' src/routes/about/+page.svelte` equals 1 AND `grep -q 'about.displayName' src/routes/about/+page.svelte` AND `grep -ni 'TODO(04-04)' src/routes/about/+page.svelte` returns nothing (stub marker gone).
     - `grep -q 'seo.about\|meta.title' src/routes/about/+page.svelte` AND `<svelte:head>` present.
     - `grep -q 'About' src/routes/about/+page.svelte` AND `grep -q 'SocialProof' src/routes/about/+page.svelte`.
     - `grep -n 'style=' src/routes/about/+page.svelte` returns nothing.
@@ -181,7 +186,7 @@ CSS: --color-* tokens; mobile-first responsive; no non-essential motion; no raw 
   <verify>
     <automated>pnpm check && pnpm exec vitest run --project client src/lib/components/sections/About.svelte.spec.ts src/lib/components/sections/SocialProof.svelte.spec.ts</automated>
   </verify>
-  <done>/about renders bio + social proof under one h1 (about.displayName) with seo.about head; check + specs GREEN.</done>
+  <done>/about stub replaced: bio + social proof under one h1 (about.displayName) with seo.about head; check + specs GREEN.</done>
 </task>
 
 </tasks>
@@ -193,9 +198,11 @@ CSS: --color-* tokens; mobile-first responsive; no non-essential motion; no raw 
 </verification>
 
 <success_criteria>
-- `/about/` shows Eman's bio + the real MBP engagement + honest pending markers, under one h1, no fabrication.
+- `/about/` shows Eman's bio + the real MBP engagement + honest pending markers, under one h1, no fabrication — the 04-01 stub is fully replaced.
 </success_criteria>
 
 <output>
 After completion, create `.planning/phases/04-accessible-section-components/04-04-SUMMARY.md`.
 </output>
+</output>
+</content>

@@ -87,8 +87,12 @@ export const services: readonly { id: string; title: string; summary: string }[]
 export const seo: { home: { title: string; description: string }, ... };
 ```
 ```typescript
-import { resolve } from '$app/paths';   // resolve('/services') for the overview link
+import { resolve } from '$app/paths';   // ServicesOverview ONLY: resolve('/services') for the overview link
 ```
+The `/services` route already exists as a 04-01 placeholder stub, so `resolve('/services')` in ServicesOverview
+typechecks against the closed RouteId union (04-03 later replaces that stub with the real page). Hero does NOT
+call resolve — it only builds a `mailto:` link — so Hero MUST NOT import `resolve` (unused import fails the
+`@typescript-eslint/no-unused-vars` eslint gate in 04-06).
 CSS: use --color-* tokens only (see 04-01 interfaces). Global :focus-visible ring exists. No raw hex, no non-essential motion (A11Y-08).
 mailto pattern (RESEARCH Pattern 6): `mailto:${contact.email}?subject=${encodeURIComponent(contact.mailtoSubject)}`.
 </interfaces>
@@ -112,7 +116,7 @@ mailto pattern (RESEARCH Pattern 6): `mailto:${contact.email}?subject=${encodeUR
   <action>
     Write `Hero.svelte.spec.ts` FIRST (RED): mount Hero, assert a link with accessible name /Let's Connect/i whose `href` starts with `mailto:emanrimawi@gmail.com`, and assert the intro text (`about.intro`) is present. Every `it` has an assertion.
     Then implement `src/lib/components/sections/Hero.svelte`:
-    - `import { about, contact, site } from '$lib/content'; import { resolve } from '$app/paths';`
+    - `import { about, contact, site } from '$lib/content';` — do NOT import `resolve` from `$app/paths`: Hero only builds a `mailto:` string and never calls resolve; an unused `resolve` import fails the `no-unused-vars` eslint gate (04-06 WARNING).
     - `const mailto = \`mailto:${contact.email}?subject=${encodeURIComponent(contact.mailtoSubject)}\`;`
     - Markup: a `<section class="hero" aria-labelledby="hero-h">` containing the lead heading (`id="hero-h"`), a `<p>` with `about.intro`/`site.tagline`, and `<a class="cta" href={mailto}>{contact.ctaLabel}</a>`.
     - IMPORTANT heading level: this component is composed under the route. If Task 3 assigns Hero to host the page `<h1>`, use `<h1 id="hero-h">`; otherwise `<h2>`. Coordinate so the page ends with exactly one `<h1>`. Default: Hero hosts the `<h1>` (it is the lead), and +page.svelte does NOT add another h1.
@@ -121,14 +125,15 @@ mailto pattern (RESEARCH Pattern 6): `mailto:${contact.email}?subject=${encodeUR
   <acceptance_criteria>
     - `pnpm exec vitest run --project client src/lib/components/sections/Hero.svelte.spec.ts` GREEN.
     - `grep -q 'mailto:' src/lib/components/sections/Hero.svelte` AND `grep -q 'ctaLabel' src/lib/components/sections/Hero.svelte`.
+    - Hero does NOT import resolve (avoid no-unused-vars): `grep -n "from '\\$app/paths'" src/lib/components/sections/Hero.svelte` returns nothing.
     - `grep -q "from '\\$lib/content'" src/lib/components/sections/Hero.svelte` (no hard-coded copy).
     - No raw hex color literal in Hero.svelte style except token `var(--...)`: `grep -nE ':\s*#[0-9a-fA-F]{3,6}' src/lib/components/sections/Hero.svelte` returns nothing.
-    - `pnpm check` 0/0.
+    - `pnpm check` 0/0 AND `pnpm exec eslint src/lib/components/sections/Hero.svelte` clean (no unused import).
   </acceptance_criteria>
   <verify>
     <automated>pnpm exec vitest run --project client src/lib/components/sections/Hero.svelte.spec.ts</automated>
   </verify>
-  <done>Hero renders intro + mailto "Let's Connect" CTA from the barrel; spec GREEN; pnpm check 0/0.</done>
+  <done>Hero renders intro + mailto "Let's Connect" CTA from the barrel (no resolve import); spec GREEN; pnpm check 0/0.</done>
 </task>
 
 <task type="auto" tdd="true">
@@ -136,6 +141,7 @@ mailto pattern (RESEARCH Pattern 6): `mailto:${contact.email}?subject=${encodeUR
   <files>src/lib/components/sections/Mission.svelte, src/lib/components/sections/ServicesOverview.svelte, src/lib/components/sections/ServicesOverview.svelte.spec.ts</files>
   <read_first>
     - src/lib/content/{about,services}.ts (about.mission is a pending Slot; services has 4 items)
+    - src/routes/services/+page.svelte (the 04-01 stub — its existence is why `resolve('/services')` typechecks in ServicesOverview)
     - .planning/phases/04-accessible-section-components/04-RESEARCH.md § "Pattern 5: Pending-slot rendering" and § "Pattern 4: content-driven section"
   </read_first>
   <behavior>
@@ -148,7 +154,7 @@ mailto pattern (RESEARCH Pattern 6): `mailto:${contact.email}?subject=${encodeUR
     - `import { about } from '$lib/content';`
     - `<section aria-labelledby="mission-h"><h2 id="mission-h">Mission</h2>{#if about.mission.status === 'published'}<p>{about.mission.statement}</p>{:else}<p class="pending" role="note">Mission statement coming soon.</p>{/if}</section>`
     Implement `src/lib/components/sections/ServicesOverview.svelte`:
-    - `import { services } from '$lib/content'; import { resolve } from '$app/paths';`
+    - `import { services } from '$lib/content'; import { resolve } from '$app/paths';` — `resolve('/services')` typechecks because 04-01 created the `/services` route stub (04-03 replaces it with the real page).
     - `<section aria-labelledby="svc-ov-h"><h2 id="svc-ov-h">Services</h2><ul>{#each services as s (s.id)}<li><h3>{s.title}</h3><p>{s.summary}</p></li>{/each}</ul><a href={resolve('/services')}>See all services</a></section>`
     - Scoped styles use `--color-*` tokens; responsive grid via `@media (min-width:48rem)` for multi-column, single column default (SECT-07). No non-essential motion.
   </action>
@@ -200,7 +206,7 @@ mailto pattern (RESEARCH Pattern 6): `mailto:${contact.email}?subject=${encodeUR
 <verification>
 - `pnpm exec vitest run --project client src/lib/components/sections` → Hero + ServicesOverview specs GREEN.
 - `pnpm check` 0/0.
-- `pnpm exec eslint .` clean (no premium import).
+- `pnpm exec eslint .` clean (no premium import; no unused `resolve` import in Hero).
 - Heading/axe gate deferred to 04-06 (page-has-heading-one, heading-order over the live route).
 </verification>
 
@@ -212,3 +218,5 @@ mailto pattern (RESEARCH Pattern 6): `mailto:${contact.email}?subject=${encodeUR
 <output>
 After completion, create `.planning/phases/04-accessible-section-components/04-02-SUMMARY.md`.
 </output>
+</output>
+</content>

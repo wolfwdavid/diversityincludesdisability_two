@@ -18,6 +18,7 @@ must_haves:
     - "All four social platforms (Facebook, X/Twitter, LinkedIn, Instagram) are listed; each is a real <a> only when its link Slot is published, otherwise rendered as plain text (no dead '#' anchor) — all four are currently pending so all four render as text (SECT-05, CONT-03)"
     - "Social link accessible names come from socialLinks[].label (e.g. 'Eman Rimawi on LinkedIn') — descriptive, no 'click here' (A11Y-03)"
     - "The /accessibility route renders a WCAG 2.2 AA accessibility statement (commitment, conformance status, measures, known limitations, feedback contact reusing contact.email, assessment method, review date) and is the nav-linked page (SECT-06)"
+    - "The 04-01 placeholder stubs at src/routes/contact/+page.svelte and src/routes/accessibility/+page.svelte are fully REPLACED by their real pages (no TODO stub markers remain)"
     - "Each route owns a single <h1>; sections start at <h2>; <svelte:head> from seo.contact / seo.accessibility (A11Y-02)"
   artifacts:
     - path: "src/lib/components/sections/Contact.svelte"
@@ -28,10 +29,10 @@ must_haves:
       provides: "Client spec: mailto href + published=<a>/pending=text + labels"
       min_lines: 25
     - path: "src/routes/contact/+page.svelte"
-      provides: "Contact route: single h1 + seo.contact head + Contact section"
+      provides: "Contact route (replaces 04-01 stub): single h1 + seo.contact head + Contact section"
       contains: "<h1"
     - path: "src/routes/accessibility/+page.svelte"
-      provides: "Accessibility statement page (7 conventional parts) + seo.accessibility head, single h1"
+      provides: "Accessibility statement page (replaces 04-01 stub, 7 conventional parts) + seo.accessibility head, single h1"
       contains: "WCAG 2.2"
   key_links:
     - from: "src/lib/components/sections/Contact.svelte"
@@ -49,14 +50,16 @@ Build the Contact section (SECT-05) and the Accessibility Statement page (SECT-0
 prominent `mailto` "Let's Connect" CTA from the `contact` barrel and lists all four social platforms, branching
 on each `SocialLink.link` Slot: a published link renders a real `<a href>`, a pending one renders as plain text
 (NO dead `#` anchor — RESEARCH Pattern 5 + Pitfall). All four are currently pending, so all four render as
-text with their descriptive labels. The `/accessibility` route renders a credible WCAG 2.2 AA statement
-(GOV.UK/scope.org.uk model) whose feedback contact reuses `contact.email` (CONT-01). Each route owns one `<h1>`.
+text with their descriptive labels. The `/contact` and `/accessibility` routes currently exist only as 04-01
+placeholder stubs; this plan REPLACES both with their real pages. The `/accessibility` route renders a credible
+WCAG 2.2 AA statement (GOV.UK/scope.org.uk model) whose feedback contact reuses `contact.email` (CONT-01).
+Each route owns one `<h1>`.
 
 Purpose: SECT-05 (mailto CTA + social links, honest pending rendering) and SECT-06 (nav-linked accessibility
 statement). A11Y-03 descriptive link text inherited from barrel labels.
 
-Output: `src/lib/components/sections/Contact.svelte` (+ spec); `src/routes/contact/+page.svelte`;
-`src/routes/accessibility/+page.svelte`.
+Output: `src/lib/components/sections/Contact.svelte` (+ spec); real `src/routes/contact/+page.svelte`;
+real `src/routes/accessibility/+page.svelte`.
 </objective>
 
 <execution_context>
@@ -78,6 +81,9 @@ export const socialLinks: readonly {
 }[]; // 4 items (Facebook, X (Twitter), LinkedIn, Instagram) — ALL currently pending
 export const seo: { contact: {title;description}, accessibility: {title;description}, ... };
 ```
+The `/contact` and `/accessibility` routes already exist as 04-01 placeholder stubs (`<h1>Contact</h1>` /
+`<h1>Accessibility Statement</h1>` + a `TODO(04-05)` comment each). This plan REPLACES both stub files entirely
+— overwrite them, do not create second files.
 RESEARCH Pattern 6 (mailto): `mailto:${contact.email}?subject=${encodeURIComponent(contact.mailtoSubject)}`.
 RESEARCH Pattern 5 (social): published → `<a href={link.url}>{label}</a>`; pending → plain text `{label}` (NO anchor, NO '#').
 Accessibility statement conventions (RESEARCH § Metadata): (1) commitment/scope, (2) conformance "conforms to WCAG 2.2 level AA", (3) measures taken (semantic HTML, keyboard operable, zero-WebGL accessible mode as a true peer, contrast-checked palette), (4) known limitations (Premium 3D is an enhancement; some social handles pending), (5) feedback + contact (reuse contact.email), (6) how assessed (self + automated axe WCAG 2.2 AA + keyboard/SR), (7) review/preparation date.
@@ -128,21 +134,22 @@ CSS: --color-* tokens; no non-essential motion; no raw hex.
 </task>
 
 <task type="auto">
-  <name>Task 2: Create the /contact route (+page.svelte)</name>
+  <name>Task 2: Replace the /contact stub with the real route (+page.svelte)</name>
   <files>src/routes/contact/+page.svelte</files>
   <read_first>
+    - src/routes/contact/+page.svelte (the 04-01 placeholder stub: `<h1>Contact</h1>` + `TODO(04-05)` comment — REPLACE it entirely)
     - src/lib/content/seo.ts (seo.contact)
     - src/lib/components/sections/Contact.svelte (Task 1)
   </read_first>
   <action>
-    Create `src/routes/contact/+page.svelte`:
+    REPLACE the existing 04-01 placeholder stub `src/routes/contact/+page.svelte` entirely (it currently holds only `<h1>Contact</h1>` + a `TODO(04-05)` comment — no leftover TODO or bare stub may remain):
     - `<script lang="ts"> import Contact from '$lib/components/sections/Contact.svelte'; import { seo } from '$lib/content'; const meta = seo.contact; </script>`
     - `<svelte:head><title>{meta.title}</title><meta name="description" content={meta.description} /></svelte:head>`
     - `<h1>Contact</h1>` (single route h1) then `<Contact />`.
     - No inline styles; no `+page.ts`.
   </action>
   <acceptance_criteria>
-    - File `src/routes/contact/+page.svelte` exists; `grep -c '<h1' src/routes/contact/+page.svelte` equals 1.
+    - `src/routes/contact/+page.svelte` is the real page (stub replaced); `grep -c '<h1' src/routes/contact/+page.svelte` equals 1 AND `grep -ni 'TODO(04-05)' src/routes/contact/+page.svelte` returns nothing (stub marker gone).
     - `grep -q 'seo.contact\|meta.title' src/routes/contact/+page.svelte` AND `<svelte:head>` present AND `grep -q 'Contact' src/routes/contact/+page.svelte`.
     - `grep -n 'style=' src/routes/contact/+page.svelte` returns nothing.
     - `pnpm check` 0/0.
@@ -150,19 +157,20 @@ CSS: --color-* tokens; no non-essential motion; no raw hex.
   <verify>
     <automated>pnpm check</automated>
   </verify>
-  <done>/contact renders a single h1 + Contact section + seo.contact head; check GREEN.</done>
+  <done>/contact stub replaced: single h1 + Contact section + seo.contact head; check GREEN.</done>
 </task>
 
 <task type="auto">
-  <name>Task 3: Create the /accessibility statement route (+page.svelte)</name>
+  <name>Task 3: Replace the /accessibility stub with the real statement route (+page.svelte)</name>
   <files>src/routes/accessibility/+page.svelte</files>
   <read_first>
+    - src/routes/accessibility/+page.svelte (the 04-01 placeholder stub: `<h1>Accessibility Statement</h1>` + `TODO(04-05)` comment — REPLACE it entirely)
     - src/lib/content/{contact,seo}.ts (contact.email for feedback; seo.accessibility)
     - .planning/phases/04-accessible-section-components/04-RESEARCH.md § Metadata "Accessibility Statement conventions" (7 parts)
     - src/lib/content/site.ts (nav already includes the /accessibility route — SECT-06 nav link exists)
   </read_first>
   <action>
-    Create `src/routes/accessibility/+page.svelte` — the WCAG 2.2 AA statement (GOV.UK/scope.org.uk model):
+    REPLACE the existing 04-01 placeholder stub `src/routes/accessibility/+page.svelte` entirely (it currently holds only `<h1>Accessibility Statement</h1>` + a `TODO(04-05)` comment — no leftover TODO or bare stub may remain) with the WCAG 2.2 AA statement (GOV.UK/scope.org.uk model):
     - `<script lang="ts"> import { contact, seo } from '$lib/content'; const meta = seo.accessibility; const feedback = \`mailto:${contact.email}\`; const reviewed = '2026-07-05'; </script>`
     - `<svelte:head><title>{meta.title}</title><meta name="description" content={meta.description} /></svelte:head>`
     - `<h1>Accessibility Statement</h1>` (single route h1). Then `<section aria-labelledby>`+`<h2>` blocks for the seven conventional parts:
@@ -176,7 +184,7 @@ CSS: --color-* tokens; no non-essential motion; no raw hex.
     - Descriptive link text (no "click here"); no inline styles; no `+page.ts`; `--color-*` tokens if any scoped styles; no non-essential motion.
   </action>
   <acceptance_criteria>
-    - File `src/routes/accessibility/+page.svelte` exists; `grep -c '<h1' src/routes/accessibility/+page.svelte` equals 1.
+    - `src/routes/accessibility/+page.svelte` is the real page (stub replaced); `grep -c '<h1' src/routes/accessibility/+page.svelte` equals 1 AND `grep -ni 'TODO(04-05)' src/routes/accessibility/+page.svelte` returns nothing (stub marker gone).
     - `grep -q 'WCAG 2.2' src/routes/accessibility/+page.svelte` (conformance status present).
     - `grep -q 'contact.email' src/routes/accessibility/+page.svelte` (feedback reuses barrel email — CONT-01).
     - At least 5 `<h2` section headings: `grep -c '<h2' src/routes/accessibility/+page.svelte` >= 5.
@@ -186,7 +194,7 @@ CSS: --color-* tokens; no non-essential motion; no raw hex.
   <verify>
     <automated>pnpm check</automated>
   </verify>
-  <done>/accessibility renders a 7-part WCAG 2.2 AA statement under one h1, feedback via barrel email, in the primary nav; check GREEN.</done>
+  <done>/accessibility stub replaced: 7-part WCAG 2.2 AA statement under one h1, feedback via barrel email, in the primary nav; check GREEN.</done>
 </task>
 
 </tasks>
@@ -199,8 +207,11 @@ CSS: --color-* tokens; no non-essential motion; no raw hex.
 <success_criteria>
 - `/contact/` shows the mailto CTA + 4 social platforms (pending as text, no dead links).
 - `/accessibility/` is reachable from the primary nav and states WCAG 2.2 AA conformance with a feedback contact.
+- Both 04-01 stubs are fully replaced with their real pages.
 </success_criteria>
 
 <output>
 After completion, create `.planning/phases/04-accessible-section-components/04-05-SUMMARY.md`.
 </output>
+</output>
+</content>

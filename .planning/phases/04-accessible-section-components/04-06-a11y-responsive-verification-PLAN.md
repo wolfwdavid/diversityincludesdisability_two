@@ -10,7 +10,7 @@ files_modified:
   - tests/a11y.e2e.ts
   - tests/a11y-keyboard.e2e.ts
 autonomous: true
-requirements: [SECT-06, SECT-07, A11Y-02, A11Y-03, A11Y-05, A11Y-07, A11Y-08]
+requirements: [SECT-06, SECT-07, A11Y-01, A11Y-02, A11Y-03, A11Y-05, A11Y-07, A11Y-08]
 
 must_haves:
   truths:
