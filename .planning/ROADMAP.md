@@ -63,10 +63,12 @@ Plans:
   3. The resolved mode is applied before first paint — there is no flash of the wrong mode on load
   4. Toggling announces the change via `aria-live`, keeps keyboard focus placed deliberately, and preserves scroll position
   5. The toggle is keyboard-operable with correct switch semantics (`aria-pressed`/role) and a visible focus state
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 03-01: TBD during plan-phase
+- [ ] 03-01-PLAN.md — Precedence source of truth (resolveMode truth table) + pnpm tooling fix (MODE-02/03/07)
+- [ ] 03-02-PLAN.md — Runes store + no-flash inline head script + CSS hooks + resolver-parity guard (MODE-01/02/04)
+- [ ] 03-03-PLAN.md — ModeToggle switch (ARIA/keyboard/aria-live) + header slot + Playwright E2E (MODE-01/05/06)
 
 ### Phase 4: Accessible Section Components
 **Goal**: The entire site — Home, Services, About, Contact, Accessibility Statement — is live, responsive, and WCAG 2.2 AA in Accessible mode with zero WebGL in existence. The Core Value is met at this phase.
@@ -120,7 +122,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 |-------|----------------|--------|-----------|
 | 1. Foundation, Tokens & Live Deploy | 3/3 | Complete | 2026-07-04 |
 | 2. Content Source of Truth | 0/4 | Planned | - |
-| 3. Mode State System & Toggle | 0/TBD | Not started | - |
+| 3. Mode State System & Toggle | 0/3 | Planned | - |
 | 4. Accessible Section Components | 0/TBD | Not started | - |
 | 5. Premium 3D Layer | 0/TBD | Not started | - |
 | 6. Verification & Polish | 0/TBD | Not started | - |
