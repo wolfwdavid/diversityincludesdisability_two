@@ -20,7 +20,7 @@
 		"check:three-pin": "node scripts/check-three-pin.mjs",
 		"check:contrast": "node scripts/check-contrast.mjs",
 		"test:unit": "vitest",
-		"test": "npm run test:unit -- --run && npm run test:e2e",
+		"test": "pnpm run test:unit -- --run && pnpm run test:e2e",
 		"test:e2e": "playwright install && playwright test"
 	},
 	"devDependencies": {
