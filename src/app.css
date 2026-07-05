@@ -50,6 +50,53 @@ a {
 	}
 }
 
+/* Skip links (A11Y-01): the first focusable elements on every page. Off-screen by
+   default; slide into view only when keyboard-focused. Colors come from the locked
+   --color-* tokens (no raw hex) so they inherit the contrast-gated palette. */
+.skip-link {
+	position: absolute;
+	left: 0.5rem;
+	top: -3rem;
+	z-index: 100;
+	padding: 0.5rem 0.75rem;
+	background: var(--color-surface);
+	color: var(--color-link);
+	border: 2px solid var(--color-focus-ring);
+	border-radius: 0.375rem;
+	transition: top 120ms ease;
+}
+.skip-link:focus {
+	top: 0.5rem;
+}
+
+/* A11Y-08: the skip-link reveal is the ONLY motion in the accessible baseline, and it
+   is an essential control-reveal — still suppress it under OS reduced-motion intent. */
+@media (prefers-reduced-motion: reduce) {
+	.skip-link {
+		transition: none;
+	}
+}
+
+/* WCAG 2.4.11 (Focus Not Obscured): the header is position:sticky, so a focus target
+   scrolled to the very top could sit behind it. Give the skip-link targets and any
+   in-page :target enough scroll-margin to clear the sticky header. */
+#main,
+#nav {
+	scroll-margin-top: 4rem;
+}
+:target {
+	scroll-margin-top: 4rem;
+}
+
+/* Responsive shell base (SECT-07): mobile-first single-column content container used
+   by <main>. rem units only, no fixed px width, so it reflows to one column at 320px
+   and stays usable at 200% zoom (A11Y-07). */
+.site-main {
+	max-width: 70rem;
+	margin-inline: auto;
+	padding: 1rem;
+}
+
 /* Whole-site mode hooks. Phase 4+ fills these with mode-conditional styling. */
 :root[data-mode='premium'] {
 	/* premium (3D) surface overrides — populated in later phases */
