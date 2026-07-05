@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: "Completed 04-02-PLAN.md (home page: Hero/Mission/ServicesOverview + real +page.svelte; client 30/30, check 0/0, eslint clean)"
-last_updated: "2026-07-05T09:54:25.607Z"
+stopped_at: "Completed 04-04-PLAN.md (About + SocialProof: client 13/13, check 0/0; fixed about.mission Slot typing)"
+last_updated: "2026-07-05T09:56:46.558Z"
 progress:
   total_phases: 6
   completed_phases: 3
   total_plans: 16
-  completed_plans: 14
+  completed_plans: 15
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 04 (accessible-section-components) — EXECUTING
-Plan: 3 of 6
+Plan: 4 of 6
 
 ## Performance Metrics
 
@@ -60,6 +60,7 @@ Plan: 3 of 6
 | Phase 04 P03 | 8 | 2 tasks | 3 files |
 | Phase 04 P05 | 12 | 3 tasks | 4 files |
 | Phase 04 P02 | 17 | 3 tasks | 6 files |
+| Phase 04 P04 | 20 | 3 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -100,6 +101,7 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-02: Hero hosts the route's single <h1>; sections start at <h2> (A11Y-02 single ordered heading tree)
 - [Phase 04]: 04-02: consumers widen an 'as const' barrel slot to Slot<T> so the published arm type-checks (Mission mission slot) — no cast, shared content layer untouched
 - [Phase 04]: 04-02: text/CSS hero (no image dep) for a zero-extra-bytes accessible baseline; mailto CTA + pending mission honesty from the barrel
+- [Phase 04]: 04-04: about.mission retyped from as-const literal to Slot<Mission> union so consumers can branch on status (as const collapsed it, breaking every published guard; also unblocked sibling Mission.svelte)
 
 ### Pending Todos
 
@@ -117,6 +119,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T09:53:55.714Z
-Stopped at: Completed 04-02-PLAN.md (home page: Hero/Mission/ServicesOverview + real +page.svelte; client 30/30, check 0/0, eslint clean)
+Last session: 2026-07-05T09:56:20.434Z
+Stopped at: Completed 04-04-PLAN.md (About + SocialProof: client 13/13, check 0/0; fixed about.mission Slot typing)
 Resume file: None

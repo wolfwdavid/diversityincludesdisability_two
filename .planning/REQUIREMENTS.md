@@ -32,8 +32,8 @@
 
 - [x] **SECT-01**: Home page with hero, mission statement, services overview, and a primary CTA
 - [x] **SECT-02**: Services detail covering trainings & facilitation, disability consulting, modeling for representation, and speaking/panels
-- [ ] **SECT-03**: About page presenting Eman Rimawi's bio
-- [ ] **SECT-04**: Social-proof section featuring a real DID engagement (e.g. the Manhattan Borough President training) with a marked slot for future testimonials/logos/press
+- [x] **SECT-03**: About page presenting Eman Rimawi's bio
+- [x] **SECT-04**: Social-proof section featuring a real DID engagement (e.g. the Manhattan Borough President training) with a marked slot for future testimonials/logos/press
 - [x] **SECT-05**: Contact section with a prominent `mailto` "Let's Connect" CTA (emanrimawi@gmail.com) and social links (Facebook, X/Twitter, LinkedIn, Instagram)
 - [x] **SECT-06**: Accessibility statement page, linked from the primary navigation
 - [x] **SECT-07**: Layout is responsive from mobile to desktop in both modes
@@ -119,8 +119,8 @@ Explicitly excluded from this project.
 | MODE-07 | Phase 3 | Complete |
 | SECT-01 | Phase 4 | Complete |
 | SECT-02 | Phase 4 | Complete |
-| SECT-03 | Phase 4 | Pending |
-| SECT-04 | Phase 4 | Pending |
+| SECT-03 | Phase 4 | Complete |
+| SECT-04 | Phase 4 | Complete |
 | SECT-05 | Phase 4 | Complete |
 | SECT-06 | Phase 4 | Complete |
 | SECT-07 | Phase 4 | Complete |
