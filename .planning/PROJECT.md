@@ -24,6 +24,7 @@ mode must work, because an inaccessible disability-equity site is a contradictio
 
 - [x] Static build deploys to GitHub Pages under the repo base path — *Validated in Phase 1 (live green at https://wolfwdavid.github.io/diversityincludesdisability_two/, FOUND-01/02/03)*
 - [x] DID blue/orange brand palette applied via design tokens, contrast-checked (WCAG AA+) — *Validated in Phase 1 (6/6 token pairs pass WCAG 2.2 AA via automated gate, A11Y-06)*
+- [x] Single-source, no-fabrication content layer (`$lib/content` barrel) that makes cross-mode parity structural — *Validated in Phase 2 (CONT-01/02/03; `Slot<T>` type contract, 4 invariant specs GREEN, single barrel is the sole import surface; unconfirmed bio/mission/social handles ship as explicit `pending` slots — nothing fabricated). Pages consume the barrel in Phase 3+.*
 
 ### Active
 
@@ -110,4 +111,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-07-04 — Phase 1 complete (live GitHub Pages deploy verified, DID tokens contrast-gated)*
+*Last updated: 2026-07-05 — Phase 2 complete (content source-of-truth layer: `Slot<T>` no-fabrication contract, single `$lib/content` barrel, invariant suite GREEN)*
