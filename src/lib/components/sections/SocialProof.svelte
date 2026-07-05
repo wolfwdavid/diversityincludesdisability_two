@@ -10,7 +10,7 @@
 <section aria-labelledby="proof-h">
 	<h2 id="proof-h">Recent work</h2>
 	<ul>
-		{#each engagements as e}
+		{#each engagements as e, i (i)}
 			{#if e.status === 'published'}
 				<li>
 					<h3>{e.title}</h3>

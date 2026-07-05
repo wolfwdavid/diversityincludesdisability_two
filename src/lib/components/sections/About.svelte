@@ -8,7 +8,7 @@
 
 <section aria-labelledby="bio-h">
 	<h2 id="bio-h">Biography</h2>
-	{#each about.bio as para}
+	{#each about.bio as para (para)}
 		<p>{para}</p>
 	{/each}
 	{#if about.mission.status === 'published'}
