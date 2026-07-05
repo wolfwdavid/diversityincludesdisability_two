@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-03-PLAN.md (contact/socialProof/about; fabrication.spec GREEN; human checkpoint approved as-is)
-last_updated: "2026-07-05T00:38:40.829Z"
+stopped_at: Completed 02-04-PLAN.md (content barrel; full content suite 13/13 GREEN; pnpm check exit 0 — Phase 2 gate passed)
+last_updated: "2026-07-05T01:22:40.324Z"
 progress:
   total_phases: 6
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 7
-  completed_plans: 6
+  completed_plans: 7
 ---
 
 # Project State
@@ -52,6 +52,7 @@ Plan: 4 of 4
 | Phase 02 P01 | 3 | 2 tasks | 5 files |
 | Phase 02 P02 | 4 | 2 tasks | 3 files |
 | Phase 02 P03 | 10 | 3 tasks | 3 files |
+| Phase 02 P04 | 27 | 1 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -73,6 +74,8 @@ Recent decisions affecting current work:
 - [Phase 02]: Nav omits the Wix auth item and includes the Accessibility Statement in the primary nav (CONT-02 parity spine); route keys only, resolved via resolve() downstream
 - [Phase 02]: 02-03: Only published social-proof is the real MBP (Mark Levine) training; all testimonials/press/social-handles ship as pending slots (no fabrication)
 - [Phase 02]: 02-03: Human content-capture checkpoint approved AS-IS — mission + Facebook/X/LinkedIn/Instagram handles remain pending for a future capture pass
+- [Phase 02]: 02-04: The barrel src/lib/content/index.ts is the single content surface both modes import (CONT-01/02 structural parity)
+- [Phase 02]: 02-04: Slot-bearing arrays (engagements/testimonials/press/socialLinks) typed as readonly Slot<T>[] unions (not as const) so consumers can branch on status; phase type-gate green
 
 ### Pending Todos
 
@@ -90,6 +93,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T00:38:40.818Z
-Stopped at: Completed 02-03-PLAN.md (contact/socialProof/about; fabrication.spec GREEN; human checkpoint approved as-is)
+Last session: 2026-07-05T01:22:40.317Z
+Stopped at: Completed 02-04-PLAN.md (content barrel; full content suite 13/13 GREEN; pnpm check exit 0 — Phase 2 gate passed)
 Resume file: None

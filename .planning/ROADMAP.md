@@ -51,7 +51,7 @@ Plans:
 - [x] 02-01-PLAN.md — Type contracts (Slot<T> anti-fabrication union) + Nyquist invariant spec harness (CONT-01/02/03)
 - [x] 02-02-PLAN.md — Real marketing/structural content: site identity, nav model, 4 services, per-route SEO (CONT-01/02)
 - [x] 02-03-PLAN.md — People & social-proof: contact, pending social links, MBP engagement, About scaffold + human content-capture (CONT-02/03)
-- [ ] 02-04-PLAN.md — Single content barrel ($lib/content) + full parity/type gate (CONT-01/02/03)
+- [x] 02-04-PLAN.md — Single content barrel ($lib/content) + full parity/type gate (CONT-01/02/03)
 
 ### Phase 3: Mode State System & Toggle
 **Goal**: A persistent, accessible mode toggle switches the whole site between Premium and Accessible with no flash, correct default precedence, and full keyboard/screen-reader support — before any 3D exists.
