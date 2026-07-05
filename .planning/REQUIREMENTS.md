@@ -30,7 +30,7 @@
 
 ### Sections & Pages
 
-- [ ] **SECT-01**: Home page with hero, mission statement, services overview, and a primary CTA
+- [x] **SECT-01**: Home page with hero, mission statement, services overview, and a primary CTA
 - [x] **SECT-02**: Services detail covering trainings & facilitation, disability consulting, modeling for representation, and speaking/panels
 - [ ] **SECT-03**: About page presenting Eman Rimawi's bio
 - [ ] **SECT-04**: Social-proof section featuring a real DID engagement (e.g. the Manhattan Borough President training) with a marked slot for future testimonials/logos/press
@@ -41,7 +41,7 @@
 ### Accessibility
 
 - [x] **A11Y-01**: Skip links (to main content and to navigation) are available to keyboard users
-- [ ] **A11Y-02**: Semantic heading hierarchy (single `h1` per page, ordered `h2`/`h3`) throughout
+- [x] **A11Y-02**: Semantic heading hierarchy (single `h1` per page, ordered `h2`/`h3`) throughout
 - [x] **A11Y-03**: All links use descriptive text (no "click here")
 - [x] **A11Y-04**: Navigation disclosure menus expose `aria-expanded` state and close on Escape/blur
 - [x] **A11Y-05**: All interactive elements are keyboard-operable with visible focus states
@@ -117,7 +117,7 @@ Explicitly excluded from this project.
 | MODE-05 | Phase 3 | Complete |
 | MODE-06 | Phase 3 | Complete |
 | MODE-07 | Phase 3 | Complete |
-| SECT-01 | Phase 4 | Pending |
+| SECT-01 | Phase 4 | Complete |
 | SECT-02 | Phase 4 | Complete |
 | SECT-03 | Phase 4 | Pending |
 | SECT-04 | Phase 4 | Pending |
@@ -125,7 +125,7 @@ Explicitly excluded from this project.
 | SECT-06 | Phase 4 | Complete |
 | SECT-07 | Phase 4 | Complete |
 | A11Y-01 | Phase 4 | Complete |
-| A11Y-02 | Phase 4 | Pending |
+| A11Y-02 | Phase 4 | Complete |
 | A11Y-03 | Phase 4 | Complete |
 | A11Y-04 | Phase 4 | Complete |
 | A11Y-05 | Phase 4 | Complete |

@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 04-05-PLAN.md (Contact section + /contact + /accessibility WCAG 2.2 AA statement; client 6/6, plan files check-clean, eslint clean)
-last_updated: "2026-07-05T09:52:10.189Z"
+stopped_at: "Completed 04-02-PLAN.md (home page: Hero/Mission/ServicesOverview + real +page.svelte; client 30/30, check 0/0, eslint clean)"
+last_updated: "2026-07-05T09:54:25.607Z"
 progress:
   total_phases: 6
   completed_phases: 3
   total_plans: 16
-  completed_plans: 13
+  completed_plans: 14
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 04 (accessible-section-components) — EXECUTING
-Plan: 2 of 6
+Plan: 3 of 6
 
 ## Performance Metrics
 
@@ -59,6 +59,7 @@ Plan: 2 of 6
 | Phase 04 P01 | 12 | 3 tasks | 11 files |
 | Phase 04 P03 | 8 | 2 tasks | 3 files |
 | Phase 04 P05 | 12 | 3 tasks | 4 files |
+| Phase 04 P02 | 17 | 3 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -96,6 +97,9 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-03: ServicesDetail is a pure barrel consumer (services + seo.services) — pillar copy never hard-coded in the component (CONT-01); route owns the single h1, sections own h2 (A11Y-02)
 - [Phase 04]: 04-05: pending social links render as plain text (never dead href=#); published social handles are external absolute URLs (rel=noopener external, no resolve()) — scoped eslint-disable
 - [Phase 04]: 04-05: accessibility statement feedback reuses contact.email from the barrel (CONT-01) so it cannot drift from the Contact page
+- [Phase 04]: 04-02: Hero hosts the route's single <h1>; sections start at <h2> (A11Y-02 single ordered heading tree)
+- [Phase 04]: 04-02: consumers widen an 'as const' barrel slot to Slot<T> so the published arm type-checks (Mission mission slot) — no cast, shared content layer untouched
+- [Phase 04]: 04-02: text/CSS hero (no image dep) for a zero-extra-bytes accessible baseline; mailto CTA + pending mission honesty from the barrel
 
 ### Pending Todos
 
@@ -113,6 +117,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T09:51:38.016Z
-Stopped at: Completed 04-05-PLAN.md (Contact section + /contact + /accessibility WCAG 2.2 AA statement; client 6/6, plan files check-clean, eslint clean)
+Last session: 2026-07-05T09:53:55.714Z
+Stopped at: Completed 04-02-PLAN.md (home page: Hero/Mission/ServicesOverview + real +page.svelte; client 30/30, check 0/0, eslint clean)
 Resume file: None
