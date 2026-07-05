@@ -26,3 +26,18 @@
 </header>
 
 {@render children()}
+
+<style>
+	/* Persistent header (MODE-01): the mode switch stays reachable while the page
+	   scrolls, so toggling never depends on scrolling back to the top. Phase 4
+	   builds the full nav into this slot. */
+	.site-header {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		display: flex;
+		justify-content: flex-end;
+		padding: 0.5rem 1rem;
+		background: var(--color-surface);
+	}
+</style>
