@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 03-02-PLAN.md (runes mode store + no-flash inline script + parity guard; unit 31/31 GREEN, pnpm check exit 0)
-last_updated: "2026-07-05T02:52:09.022Z"
+stopped_at: Completed 03-03-PLAN.md (ModeToggle switch + layout wiring + E2E; unit 39/39, E2E 3/3, pnpm check 0/0)
+last_updated: "2026-07-05T03:55:26.807Z"
 progress:
   total_phases: 6
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 10
-  completed_plans: 9
+  completed_plans: 10
 ---
 
 # Project State
@@ -55,6 +55,7 @@ Plan: 3 of 3
 | Phase 02 P04 | 27 | 1 tasks | 3 files |
 | Phase 03 P01 | 4 | 2 tasks | 5 files |
 | Phase 03 P02 | 9 | 2 tasks | 5 files |
+| Phase 03 P03 | 56 | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -83,6 +84,9 @@ Recent decisions affecting current work:
 - [Phase 03]: 03-01: playwright webServer.env pins BASE_PATH=/diversityincludesdisability_two so local preview mirrors prod subpath; tooling routed through pnpm (no bare npm run)
 - [Phase 03]: 03-02: runes store SEEDS from stamped data-mode (never re-resolves); imports STORAGE_KEY/DATA_ATTR/Mode from constants (no re-derivation); write-through inside setMode, no module-level $effect
 - [Phase 03]: 03-02: inline <head> no-flash script stamps data-mode before %sveltekit.head% (MODE-04); parity.spec.ts guards it against resolve.ts drift (Pitfall 5)
+- [Phase 03]: 03-03: ModeToggle is a native <button role=switch aria-checked={isPremium()}> consuming ONLY the Wave-2 store (toggleMode/isPremium) — no re-derived precedence/key
+- [Phase 03]: 03-03: aria-live announce region colocated in the toggle and rendered unconditionally (no {#if}) so Phase 4 nav can't destroy it; header made sticky to honor MODE-01 persistent toggle + enable scroll-preservation E2E
+- [Phase 03]: 03-03: E2E must not assume a starting mode — a fresh Playwright context resolves to the LOCKED premium default; capture-then-assert-flip and toggle via dispatchEvent to bypass actionability auto-scroll
 
 ### Pending Todos
 
@@ -100,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T02:51:37.953Z
-Stopped at: Completed 03-02-PLAN.md (runes mode store + no-flash inline script + parity guard; unit 31/31 GREEN, pnpm check exit 0)
+Last session: 2026-07-05T03:54:47.350Z
+Stopped at: Completed 03-03-PLAN.md (ModeToggle switch + layout wiring + E2E; unit 39/39, E2E 3/3, pnpm check 0/0)
 Resume file: None
