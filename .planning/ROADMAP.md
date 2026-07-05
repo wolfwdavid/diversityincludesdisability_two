@@ -83,7 +83,7 @@ Plans:
 **Plans**: 6 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — Accessibility chrome & primary nav: axe install, SkipLinks, runes disclosure Nav, layout shell (A11Y-01/03/04/05, SECT-07)
+- [x] 04-01-PLAN.md — Accessibility chrome & primary nav: axe install, SkipLinks, runes disclosure Nav, layout shell (A11Y-01/03/04/05, SECT-07)
 - [ ] 04-02-PLAN.md — Home page: Hero + Mission + ServicesOverview, single h1 + seo.home (SECT-01, A11Y-02)
 - [ ] 04-03-PLAN.md — Services detail: 4 pillars as labelled h2 regions (SECT-02)
 - [ ] 04-04-PLAN.md — About + SocialProof: bio + published MBP engagement + pending markers (SECT-03, SECT-04)

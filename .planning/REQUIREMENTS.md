@@ -36,15 +36,15 @@
 - [ ] **SECT-04**: Social-proof section featuring a real DID engagement (e.g. the Manhattan Borough President training) with a marked slot for future testimonials/logos/press
 - [ ] **SECT-05**: Contact section with a prominent `mailto` "Let's Connect" CTA (emanrimawi@gmail.com) and social links (Facebook, X/Twitter, LinkedIn, Instagram)
 - [ ] **SECT-06**: Accessibility statement page, linked from the primary navigation
-- [ ] **SECT-07**: Layout is responsive from mobile to desktop in both modes
+- [x] **SECT-07**: Layout is responsive from mobile to desktop in both modes
 
 ### Accessibility
 
-- [ ] **A11Y-01**: Skip links (to main content and to navigation) are available to keyboard users
+- [x] **A11Y-01**: Skip links (to main content and to navigation) are available to keyboard users
 - [ ] **A11Y-02**: Semantic heading hierarchy (single `h1` per page, ordered `h2`/`h3`) throughout
-- [ ] **A11Y-03**: All links use descriptive text (no "click here")
-- [ ] **A11Y-04**: Navigation disclosure menus expose `aria-expanded` state and close on Escape/blur
-- [ ] **A11Y-05**: All interactive elements are keyboard-operable with visible focus states
+- [x] **A11Y-03**: All links use descriptive text (no "click here")
+- [x] **A11Y-04**: Navigation disclosure menus expose `aria-expanded` state and close on Escape/blur
+- [x] **A11Y-05**: All interactive elements are keyboard-operable with visible focus states
 - [x] **A11Y-06**: Text and UI meet WCAG 2.2 AA contrast against the DID blue/orange palette
 - [ ] **A11Y-07**: Content stays usable at 200% zoom / resized text without loss of function
 - [ ] **A11Y-08**: Accessible mode contains zero WebGL and no non-essential motion
@@ -123,12 +123,12 @@ Explicitly excluded from this project.
 | SECT-04 | Phase 4 | Pending |
 | SECT-05 | Phase 4 | Pending |
 | SECT-06 | Phase 4 | Pending |
-| SECT-07 | Phase 4 | Pending |
-| A11Y-01 | Phase 4 | Pending |
+| SECT-07 | Phase 4 | Complete |
+| A11Y-01 | Phase 4 | Complete |
 | A11Y-02 | Phase 4 | Pending |
-| A11Y-03 | Phase 4 | Pending |
-| A11Y-04 | Phase 4 | Pending |
-| A11Y-05 | Phase 4 | Pending |
+| A11Y-03 | Phase 4 | Complete |
+| A11Y-04 | Phase 4 | Complete |
+| A11Y-05 | Phase 4 | Complete |
 | A11Y-07 | Phase 4 | Pending |
 | A11Y-08 | Phase 4 | Pending |
 | PREM-01 | Phase 5 | Pending |
