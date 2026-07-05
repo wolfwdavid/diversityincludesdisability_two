@@ -15,12 +15,12 @@
 ### Mode System
 
 - [ ] **MODE-01**: A persistent header toggle switches the whole site between Premium (3D) and Accessible modes
-- [ ] **MODE-02**: The chosen mode persists across page loads and revisits via localStorage
-- [ ] **MODE-03**: Site defaults to Accessible mode when the OS signals `prefers-reduced-motion: reduce`, unless the user has an explicit stored choice
+- [x] **MODE-02**: The chosen mode persists across page loads and revisits via localStorage
+- [x] **MODE-03**: Site defaults to Accessible mode when the OS signals `prefers-reduced-motion: reduce`, unless the user has an explicit stored choice
 - [ ] **MODE-04**: The resolved mode is applied before first paint — no flash of the wrong mode (no FOUC)
 - [ ] **MODE-05**: Toggling mode announces the change to screen readers (`aria-live`) and preserves keyboard focus and scroll position
 - [ ] **MODE-06**: The toggle is keyboard-operable with correct switch semantics (`aria-pressed`/role) and a visible focus state
-- [ ] **MODE-07**: If WebGL is unsupported or unavailable, the site loads in Accessible mode automatically
+- [x] **MODE-07**: If WebGL is unsupported or unavailable, the site loads in Accessible mode automatically
 
 ### Content
 
@@ -111,12 +111,12 @@ Explicitly excluded from this project.
 | CONT-02 | Phase 2 | Complete |
 | CONT-03 | Phase 2 | Complete |
 | MODE-01 | Phase 3 | Pending |
-| MODE-02 | Phase 3 | Pending |
-| MODE-03 | Phase 3 | Pending |
+| MODE-02 | Phase 3 | Complete |
+| MODE-03 | Phase 3 | Complete |
 | MODE-04 | Phase 3 | Pending |
 | MODE-05 | Phase 3 | Pending |
 | MODE-06 | Phase 3 | Pending |
-| MODE-07 | Phase 3 | Pending |
+| MODE-07 | Phase 3 | Complete |
 | SECT-01 | Phase 4 | Pending |
 | SECT-02 | Phase 4 | Pending |
 | SECT-03 | Phase 4 | Pending |

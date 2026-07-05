@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 02-04-PLAN.md (content barrel; full content suite 13/13 GREEN; pnpm check exit 0 — Phase 2 gate passed)
-last_updated: "2026-07-05T01:38:02.760Z"
+stopped_at: Completed 03-01-PLAN.md (mode precedence source of truth; resolve.spec 7/7 GREEN; pnpm check exit 0)
+last_updated: "2026-07-05T02:37:27.570Z"
 progress:
   total_phases: 6
   completed_phases: 2
-  total_plans: 7
-  completed_plans: 7
+  total_plans: 10
+  completed_plans: 8
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-04)
 
 **Core value:** Every visitor gets a first-class experience of DID's work — the premium 3D showcase never comes at the cost of accessibility, and the Accessible mode is a genuine peer, not a degraded fallback.
-**Current focus:** Phase 02 — content-source-of-truth
+**Current focus:** Phase 03 — mode-state-system-toggle
 
 ## Current Position
 
-Phase: 3
-Plan: Not started
+Phase: 03 (mode-state-system-toggle) — EXECUTING
+Plan: 2 of 3
 
 ## Performance Metrics
 
@@ -53,6 +53,7 @@ Plan: Not started
 | Phase 02 P02 | 4 | 2 tasks | 3 files |
 | Phase 02 P03 | 10 | 3 tasks | 3 files |
 | Phase 02 P04 | 27 | 1 tasks | 3 files |
+| Phase 03 P01 | 4 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -76,6 +77,9 @@ Recent decisions affecting current work:
 - [Phase 02]: 02-03: Human content-capture checkpoint approved AS-IS — mission + Facebook/X/LinkedIn/Instagram handles remain pending for a future capture pass
 - [Phase 02]: 02-04: The barrel src/lib/content/index.ts is the single content surface both modes import (CONT-01/02 structural parity)
 - [Phase 02]: 02-04: Slot-bearing arrays (engagements/testimonials/press/socialLinks) typed as readonly Slot<T>[] unions (not as const) so consumers can branch on status; phase type-gate green
+- [Phase 03]: 03-01: LOCKED default = premium for capable/no-preference/no-stored visitor (Open Q#1)
+- [Phase 03]: 03-01: mode storage key namespaced 'did2:mode' (shared *.github.io origin, Pitfall 3); resolveMode kept pure, hasWebGL() split out
+- [Phase 03]: 03-01: playwright webServer.env pins BASE_PATH=/diversityincludesdisability_two so local preview mirrors prod subpath; tooling routed through pnpm (no bare npm run)
 
 ### Pending Todos
 
@@ -93,6 +97,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-05T01:22:40.317Z
-Stopped at: Completed 02-04-PLAN.md (content barrel; full content suite 13/13 GREEN; pnpm check exit 0 — Phase 2 gate passed)
+Last session: 2026-07-05T02:37:07.632Z
+Stopped at: Completed 03-01-PLAN.md (mode precedence source of truth; resolve.spec 7/7 GREEN; pnpm check exit 0)
 Resume file: None
