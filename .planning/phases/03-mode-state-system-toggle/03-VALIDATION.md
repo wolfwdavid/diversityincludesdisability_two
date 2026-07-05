@@ -24,7 +24,7 @@ created: 2026-07-05
 | **E2E command** | `pnpm exec playwright test tests/mode.e2e.ts` |
 | **Estimated runtime** | ~15 seconds (unit); E2E adds a build+preview |
 
-*Note: `package.json` `test` and `playwright.config.ts` `webServer` both called `npm run` internally — plan 03-01 Task 1 switches them to `pnpm` (flagged in RESEARCH.md).*
+*Note: `package.json` `test` and `playwright.config.ts` `webServer` both called `npm run` internally — plan 03-01 Task 1 switches them to `pnpm` (flagged in RESEARCH.md). Gates use `grep -cE '(^|[^p])npm run'` (returns 0) so the `pnpm run` substring is not falsely matched. Task 1 also sets `webServer.env.BASE_PATH=/diversityincludesdisability_two` so the E2E preview serves the production subpath instead of root.*
 
 ---
 
@@ -43,13 +43,13 @@ created: 2026-07-05
 
 | Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File | Status |
 |---------|------|------|-------------|-----------|-------------------|------|--------|
-| 03-01-T1 | 03-01 | 1 | (tooling) | node assert | `node -e` package.json/playwright pnpm check | package.json, playwright.config.ts | ⬜ pending |
+| 03-01-T1 | 03-01 | 1 | (tooling) | node + grep assert | `node -e` positive `pnpm run` / negative `(?<!p)npm run` on package.json; `grep -cE '(^|[^p])npm run'`=0; `grep -q BASE_PATH` in playwright.config.ts | package.json, playwright.config.ts | ⬜ pending |
 | 03-01-T2 | 03-01 | 1 | MODE-02, MODE-03, MODE-07 | unit (server) | `pnpm exec vitest run --project server src/lib/mode/resolve.spec.ts` | src/lib/mode/resolve.spec.ts | ⬜ pending |
 | 03-02-T1 | 03-02 | 2 | MODE-01, MODE-02 | unit (client) | `pnpm exec vitest run --project client src/lib/mode/mode.svelte.spec.ts` | src/lib/mode/mode.svelte.spec.ts | ⬜ pending |
 | 03-02-T2 | 03-02 | 2 | MODE-04, MODE-02 | unit (server) | `pnpm exec vitest run --project server src/lib/mode/parity.spec.ts` | src/lib/mode/parity.spec.ts | ⬜ pending |
 | 03-03-T1 | 03-03 | 3 | MODE-01, MODE-05, MODE-06 | component (client) | `pnpm exec vitest run --project client src/lib/components/ModeToggle.svelte.spec.ts` | src/lib/components/ModeToggle.svelte.spec.ts | ⬜ pending |
 | 03-03-T2 | 03-03 | 3 | MODE-01 | type gate | `pnpm check` | src/routes/+layout.svelte | ⬜ pending |
-| 03-03-T3 | 03-03 | 3 | MODE-02, MODE-04, MODE-05 | E2E (Playwright) | `pnpm exec playwright test tests/mode.e2e.ts` | tests/mode.e2e.ts | ⬜ pending |
+| 03-03-T3 | 03-03 | 3 | MODE-02, MODE-04, MODE-05 | E2E (Playwright) | `pnpm exec playwright test tests/mode.e2e.ts` (preview served under BASE_PATH subpath, set in 03-01-T1) | tests/mode.e2e.ts | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 
