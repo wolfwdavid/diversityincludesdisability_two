@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 05-03-premium-world-entry-gate-PLAN.md
-last_updated: "2026-07-06T11:19:15.862Z"
+stopped_at: Completed 05-04-budget-gate-ci-PLAN.md
+last_updated: "2026-07-06T11:33:34.480Z"
 progress:
   total_phases: 6
   completed_phases: 4
   total_plans: 21
-  completed_plans: 19
+  completed_plans: 20
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 05 (premium-3d-layer) — EXECUTING
-Plan: 4 of 5
+Plan: 5 of 5
 
 ## Performance Metrics
 
@@ -65,6 +65,7 @@ Plan: 4 of 5
 | Phase 05-premium-3d-layer P01 | 10 min | 2 tasks | 4 files |
 | Phase 05 P02 | 13 min | 3 tasks | 9 files |
 | Phase 05 P03 | 17 min | 3 tasks | 9 files |
+| Phase 05 P04 | 10 min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -116,6 +117,8 @@ Recent decisions affecting current work:
 - [Phase 05-03]: 05-03: GlowAccents uses plain emissive MeshStandardMaterial — zero @threlte/extras in the premium graph and no post-effect/bloom chain (D-07 skip), keeping the lazy chunk lean for the 05-04 budget gate
 - [Phase 05-03]: 05-03: route-change maxScroll remeasure via tick().then() not requestAnimationFrame — the premium subtree stays free of raw frame callbacks (all frame work through useTask running gates)
 - [Phase 05-03]: 05-03: svelte-ignore comments must not carry trailing '-- prose' on the same line — eslint svelte/no-unused-svelte-ignore parses trailing words as bogus ignore codes; justification goes on its own comment line
+- [Phase 05-04]: Budget gate premium-set expansion excludes accessible-closure members so shared runtime chunks are never double-counted against the 500KB gzip ceiling; measured premium graph = 1 chunk, 187,713 bytes gzip
+- [Phase 05-04]: Gate failure paths (WebGL leak, scan rot, budget overflow) proven by mutation testing on a build copy before commit — the gate is verified to fail, not just to pass
 
 ### Pending Todos
 
@@ -133,6 +136,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-06T11:18:50.103Z
-Stopped at: Completed 05-03-premium-world-entry-gate-PLAN.md
+Last session: 2026-07-06T11:33:34.473Z
+Stopped at: Completed 05-04-budget-gate-ci-PLAN.md
 Resume file: None

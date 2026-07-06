@@ -106,7 +106,7 @@ Plans:
 - [x] 05-01-dark-skin-scrims-PLAN.md — Premium dark skin + scrim tokens: night hex, contrast-gated dark pairs, [data-mode='premium'] overrides, stacking + hero treatment (PREM-01)
 - [x] 05-02-fence-guard-state-modules-PLAN.md — ESLint dynamic-import guard + TDD pure state modules: tier heuristic, motion truth table, route→world map (PREM-02/03/04/06)
 - [x] 05-03-premium-world-entry-gate-PLAN.md — The crystalline world: Canvas host, camera rig, procedural objects + the ONE layout entry gate + data-webgl stamp (PREM-01..06)
-- [ ] 05-04-budget-gate-ci-PLAN.md — check-premium-budget.mjs: zero-WebGL closure proof + 500KB-gzip premium ceiling, wired into deploy.yml (PREM-03)
+- [x] 05-04-budget-gate-ci-PLAN.md — check-premium-budget.mjs: zero-WebGL closure proof + 500KB-gzip premium ceiling, wired into deploy.yml (PREM-03)
 - [ ] 05-05-premium-e2e-PLAN.md — Premium E2E suite (lazy gate, persistence, PRM, no-WebGL fallback, toggle stress) + human art-direction checkpoint (PREM-01/02/04/05/06)
 
 ### Phase 6: Verification & Polish
@@ -133,5 +133,5 @@ Phases execute in numeric order: 1 â 2 â 3 â 4 â 5 â 6
 | 2. Content Source of Truth | 0/4 | Planned | - |
 | 3. Mode State System & Toggle | 0/3 | Planned | - |
 | 4. Accessible Section Components | 0/6 | Planned | - |
-| 5. Premium 3D Layer | 0/5 | Planned | - |
+| 5. Premium 3D Layer | 4/5 | In Progress|  |
 | 6. Verification & Polish | 0/TBD | Not started | - |
