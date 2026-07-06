@@ -32,6 +32,8 @@ jobs:
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: pnpm build
+      - name: Premium chunk budget + zero-WebGL gate (PREM-03, D-07)
+        run: node scripts/check-premium-budget.mjs
       - uses: actions/upload-pages-artifact@v5
         with:
           path: build/
