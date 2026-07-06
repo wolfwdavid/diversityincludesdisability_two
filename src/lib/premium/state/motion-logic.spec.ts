@@ -4,7 +4,7 @@
 //   parallax  = !reduced && !touch    (pointer parallax additionally off on touch, D-12)
 // reduced DOMINATES both flags — a prefers-reduced-motion user never gets motion,
 // even with a stored 'premium' choice (Pitfall 4: the resolver will NOT protect you).
-// Relative sibling import — the fence forbids the $lib/premium alias internally.
+// Relative sibling import — the fence forbids the premium lib alias even internally.
 
 import { describe, expect, it } from 'vitest';
 import { computeMotion } from './motion-logic';

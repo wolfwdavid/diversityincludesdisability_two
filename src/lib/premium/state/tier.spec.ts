@@ -2,8 +2,8 @@
 // Node-project spec for the PURE two-tier device heuristic (D-08). resolveTier is
 // signals-in → tier-out with no DOM/globals, so the whole policy is provable here;
 // the browser-only detectTier() wrapper is exercised by E2E, never in node.
-// NOTE: sibling imports are RELATIVE — the premium fence forbids the $lib/premium
-// alias even inside src/lib/premium/.
+// NOTE: sibling imports are RELATIVE — the premium fence forbids the aliased import
+// path even inside src/lib/premium/.
 
 import { describe, expect, it } from 'vitest';
 import { resolveTier } from './tier';
