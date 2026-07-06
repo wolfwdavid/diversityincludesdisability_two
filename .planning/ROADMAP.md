@@ -100,10 +100,14 @@ Plans:
   3. 3D assets are lazy-loaded, the render loop pauses when the tab is hidden or mode is Accessible, and WebGL resources are disposed on unmount so repeated toggling does not leak or lose context
   4. When `prefers-reduced-motion` is set, Premium mode reduces/limits motion even if Premium was chosen manually
   5. On a browser without WebGL support, Premium content gracefully falls back to the accessible presentation
-**Plans**: TBD
+**Plans**: 5 plans
 
 Plans:
-- [ ] 05-01: TBD during plan-phase
+- [ ] 05-01-dark-skin-scrims-PLAN.md — Premium dark skin + scrim tokens: night hex, contrast-gated dark pairs, [data-mode='premium'] overrides, stacking + hero treatment (PREM-01)
+- [ ] 05-02-fence-guard-state-modules-PLAN.md — ESLint dynamic-import guard + TDD pure state modules: tier heuristic, motion truth table, route→world map (PREM-02/03/04/06)
+- [ ] 05-03-premium-world-entry-gate-PLAN.md — The crystalline world: Canvas host, camera rig, procedural objects + the ONE layout entry gate + data-webgl stamp (PREM-01..06)
+- [ ] 05-04-budget-gate-ci-PLAN.md — check-premium-budget.mjs: zero-WebGL closure proof + 500KB-gzip premium ceiling, wired into deploy.yml (PREM-03)
+- [ ] 05-05-premium-e2e-PLAN.md — Premium E2E suite (lazy gate, persistence, PRM, no-WebGL fallback, toggle stress) + human art-direction checkpoint (PREM-01/02/04/05/06)
 
 ### Phase 6: Verification & Polish
 **Goal**: Every Core-Value promise is converted into a verified, automated gate across both modes â accessibility, the zero-WebGL guarantee, and keyboard/screen-reader usability.
@@ -129,5 +133,5 @@ Phases execute in numeric order: 1 â 2 â 3 â 4 â 5 â 6
 | 2. Content Source of Truth | 0/4 | Planned | - |
 | 3. Mode State System & Toggle | 0/3 | Planned | - |
 | 4. Accessible Section Components | 0/6 | Planned | - |
-| 5. Premium 3D Layer | 0/TBD | Not started | - |
+| 5. Premium 3D Layer | 0/5 | Planned | - |
 | 6. Verification & Polish | 0/TBD | Not started | - |
