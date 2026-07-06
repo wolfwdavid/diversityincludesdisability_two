@@ -19,9 +19,19 @@ export const pairs: {
 	{ name: 'focus ring vs white', fg: 'blue900', bg: 'white', level: 'AA-ui' }, // 14.54
 	{ name: 'orange UI border vs white', fg: 'orangeDeep', bg: 'white', level: 'AA-ui' }, // 4.12
 	{ name: 'body text on premium dark surface', fg: 'white', bg: 'blue900', level: 'AA-normal' }, // 14.54
-	{ name: 'link/accent on premium dark surface', fg: 'orange500', bg: 'blue900', level: 'AA-normal' }, // 4.77
+	{
+		name: 'link/accent on premium dark surface',
+		fg: 'orange500',
+		bg: 'blue900',
+		level: 'AA-normal'
+	}, // 4.77
 	{ name: 'body text on night scrim', fg: 'white', bg: 'night', level: 'AA-normal' }, // 17.17
 	{ name: 'link/accent on night scrim', fg: 'orange500', bg: 'night', level: 'AA-normal' }, // 5.63
-	{ name: 'orange-deep border on premium dark surface', fg: 'orangeDeep', bg: 'blue900', level: 'AA-ui' }, // 3.53
+	{
+		name: 'orange-deep border on premium dark surface',
+		fg: 'orangeDeep',
+		bg: 'blue900',
+		level: 'AA-ui'
+	}, // 3.53
 	{ name: 'focus ring vs premium dark surface', fg: 'white', bg: 'blue900', level: 'AA-ui' } // 14.54
 ];

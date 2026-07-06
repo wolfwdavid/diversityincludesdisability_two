@@ -98,9 +98,54 @@ a {
 }
 
 /* Whole-site mode hooks. Phase 4+ fills these with mode-conditional styling. */
-:root[data-mode='premium'] {
-	/* premium (3D) surface overrides — populated in later phases */
+/* ===== Premium mode shell (Phase 5, D-13/D-15/D-16) =====
+   The 3D canvas (05-03) is position:fixed at z-index 0; the DOM shell stacks above it.
+   Gated :not([data-webgl='no']) so the no-WebGL fallback is the light accessible page. */
+:root[data-mode='premium']:not([data-webgl='no']) .site-header,
+:root[data-mode='premium']:not([data-webgl='no']) .site-main,
+:root[data-mode='premium']:not([data-webgl='no']) .site-footer {
+	position: relative;
+	z-index: 1;
 }
+
+/* Scrim panels (D-15, Pitfall 6): every top-level section sits on an effectively opaque
+   night panel; the world stays visible in inter-section gaps and page gutters. */
+:root[data-mode='premium']:not([data-webgl='no']) .site-main section {
+	background: var(--color-scrim);
+	border-radius: 0.75rem;
+	padding: 1.5rem;
+	margin-block: 1.5rem;
+}
+/* Nested sections (ServicesDetail pillars) inherit the parent panel — no double scrim. */
+:root[data-mode='premium']:not([data-webgl='no']) .site-main section section {
+	background: transparent;
+	padding: 0;
+	margin-block: 0;
+}
+
+/* Immersive Home hero (D-13): the world fills the first viewport; the headline + CTA
+   float above it on tight text-fitting scrims instead of one big panel. */
+:root[data-mode='premium']:not([data-webgl='no']) .site-main section.hero {
+	background: transparent;
+	min-height: calc(100svh - 8rem);
+	display: grid;
+	align-content: center;
+	justify-items: start;
+	gap: 1rem;
+}
+:root[data-mode='premium']:not([data-webgl='no']) .site-main section.hero :is(h1, .lead) {
+	background: var(--color-scrim);
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	width: fit-content;
+}
+:root[data-mode='premium']:not([data-webgl='no']) .site-main section.hero .cta {
+	background: var(--did-orange-500);
+	color: var(--did-ink); /* gated pair: ink on orange500 = 5.86 */
+	padding: 0.75rem 1.25rem;
+	border-radius: 0.5rem;
+}
+
 :root[data-mode='accessible'] {
 	/* accessible (zero-WebGL) surface overrides — populated in later phases */
 }
