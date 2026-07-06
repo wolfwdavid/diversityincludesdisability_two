@@ -19,6 +19,7 @@
 		"format": "prettier --write .",
 		"check:three-pin": "node scripts/check-three-pin.mjs",
 		"check:contrast": "node scripts/check-contrast.mjs",
+		"check:premium-budget": "node scripts/check-premium-budget.mjs",
 		"test:unit": "vitest",
 		"test": "pnpm run test:unit -- --run && pnpm run test:e2e",
 		"test:e2e": "playwright install && playwright test"
