@@ -36,13 +36,14 @@ mode must work, because an inaccessible disability-equity site is a contradictio
 - [x] Skip links, semantic heading hierarchy, descriptive link text, ARIA-expanded menus — *Validated in Phase 4 (A11Y-01/03/04/05; SkipLinks to `#main`/`#nav`, runes disclosure with `aria-expanded`/Escape/focus-restore; axe WCAG 2.2 AA = 0 violations on all 5 routes, keyboard E2E 3/3)*
 - [x] Responsive layout (mobile → desktop) — Accessible mode — *Validated in Phase 4 (SECT-07/A11Y-07; 320px reflow E2E 5/5, no horizontal scroll). Premium-mode responsive pending Phase 5.*
 
+- [x] Premium mode: full-3D hero + 3D scenes across most content sections (Threlte/Three.js) — *Validated in Phase 5 (PREM-01/02; fully procedural crystalline world on ONE shared Canvas in `src/lib/premium/`, per-route world configs for all 5 routes incl. the quiet-room Accessibility page, camera scroll easing + pointer parallax; human art-direction checkpoint approved 2026-07-06)*
+- [x] Content parity — both modes present the same information and CTAs, nothing hidden in one — *Validated in Phase 5 (the Premium layer is a fixed backdrop behind the SAME barrel-sourced DOM; content is never forked, scrims keep text readable — 12/12 contrast pairs pass WCAG AA)*
+- [x] 3D assets lazy-loaded and code-split so Accessible mode never downloads WebGL payload — *Validated in Phase 5 (PREM-03/04/05; exactly one dynamic `import()` behind `premium && webgl`, accessible static-import closure proven WebGL-free by `scripts/check-premium-budget.mjs` in CI, premium chunk 187.7 KB gzip ≤ 500 KB budget, dispose-on-toggle proven by 20-flip stress E2E)*
+- [x] Responsive layout in Premium mode — *Validated in Phase 5 (viewport-fixed backdrop canvas with resize-reactive camera; content reflow unchanged from Phase 4 gates; PRM pause + no-WebGL skin-revert degrade paths E2E-proven, PREM-06)*
+
 ### Active
 
-- [ ] Premium mode: full-3D hero + 3D scenes across most content sections (Threlte/Three.js)
-- [ ] Content parity — both modes present the same information and CTAs, nothing hidden in one (structural in Accessible mode; Premium peer pending Phase 5)
 - [ ] Screen-reader tested (NVDA/VoiceOver smoke walkthrough) — deferred to Phase 6 QA (QA-03)
-- [ ] Responsive layout in Premium mode
-- [ ] 3D assets lazy-loaded and code-split so Accessible mode never downloads WebGL payload
 
 ### Out of Scope
 
@@ -88,9 +89,9 @@ mode must work, because an inaccessible disability-equity site is a contradictio
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
 | Single site + in-page mode toggle (not two deployed sites) | One codebase, guaranteed content parity, one deploy | ✓ Validated in Phase 3 (one runes store + header toggle drives whole-site `data-mode`) |
-| Full-3D Premium mode (not accent-only) | User wants maximum visual impact | — Pending |
-| Threlte over raw Three.js | Svelte-native, declarative, less boilerplate, SSR-safe patterns | — Pending |
-| adapter-static + GitHub Pages | Free hosting, no backend needed for marketing content | — Pending |
+| Full-3D Premium mode (not accent-only) | User wants maximum visual impact | ✓ Validated in Phase 5 (full-viewport crystalline world across all 5 routes, art direction approved) |
+| Threlte over raw Three.js | Svelte-native, declarative, less boilerplate, SSR-safe patterns | ✓ Validated in Phase 5 (Threlte 8 on-demand rendering + auto-disposal delivered pause/dispose requirements with no custom loop code) |
+| adapter-static + GitHub Pages | Free hosting, no backend needed for marketing content | ✓ Validated in Phase 1 (live green); Phase 5 adds the premium-budget CI gate to the same Pages deploy |
 | Accessible mode = zero WebGL, not "3D with reduced motion" | True peer experience; reliable on any device/AT | ✓ Validated in Phase 4 (all 5 routes prerendered, `build/_app` runtime scan = 0 WebGL/Three/Threlte references) |
 | Default to Accessible when prefers-reduced-motion set | Respects OS-level user intent; ethical default | ✓ Validated in Phase 3 (`resolveMode` precedence; stored choice still wins) |
 
@@ -112,4 +113,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-07-05 — Phase 4 complete (Accessible-mode section components: real Home/Services/About/Contact/Accessibility pages + nav/skip-link chrome, all from the no-fabrication content barrel; the whole Accessible site is now live and enforced by automated gates — axe WCAG 2.2 AA 0 violations on all 5 routes, 320px reflow, keyboard operability, zero-WebGL prerender; 74/74 unit + 19/19 E2E GREEN. Next: Phase 5 premium-3d-layer.)*
+*Last updated: 2026-07-06 — Phase 5 complete (Premium 3D layer: fully procedural crystalline world behind ONE dynamic import, dark skin + scrims, CI budget/zero-WebGL gate, 6 premium E2E tests; verification passed 5/5, art direction human-approved; 93/93 unit + 28/29 E2E green, sole failure is pre-existing Phase-4 demo debt. Next: Phase 6 verification-&-polish.)*

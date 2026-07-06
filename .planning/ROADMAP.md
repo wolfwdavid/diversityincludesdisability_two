@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 2: Content Source of Truth** - Typed, mode-agnostic content modules both renderers consume
 - [ ] **Phase 3: Mode State System & Toggle** - No-flash mode resolution, localStorage, accessible switch, WebGL fallback
 - [ ] **Phase 4: Accessible Section Components** - Complete, live, WCAG 2.2 AA site with zero WebGL (Core Value met)
-- [ ] **Phase 5: Premium 3D Layer** - Code-split Threlte enhancement on a single shared Canvas, lazy assets, GPU disposal
+- [x] **Phase 5: Premium 3D Layer** - Code-split Threlte enhancement on a single shared Canvas, lazy assets, GPU disposal (completed 2026-07-06)
 - [ ] **Phase 6: Verification & Polish** - axe/Lighthouse both modes, zero-WebGL network assertion, keyboard + SR pass
 
 ## Phase Details
@@ -133,5 +133,5 @@ Phases execute in numeric order: 1 â 2 â 3 â 4 â 5 â 6
 | 2. Content Source of Truth | 0/4 | Planned | - |
 | 3. Mode State System & Toggle | 0/3 | Planned | - |
 | 4. Accessible Section Components | 0/6 | Planned | - |
-| 5. Premium 3D Layer | 4/5 | In Progress|  |
+| 5. Premium 3D Layer | 4/5 | Complete    | 2026-07-06 |
 | 6. Verification & Polish | 0/TBD | Not started | - |
