@@ -107,7 +107,7 @@ Plans:
 - [x] 05-02-fence-guard-state-modules-PLAN.md — ESLint dynamic-import guard + TDD pure state modules: tier heuristic, motion truth table, route→world map (PREM-02/03/04/06)
 - [x] 05-03-premium-world-entry-gate-PLAN.md — The crystalline world: Canvas host, camera rig, procedural objects + the ONE layout entry gate + data-webgl stamp (PREM-01..06)
 - [x] 05-04-budget-gate-ci-PLAN.md — check-premium-budget.mjs: zero-WebGL closure proof + 500KB-gzip premium ceiling, wired into deploy.yml (PREM-03)
-- [ ] 05-05-premium-e2e-PLAN.md — Premium E2E suite (lazy gate, persistence, PRM, no-WebGL fallback, toggle stress) + human art-direction checkpoint (PREM-01/02/04/05/06)
+- [x] 05-05-premium-e2e-PLAN.md — Premium E2E suite (lazy gate, persistence, PRM, no-WebGL fallback, toggle stress) + human art-direction checkpoint (PREM-01/02/04/05/06)
 
 ### Phase 6: Verification & Polish
 **Goal**: Every Core-Value promise is converted into a verified, automated gate across both modes â accessibility, the zero-WebGL guarantee, and keyboard/screen-reader usability.

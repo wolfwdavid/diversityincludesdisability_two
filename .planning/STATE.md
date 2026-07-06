@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 05-04-budget-gate-ci-PLAN.md
-last_updated: "2026-07-06T11:33:34.480Z"
+stopped_at: Completed 05-05-premium-e2e-PLAN.md (checkpoint approved) — Phase 5 complete
+last_updated: "2026-07-06T12:22:46.048Z"
 progress:
   total_phases: 6
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 21
-  completed_plans: 20
+  completed_plans: 21
 ---
 
 # Project State
@@ -66,6 +66,7 @@ Plan: 5 of 5
 | Phase 05 P02 | 13 min | 3 tasks | 9 files |
 | Phase 05 P03 | 17 min | 3 tasks | 9 files |
 | Phase 05 P04 | 10 min | 2 tasks | 3 files |
+| Phase 05 P05 | 42 min | 3 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -119,6 +120,8 @@ Recent decisions affecting current work:
 - [Phase 05-03]: 05-03: svelte-ignore comments must not carry trailing '-- prose' on the same line — eslint svelte/no-unused-svelte-ignore parses trailing words as bogus ignore codes; justification goes on its own comment line
 - [Phase 05-04]: Budget gate premium-set expansion excludes accessible-closure members so shared runtime chunks are never double-counted against the 500KB gzip ceiling; measured premium graph = 1 chunk, 187,713 bytes gzip
 - [Phase 05-04]: Gate failure paths (WebGL leak, scan rot, budget overflow) proven by mutation testing on a build copy before commit — the gate is verified to fail, not just to pass
+- [Phase 05-05]: Lazy-load proof asserted behaviorally (new .js request on toggle) — hashed chunk names are brittle; the 05-04 build-scan gate stays the byte-level authority
+- [Phase 05-05]: forceContextLoss ordering (Research Open Q1) closed by evidence: 20-flip toggle stress runs with zero page errors, no Scene.svelte hardening needed
 
 ### Pending Todos
 
@@ -136,6 +139,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-06T11:33:34.473Z
-Stopped at: Completed 05-04-budget-gate-ci-PLAN.md
+Last session: 2026-07-06T12:22:46.041Z
+Stopped at: Completed 05-05-premium-e2e-PLAN.md (checkpoint approved) — Phase 5 complete
 Resume file: None
