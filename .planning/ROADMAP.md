@@ -117,10 +117,14 @@ Plans:
   1. Automated axe checks report no serious/critical accessibility violations in either Premium or Accessible mode
   2. An automated (Playwright) test asserts Accessible mode loads no `three`/WebGL chunk, gating regressions in CI
   3. A keyboard-only and screen-reader walkthrough of every page passes in both modes
-**Plans**: TBD
+**Plans**: 5 plans
 
 Plans:
-- [ ] 06-01: TBD during plan-phase
+- [ ] 06-01-polish-debt-PLAN.md — Debt cleanup: delete demo route + broken E2E (D-12), prettier re-baseline + .planning/ ignore (D-11), prove 28/28 green bare suite (enabler for QA-01/02/03)
+- [ ] 06-02-axe-both-modes-PLAN.md — QA-01: strict-0 axe matrix, 5 routes x 2 modes + 2 post-toggle scans, @ci-tagged; fix premium violations in-phase (D-05/06/07/10)
+- [ ] 06-03-zero-webgl-ci-gate-PLAN.md — QA-02: network-level zero-WebGL test over all routes (budget-script SIG mirror) + blocking @ci E2E subset in deploy.yml before Pages upload (D-08/09)
+- [ ] 06-04-sr-keyboard-parity-PLAN.md — QA-03 automated half: both-modes keyboard tests + cross-mode aria-snapshot parity + aria-live announcement assertion (D-01/03/04)
+- [ ] 06-05-nvda-human-uat-PLAN.md — QA-03 human half: 06-HUMAN-UAT.md NVDA checklist (every page x both modes) + human-verify checkpoint (D-01..D-04)
 
 ## Progress
 
@@ -134,4 +138,4 @@ Phases execute in numeric order: 1 â 2 â 3 â 4 â 5 â 6
 | 3. Mode State System & Toggle | 0/3 | Planned | - |
 | 4. Accessible Section Components | 0/6 | Planned | - |
 | 5. Premium 3D Layer | 4/5 | Complete    | 2026-07-06 |
-| 6. Verification & Polish | 0/TBD | Not started | - |
+| 6. Verification & Polish | 0/5 | Planned | - |
