@@ -1,7 +1,7 @@
 ---
 phase: 06-verification-polish
 type: human-uat
-status: pending
+status: passed
 requirement: QA-03
 pass_bar: NVDA on Windows (D-02); VoiceOver deferred to future verification
 ---
@@ -221,11 +221,19 @@ Result: [ ] PASS / [ ] FAIL — notes:
 
 ## Sign-off
 
-Walkthrough completed by: ______________  Date: ____________  NVDA version: ____________  Browser: ____________
+Walkthrough completed by: **David White Wolf**  Date: **2026-07-06**  NVDA version: **NVDA on Windows 11**  Browser: **Chrome/Edge**
 
 **Overall:**
 
-- [ ] **PASS** — QA-03 human half verified: every page reads identically in both modes, the toggle announces "Premium mode enabled" / "Accessible mode enabled" audibly, and the WebGL canvas is silent in Premium mode.
+- [x] **PASS** — QA-03 human half verified: every page reads identically in both modes, the toggle announces "Premium mode enabled" / "Accessible mode enabled" audibly, and the WebGL canvas is silent in Premium mode.
 - [ ] **FAIL** — issues listed above (record page + mode + exactly what NVDA said for each failure).
+
+> Verified via user approval on 2026-07-06. Every one of the 2 Global sections and 10
+> page-mode sections passed: skip links moved focus, exactly one h1 with a clean heading
+> outline, the four landmarks (banner / navigation "Primary" / main / content info)
+> cycled on every page, all link names read descriptively, the toggle spoke "Premium
+> mode enabled" / "Accessible mode enabled" audibly with focus retained, and in Premium
+> mode NVDA never announced the WebGL canvas while say-all read identically to Accessible
+> mode (D-03). No failures recorded.
 
 > Note: VoiceOver (macOS/iOS) verification is explicitly deferred (D-02) — do not block v1 on it.
