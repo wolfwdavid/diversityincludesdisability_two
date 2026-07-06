@@ -29,7 +29,7 @@
 					} catch (e) {
 						webgl = false;
 					}
-					m = (reduce || !webgl) ? 'accessible' : 'premium'; // LOCKED default (Open Q#1)
+					m = reduce || !webgl ? 'accessible' : 'premium'; // LOCKED default (Open Q#1)
 				}
 				document.documentElement.setAttribute('data-mode', m);
 			})();

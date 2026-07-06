@@ -42,9 +42,7 @@ test('no-flash: a pre-existing did2:mode=premium is stamped before first paint (
 
 	await page.goto(HOME);
 
-	const mode = await page.evaluate(() =>
-		document.documentElement.getAttribute('data-mode')
-	);
+	const mode = await page.evaluate(() => document.documentElement.getAttribute('data-mode'));
 	expect(mode).toBe('premium');
 });
 

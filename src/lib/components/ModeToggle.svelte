@@ -16,7 +16,13 @@
 	}
 </script>
 
-<button type="button" role="switch" aria-checked={isPremium()} onclick={onToggle} class="mode-toggle">
+<button
+	type="button"
+	role="switch"
+	aria-checked={isPremium()}
+	onclick={onToggle}
+	class="mode-toggle"
+>
 	<span class="mode-toggle__label">Premium 3D mode</span>
 	<span class="mode-toggle__track" aria-hidden="true"></span>
 </button>

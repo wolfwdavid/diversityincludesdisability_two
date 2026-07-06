@@ -34,8 +34,8 @@
 	<h2 id="a11y-conformance">Conformance status</h2>
 	<p>
 		This website conforms to the Web Content Accessibility Guidelines (WCAG) 2.2 level AA. Our
-		Accessible experience additionally targets level AAA wherever feasible. Where any content
-		falls short, we treat it as a defect to be fixed, not a permanent exception.
+		Accessible experience additionally targets level AAA wherever feasible. Where any content falls
+		short, we treat it as a defect to be fixed, not a permanent exception.
 	</p>
 </section>
 
@@ -45,12 +45,16 @@
 		<li>Semantic HTML with a single, logical heading hierarchy on every page.</li>
 		<li>Full keyboard operability with a visible focus indicator on every interactive element.</li>
 		<li>
-			An Accessible mode that ships <strong>zero WebGL</strong> and is a genuine peer to the
-			Premium experience — not a degraded fallback. Every piece of information and every call to
-			action is present in both modes.
+			An Accessible mode that ships <strong>zero WebGL</strong> and is a genuine peer to the Premium experience
+			— not a degraded fallback. Every piece of information and every call to action is present in both
+			modes.
 		</li>
-		<li>A DID colour palette whose text and interface pairs are contrast-checked to WCAG 2.2 AA.</li>
-		<li>Respect for the operating-system reduced-motion preference, which defaults to Accessible mode.</li>
+		<li>
+			A DID colour palette whose text and interface pairs are contrast-checked to WCAG 2.2 AA.
+		</li>
+		<li>
+			Respect for the operating-system reduced-motion preference, which defaults to Accessible mode.
+		</li>
 	</ul>
 </section>
 
@@ -80,9 +84,9 @@
 <section aria-labelledby="a11y-assessment">
 	<h2 id="a11y-assessment">How we assessed this site</h2>
 	<p>
-		This site was assessed by a combination of self-evaluation, automated axe-core scans against
-		the WCAG 2.2 AA rule set on every page in both modes, and manual keyboard and screen-reader
-		testing. These checks run as an ongoing part of our build process.
+		This site was assessed by a combination of self-evaluation, automated axe-core scans against the
+		WCAG 2.2 AA rule set on every page in both modes, and manual keyboard and screen-reader testing.
+		These checks run as an ongoing part of our build process.
 	</p>
 </section>
 

@@ -21,9 +21,7 @@ describe('About.svelte (SECT-03 / CONT-03)', () => {
 
 	it('renders the bilateral-leg-amputee bio fact from the barrel', async () => {
 		render(About);
-		await expect
-			.element(page.getByText(/bilateral leg amputee/i))
-			.toBeInTheDocument();
+		await expect.element(page.getByText(/bilateral leg amputee/i)).toBeInTheDocument();
 	});
 
 	it('renders the New York Lawyers for the Public Interest bio fact', async () => {
@@ -35,9 +33,7 @@ describe('About.svelte (SECT-03 / CONT-03)', () => {
 
 	it('renders the adaptive-clothing-line bio fact', async () => {
 		render(About);
-		await expect
-			.element(page.getByText(/adaptive clothing line/i))
-			.toBeInTheDocument();
+		await expect.element(page.getByText(/adaptive clothing line/i)).toBeInTheDocument();
 	});
 
 	it('does NOT render a fabricated mission (about.mission is pending)', async () => {

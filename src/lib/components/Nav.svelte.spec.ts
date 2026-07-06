@@ -68,9 +68,7 @@ describe('Nav.svelte (A11Y-03/04/05)', () => {
 		// A node outside the nav subtree; focusout with it as relatedTarget = focus left.
 		const outside = document.createElement('button');
 		document.body.appendChild(outside);
-		btn.dispatchEvent(
-			new FocusEvent('focusout', { bubbles: true, relatedTarget: outside })
-		);
+		btn.dispatchEvent(new FocusEvent('focusout', { bubbles: true, relatedTarget: outside }));
 		outside.remove();
 
 		await expect.element(toggle).toHaveAttribute('aria-expanded', 'false');

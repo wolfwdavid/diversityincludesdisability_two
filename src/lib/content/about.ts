@@ -28,6 +28,7 @@ export const about: {
 	],
 	mission: {
 		status: 'pending',
-		reason: "Capture Eman's own mission wording from the live site during the human-capture checkpoint"
+		reason:
+			"Capture Eman's own mission wording from the live site during the human-capture checkpoint"
 	}
 };

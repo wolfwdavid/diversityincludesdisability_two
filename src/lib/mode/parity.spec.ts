@@ -25,8 +25,9 @@ describe('inline no-flash script mirrors resolve.ts (Pitfall 5 drift guard)', ()
 		expect(appHtml).toContain('experimental-webgl');
 	});
 
-	it("encodes the LOCKED default expression (reduce || !webgl) ? 'accessible' : 'premium'", () => {
-		expect(appHtml).toContain("(reduce || !webgl) ? 'accessible' : 'premium'");
+	it("encodes the LOCKED default expression reduce || !webgl ? 'accessible' : 'premium'", () => {
+		// prettier-canonical form (redundant parens stripped by the format gate)
+		expect(appHtml).toContain("reduce || !webgl ? 'accessible' : 'premium'");
 	});
 
 	it('runs the inline <script> BEFORE %sveltekit.head% so data-mode is stamped pre-paint', () => {
