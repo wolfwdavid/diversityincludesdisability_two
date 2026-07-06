@@ -5,54 +5,89 @@ import { test, expect } from '@playwright/test';
 // mobile nav disclosure with Enter/Escape while focus is managed correctly, and (3) reach
 // and operate the mode switch. URLs carry the production base subpath + trailing slash,
 // mirroring tests/mode.e2e.ts; the preview is served under BASE_PATH.
+//
+// QA-03 (D-01): every behavior is proven in BOTH modes, not just Accessible. The describe
+// loop re-runs each test with the seeded mode; in premium we wait for the live WebGL layer
+// to mount before exercising the keyboard, so operability is measured against the real
+// premium DOM (dark skin + fixed backdrop canvas), not a bare accessible page.
 const BASE = 'http://localhost:4173/diversityincludesdisability_two';
 
-test('skip link moves focus to #main (A11Y-01)', async ({ page }) => {
-	await page.goto(BASE + '/');
-	// The skip links are rendered first, so the very first Tab lands on "Skip to main".
-	await page.keyboard.press('Tab');
-	await expect(page.locator('a.skip-link:focus')).toBeVisible();
+const MODES = ['accessible', 'premium'] as const;
 
-	// Activating it navigates to #main; because #main has tabindex="-1" the browser moves
-	// FOCUS there (Pitfall 1) — not merely the scroll position.
-	await page.keyboard.press('Enter');
-	const id = await page.evaluate(() => document.activeElement?.id);
-	expect(id).toBe('main');
-});
+for (const mode of MODES) {
+	test.describe(`keyboard [${mode}]`, () => {
+		test.beforeEach(async ({ page }) => {
+			// Seed the mode before any document script runs (Pitfall 7: a fresh context
+			// otherwise resolves to the LOCKED premium default).
+			await page.addInitScript((m) => {
+				try {
+					localStorage.setItem('did2:mode', m);
+				} catch {
+					/* ignore sandboxed storage */
+				}
+			}, mode);
+		});
 
-test('mobile nav disclosure: Enter opens, Escape closes and restores focus (A11Y-05)', async ({
-	page
-}) => {
-	// Narrow viewport (<48rem) so the disclosure toggle is shown and the menu is collapsed.
-	await page.setViewportSize({ width: 375, height: 800 });
-	await page.goto(BASE + '/');
+		test('skip link moves focus to #main (A11Y-01)', async ({ page }) => {
+			await page.goto(BASE + '/');
+			if (mode === 'premium') {
+				await expect(page.locator('.premium-backdrop canvas')).toBeVisible({ timeout: 15000 });
+			}
+			// The skip links are rendered first, so the very first Tab lands on "Skip to main".
+			await page.keyboard.press('Tab');
+			await expect(page.locator('a.skip-link:focus')).toBeVisible();
 
-	const toggle = page.getByRole('button', { name: /menu/i });
-	await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+			// Activating it navigates to #main; because #main has tabindex="-1" the browser moves
+			// FOCUS there (Pitfall 1) — not merely the scroll position.
+			await page.keyboard.press('Enter');
+			const id = await page.evaluate(() => document.activeElement?.id);
+			expect(id).toBe('main');
+		});
 
-	// Enter on the native <button> opens the disclosure (APG Show/Hide pattern).
-	await toggle.focus();
-	await page.keyboard.press('Enter');
-	await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+		test('mobile nav disclosure: Enter opens, Escape closes and restores focus (A11Y-05)', async ({
+			page
+		}) => {
+			// Narrow viewport (<48rem) so the disclosure toggle is shown and the menu is collapsed.
+			await page.setViewportSize({ width: 375, height: 800 });
+			await page.goto(BASE + '/');
+			if (mode === 'premium') {
+				// The fixed backdrop mounts at mobile width too (position:fixed).
+				await expect(page.locator('.premium-backdrop canvas')).toBeVisible({ timeout: 15000 });
+			}
 
-	// Escape closes it AND returns focus to the toggle (no focus lost to <body>).
-	await page.keyboard.press('Escape');
-	await expect(toggle).toHaveAttribute('aria-expanded', 'false');
-	await expect(toggle).toBeFocused();
-});
+			const toggle = page.getByRole('button', { name: /menu/i });
+			await expect(toggle).toHaveAttribute('aria-expanded', 'false');
 
-test('mode switch is keyboard-focusable and toggles via the keyboard (A11Y-05)', async ({
-	page
-}) => {
-	await page.goto(BASE + '/');
+			// Enter on the native <button> opens the disclosure (APG Show/Hide pattern).
+			await toggle.focus();
+			await page.keyboard.press('Enter');
+			await expect(toggle).toHaveAttribute('aria-expanded', 'true');
 
-	const sw = page.getByRole('switch');
-	await sw.focus();
-	await expect(sw).toBeFocused();
+			// Escape closes it AND returns focus to the toggle (no focus lost to <body>).
+			await page.keyboard.press('Escape');
+			await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+			await expect(toggle).toBeFocused();
+		});
 
-	// Space activates a native button → toggleMode() flips aria-checked. Smoke-check the
-	// keyboard path only; full mode-persistence behavior is covered by tests/mode.e2e.ts.
-	const before = await sw.getAttribute('aria-checked');
-	await page.keyboard.press('Space');
-	await expect.poll(() => sw.getAttribute('aria-checked')).not.toBe(before);
-});
+		test('mode switch is keyboard-focusable and toggles via the keyboard (A11Y-05)', async ({
+			page
+		}) => {
+			await page.goto(BASE + '/');
+			if (mode === 'premium') {
+				await expect(page.locator('.premium-backdrop canvas')).toBeVisible({ timeout: 15000 });
+			}
+
+			const sw = page.getByRole('switch');
+			await sw.focus();
+			await expect(sw).toBeFocused();
+
+			// Space activates a native button → toggleMode() flips aria-checked. Captured BEFORE
+			// pressing Space, so it is start-mode-agnostic (Phase-3 convention: never assume a
+			// starting mode). Smoke-check the keyboard path only; full mode-persistence behavior
+			// is covered by tests/mode.e2e.ts.
+			const before = await sw.getAttribute('aria-checked');
+			await page.keyboard.press('Space');
+			await expect.poll(() => sw.getAttribute('aria-checked')).not.toBe(before);
+		});
+	});
+}
