@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 05-02-fence-guard-state-modules-PLAN.md
-last_updated: "2026-07-06T10:55:55.782Z"
+stopped_at: Completed 05-03-premium-world-entry-gate-PLAN.md
+last_updated: "2026-07-06T11:19:15.862Z"
 progress:
   total_phases: 6
   completed_phases: 4
   total_plans: 21
-  completed_plans: 18
+  completed_plans: 19
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 05 (premium-3d-layer) — EXECUTING
-Plan: 3 of 5
+Plan: 4 of 5
 
 ## Performance Metrics
 
@@ -64,6 +64,7 @@ Plan: 3 of 5
 | Phase 04 P06 | 31 | 3 tasks | 5 files |
 | Phase 05-premium-3d-layer P01 | 10 min | 2 tasks | 4 files |
 | Phase 05 P02 | 13 min | 3 tasks | 9 files |
+| Phase 05 P03 | 17 min | 3 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -112,6 +113,9 @@ Recent decisions affecting current work:
 - [Phase 05-02]: Fence guard closes the dynamic-import hole via no-restricted-syntax ImportExpression selector (core no-restricted-imports is blind to import()); the ONE sanctioned crossing in +layout.svelte gets a scoped eslint-disable in 05-03
 - [Phase 05-02]: Premium state split pure-logic + thin browser/runes wrapper (tier/motion-logic pure and node-tested; motion.svelte.ts wires listeners with idempotent initMotion so re-entry never double-subscribes)
 - [Phase 05-02]: worldState.ts kept 100% SvelteKit-free (no app-state/app-paths imports) — the runes wrapper reading page/base arrives in 05-03; normalizeRoute proven for both dev and prod subpath shapes
+- [Phase 05-03]: 05-03: GlowAccents uses plain emissive MeshStandardMaterial — zero @threlte/extras in the premium graph and no post-effect/bloom chain (D-07 skip), keeping the lazy chunk lean for the 05-04 budget gate
+- [Phase 05-03]: 05-03: route-change maxScroll remeasure via tick().then() not requestAnimationFrame — the premium subtree stays free of raw frame callbacks (all frame work through useTask running gates)
+- [Phase 05-03]: 05-03: svelte-ignore comments must not carry trailing '-- prose' on the same line — eslint svelte/no-unused-svelte-ignore parses trailing words as bogus ignore codes; justification goes on its own comment line
 
 ### Pending Todos
 
@@ -129,6 +133,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-06T10:55:55.775Z
-Stopped at: Completed 05-02-fence-guard-state-modules-PLAN.md
+Last session: 2026-07-06T11:18:50.103Z
+Stopped at: Completed 05-03-premium-world-entry-gate-PLAN.md
 Resume file: None
