@@ -10,12 +10,19 @@
 	import { T, useThrelte } from '@threlte/core';
 	import { Color, FogExp2 } from 'three';
 	import CameraRig from './CameraRig.svelte';
+	import CrystalCluster from './objects/CrystalCluster.svelte';
+	import ParticleField from './objects/ParticleField.svelte';
+	import GlowAccents from './objects/GlowAccents.svelte';
+	import { currentConfig } from './state/worldState.svelte';
 	import type { Tier } from './state/tier';
 
-	// eslint-disable-next-line svelte/no-unused-props -- tier is consumed by the object components (Task 2)
-	let { onlost }: { tier: Tier; onlost: () => void } = $props();
+	let { tier, onlost }: { tier: Tier; onlost: () => void } = $props();
 
 	const { renderer, scene } = useThrelte();
+
+	// The current route's world configuration (PREM-02/D-04) — spread/glow flow down
+	// to the object groups as plain props; camera targets live in the rig.
+	const cfg = $derived(currentConfig());
 
 	// Night world (D-02): deep-night backdrop + exponential fog, set once at init.
 	scene.background = new Color('#071c33');
@@ -44,3 +51,6 @@
 <T.PointLight position={[0, 2, 2]} color="#c85f08" intensity={2.2} />
 
 <CameraRig />
+<CrystalCluster {tier} spread={cfg.spread} glow={cfg.glow} />
+<ParticleField {tier} spread={cfg.spread} glow={cfg.glow} />
+<GlowAccents {tier} spread={cfg.spread} glow={cfg.glow} />

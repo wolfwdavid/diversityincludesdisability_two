@@ -8,6 +8,7 @@
 // it is CACHED and recomputed only on resize + route change, never per frame.
 // NOTE: sibling import is RELATIVE — the premium fence forbids the aliased path.
 
+import { tick } from 'svelte';
 import { page } from '$app/state';
 import { base } from '$app/paths';
 import { configFor, normalizeRoute, type WorldConfig } from './worldState';
@@ -40,13 +41,14 @@ export function initWorldScroll(): void {
 	recomputeMaxScroll();
 	window.addEventListener('resize', recomputeMaxScroll);
 
-	// Route change → the new page content lays out after navigation; measure on the
-	// next frame so the cached range reflects the NEW document height (Pitfall: an
-	// $effect at module scope needs an explicit root — this module outlives components).
+	// Route change → the new page content lays out after navigation; measure after
+	// the DOM flush (tick) so the cached range reflects the NEW document height.
+	// (An $effect at module scope needs an explicit root — this module outlives
+	// components. No raw frame callbacks here: all frame work goes through useTask.)
 	$effect.root(() => {
 		$effect(() => {
 			void page.url.pathname;
-			requestAnimationFrame(recomputeMaxScroll);
+			void tick().then(recomputeMaxScroll);
 		});
 	});
 }
