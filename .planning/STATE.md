@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 06-04-PLAN.md
-last_updated: "2026-07-06T19:58:39.032Z"
+stopped_at: Completed 06-05-PLAN.md
+last_updated: "2026-07-06T20:14:43.743Z"
 progress:
   total_phases: 6
-  completed_phases: 5
+  completed_phases: 6
   total_plans: 26
-  completed_plans: 25
+  completed_plans: 26
 ---
 
 # Project State
@@ -71,6 +71,7 @@ Plan: 5 of 5
 | Phase 06 P02 | 25 min | 2 tasks | 1 files |
 | Phase 06 P03 | 59 | 2 tasks | 3 files |
 | Phase 06 P04 | 13 min | 2 tasks | 2 files |
+| Phase 06 P05 | 15 | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -133,6 +134,7 @@ Recent decisions affecting current work:
 - [Phase 06]: 06-03: deploy.yml blocks Pages upload on a 14-test @ci E2E subset (12 axe + QA-02 + toggle smoke); chromium-only install + browser cache keep it ~3-5 min; full suite stays local
 - [Phase 06]: 06-04: cross-mode SR parity scoped to #main (not body) — the header switch's aria-checked differs by design; #main is the mode-invariant tree an SR walks
 - [Phase 06]: 06-04: reseed mode via direct localStorage.setItem between reloads, not addInitScript (which re-runs per navigation and clobbers the second mode's key)
+- [Phase 06]: 06-05: QA-03 human half signed off PASS via a one-time NVDA-on-Windows walkthrough (every page x both modes); toggle announcements audible and the WebGL canvas silent to NVDA in Premium (D-01..D-04)
 
 ### Pending Todos
 
@@ -150,6 +152,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-06T19:58:39.025Z
-Stopped at: Completed 06-04-PLAN.md
+Last session: 2026-07-06T20:14:43.736Z
+Stopped at: Completed 06-05-PLAN.md
 Resume file: None
