@@ -8,7 +8,9 @@ import { test, expect } from '@playwright/test';
 // BASE_PATH env is present instead.
 const HOME = 'http://localhost:4173/diversityincludesdisability_two/';
 
-test('persistence: the chosen mode survives a full page reload (MODE-01/02)', async ({ page }) => {
+test('persistence: the chosen mode survives a full page reload (MODE-01/02) @ci', async ({
+	page
+}) => {
 	await page.goto(HOME);
 
 	const sw = page.locator('[role="switch"]');

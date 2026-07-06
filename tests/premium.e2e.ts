@@ -10,6 +10,7 @@ import { test, expect } from '@playwright/test';
 // seeds 'did2:mode' via addInitScript before any document script runs.
 const BASE = 'http://localhost:4173/diversityincludesdisability_two';
 const HOME = BASE + '/';
+const ROUTES = ['/', '/services/', '/about/', '/contact/', '/accessibility/'];
 
 test('accessible mode ships no canvas; premium chunk loads lazily on toggle (PREM-03/04)', async ({
 	page
@@ -206,4 +207,54 @@ test('toggle stress: 20 rapid flips, no page errors, alive at the end (PREM-05)'
 		console.log('WebGL console diagnostics:\n' + webglConsole.join('\n'));
 	}
 	expect(errors).toEqual([]);
+});
+
+test('accessible mode requests zero WebGL bytes across every route; premium chunk arrives only on toggle (QA-02) @ci', async ({
+	page
+}) => {
+	// Mirror of scripts/check-premium-budget.mjs SIG — the byte-level build gate and this
+	// network-level runtime gate must assert the SAME minification-surviving signature set.
+	const SIG = /WebGLRenderer|@threlte|THREE\./;
+
+	const jsBodies: Promise<{ url: string; body: string }>[] = [];
+	page.on('response', (r) => {
+		if (new URL(r.url()).pathname.endsWith('.js')) {
+			jsBodies.push(
+				r
+					.text()
+					.then((body) => ({ url: r.url(), body }))
+					.catch(() => ({ url: r.url(), body: '' }))
+			);
+		}
+	});
+
+	await page.addInitScript(() => {
+		try {
+			localStorage.setItem('did2:mode', 'accessible');
+		} catch {
+			/* ignore sandboxed storage */
+		}
+	});
+
+	// Full-page load of EVERY route in accessible mode — the complete accessible network surface.
+	for (const route of ROUTES) {
+		await page.goto(BASE + route);
+		await page.waitForLoadState('networkidle');
+		expect(await page.locator('canvas').count()).toBe(0);
+	}
+
+	const accessibleJs = await Promise.all(jsBodies);
+	const leaks = accessibleJs.filter((r) => SIG.test(r.body));
+	expect(leaks.map((l) => l.url)).toEqual([]); // QA-02: no three/WebGL chunk, network level
+
+	// Behavioral lazy proof (hashed names are brittle — 05-05 decision): toggling premium
+	// must fetch at least one .js URL the accessible surface never requested.
+	const seen = new Set(accessibleJs.map((r) => r.url));
+	await page.getByRole('switch').dispatchEvent('click');
+	await expect(page.locator('.premium-backdrop canvas')).toBeVisible({ timeout: 15000 });
+	const afterToggle = await Promise.all(jsBodies);
+	const fresh = afterToggle.filter((r) => !seen.has(r.url));
+	expect(fresh.length).toBeGreaterThan(0);
+	// ...and the premium payload really is the WebGL graph:
+	expect(fresh.some((r) => SIG.test(r.body))).toBe(true);
 });
