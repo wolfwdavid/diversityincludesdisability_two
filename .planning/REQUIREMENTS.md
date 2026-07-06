@@ -60,9 +60,9 @@
 
 ### Quality & Verification
 
-- [ ] **QA-01**: Automated accessibility checks (axe) pass with no serious/critical violations in both modes
-- [ ] **QA-02**: An automated test asserts Accessible mode loads no `three`/WebGL chunk
-- [ ] **QA-03**: A keyboard-only and screen-reader walkthrough of every page passes in both modes
+- [x] **QA-01**: Automated accessibility checks (axe) pass with no serious/critical violations in both modes
+- [x] **QA-02**: An automated test asserts Accessible mode loads no `three`/WebGL chunk
+- [x] **QA-03**: A keyboard-only and screen-reader walkthrough of every page passes in both modes
 
 ## v2 Requirements
 
@@ -137,9 +137,9 @@ Explicitly excluded from this project.
 | PREM-04 | Phase 5 | Complete |
 | PREM-05 | Phase 5 | Complete |
 | PREM-06 | Phase 5 | Complete |
-| QA-01 | Phase 6 | Pending |
-| QA-02 | Phase 6 | Pending |
-| QA-03 | Phase 6 | Pending |
+| QA-01 | Phase 6 | Complete |
+| QA-02 | Phase 6 | Complete |
+| QA-03 | Phase 6 | Complete |
 
 **Coverage:**
 - v1 requirements: 38 total

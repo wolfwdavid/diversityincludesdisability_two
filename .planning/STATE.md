@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Phase 6 context gathered
-last_updated: "2026-07-06T14:34:16.884Z"
+stopped_at: Completed 06-01-PLAN.md
+last_updated: "2026-07-06T15:23:35.889Z"
 progress:
   total_phases: 6
   completed_phases: 5
-  total_plans: 21
-  completed_plans: 21
+  total_plans: 26
+  completed_plans: 22
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-04)
 
 **Core value:** Every visitor gets a first-class experience of DID's work — the premium 3D showcase never comes at the cost of accessibility, and the Accessible mode is a genuine peer, not a degraded fallback.
-**Current focus:** Phase 05 — premium-3d-layer
+**Current focus:** Phase 06 — verification-polish
 
 ## Current Position
 
-Phase: 6
-Plan: Not started
+Phase: 06 (verification-polish) — EXECUTING
+Plan: 2 of 5
 
 ## Performance Metrics
 
@@ -67,6 +67,7 @@ Plan: Not started
 | Phase 05 P03 | 17 min | 3 tasks | 9 files |
 | Phase 05 P04 | 10 min | 2 tasks | 3 files |
 | Phase 05 P05 | 42 min | 3 tasks | 1 files |
+| Phase 06 P01 | 16 min | 3 tasks | 18 files |
 
 ## Accumulated Context
 
@@ -122,6 +123,8 @@ Recent decisions affecting current work:
 - [Phase 05-04]: Gate failure paths (WebGL leak, scan rot, budget overflow) proven by mutation testing on a build copy before commit — the gate is verified to fail, not just to pass
 - [Phase 05-05]: Lazy-load proof asserted behaviorally (new .js request on toggle) — hashed chunk names are brittle; the 05-04 build-scan gate stays the byte-level authority
 - [Phase 05-05]: forceContextLoss ordering (Research Open Q1) closed by evidence: 20-flip toggle stress runs with zero page errors, no Scene.svelte hardening needed
+- [Phase 06]: 06-01: parity drift-guard asserts the prettier-canonical no-flash literal (format gate defines canonical source form; parens stripped, semantics unchanged)
+- [Phase 06]: 06-01: pnpm lint restored as a standing gate at 0f600d4 (.planning/ prettier-ignored, 14-file mechanical re-baseline); bare Playwright suite proven 28/28 after demo-route deletion
 
 ### Pending Todos
 
@@ -139,6 +142,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-06T14:34:16.878Z
-Stopped at: Phase 6 context gathered
-Resume file: .planning/phases/06-verification-polish/06-CONTEXT.md
+Last session: 2026-07-06T15:23:35.883Z
+Stopped at: Completed 06-01-PLAN.md
+Resume file: None

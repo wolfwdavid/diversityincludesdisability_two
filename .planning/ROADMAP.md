@@ -120,7 +120,7 @@ Plans:
 **Plans**: 5 plans
 
 Plans:
-- [ ] 06-01-polish-debt-PLAN.md — Debt cleanup: delete demo route + broken E2E (D-12), prettier re-baseline + .planning/ ignore (D-11), prove 28/28 green bare suite (enabler for QA-01/02/03)
+- [x] 06-01-polish-debt-PLAN.md — Debt cleanup: delete demo route + broken E2E (D-12), prettier re-baseline + .planning/ ignore (D-11), prove 28/28 green bare suite (enabler for QA-01/02/03)
 - [ ] 06-02-axe-both-modes-PLAN.md — QA-01: strict-0 axe matrix, 5 routes x 2 modes + 2 post-toggle scans, @ci-tagged; fix premium violations in-phase (D-05/06/07/10)
 - [ ] 06-03-zero-webgl-ci-gate-PLAN.md — QA-02: network-level zero-WebGL test over all routes (budget-script SIG mirror) + blocking @ci E2E subset in deploy.yml before Pages upload (D-08/09)
 - [ ] 06-04-sr-keyboard-parity-PLAN.md — QA-03 automated half: both-modes keyboard tests + cross-mode aria-snapshot parity + aria-live announcement assertion (D-01/03/04)
