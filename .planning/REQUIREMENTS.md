@@ -52,11 +52,11 @@
 ### Premium 3D
 
 - [x] **PREM-01**: Premium mode renders an interactive WebGL hero scene (Threlte/Three.js)
-- [ ] **PREM-02**: Premium mode presents 3D-enhanced content across the main sections via a single shared Canvas
-- [ ] **PREM-03**: All Three.js/Threlte code is dynamically imported behind the Premium branch so the Accessible bundle ships zero WebGL bytes
-- [ ] **PREM-04**: 3D assets are lazy-loaded and the render loop pauses when the tab is hidden or mode is Accessible
+- [x] **PREM-02**: Premium mode presents 3D-enhanced content across the main sections via a single shared Canvas
+- [x] **PREM-03**: All Three.js/Threlte code is dynamically imported behind the Premium branch so the Accessible bundle ships zero WebGL bytes
+- [x] **PREM-04**: 3D assets are lazy-loaded and the render loop pauses when the tab is hidden or mode is Accessible
 - [ ] **PREM-05**: WebGL resources are disposed on unmount to prevent memory leaks / context loss across repeated toggles
-- [ ] **PREM-06**: Premium mode reduces/limits motion when `prefers-reduced-motion` is set, even if Premium was chosen manually
+- [x] **PREM-06**: Premium mode reduces/limits motion when `prefers-reduced-motion` is set, even if Premium was chosen manually
 
 ### Quality & Verification
 
@@ -132,11 +132,11 @@ Explicitly excluded from this project.
 | A11Y-07 | Phase 4 | Complete |
 | A11Y-08 | Phase 4 | Complete |
 | PREM-01 | Phase 5 | Complete |
-| PREM-02 | Phase 5 | Pending |
-| PREM-03 | Phase 5 | Pending |
-| PREM-04 | Phase 5 | Pending |
+| PREM-02 | Phase 5 | Complete |
+| PREM-03 | Phase 5 | Complete |
+| PREM-04 | Phase 5 | Complete |
 | PREM-05 | Phase 5 | Pending |
-| PREM-06 | Phase 5 | Pending |
+| PREM-06 | Phase 5 | Complete |
 | QA-01 | Phase 6 | Pending |
 | QA-02 | Phase 6 | Pending |
 | QA-03 | Phase 6 | Pending |

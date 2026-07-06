@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 05-01-dark-skin-scrims-PLAN.md
-last_updated: "2026-07-06T10:52:15.742Z"
+stopped_at: Completed 05-02-fence-guard-state-modules-PLAN.md
+last_updated: "2026-07-06T10:55:55.782Z"
 progress:
   total_phases: 6
   completed_phases: 4
   total_plans: 21
-  completed_plans: 17
+  completed_plans: 18
 ---
 
 # Project State
@@ -24,7 +24,7 @@ See: .planning/PROJECT.md (updated 2026-07-04)
 ## Current Position
 
 Phase: 05 (premium-3d-layer) — EXECUTING
-Plan: 2 of 5
+Plan: 3 of 5
 
 ## Performance Metrics
 
@@ -63,6 +63,7 @@ Plan: 2 of 5
 | Phase 04 P04 | 20 | 3 tasks | 6 files |
 | Phase 04 P06 | 31 | 3 tasks | 5 files |
 | Phase 05-premium-3d-layer P01 | 10 min | 2 tasks | 4 files |
+| Phase 05 P02 | 13 min | 3 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -108,6 +109,9 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-06: playwright.config gets reuseExistingServer:true so the suite reuses a running preview and can't hang on Windows webServer SIGTERM teardown
 - [Phase 05-premium-3d-layer]: 05-01: premium dark skin is a pure token remap behind :root[data-mode='premium']:not([data-webgl='no']) — scrim locked at rgb(7 28 51 / 0.94) so axe has a computable background; all 6 dark pairs machine-gated (12/12 PASS)
 - [Phase 05-premium-3d-layer]: 05-01: repo-wide prettier drift (78 files, pre-existing at HEAD) deferred to deferred-items.md — plan files formatted individually; re-baseline after parallel executors finish
+- [Phase 05-02]: Fence guard closes the dynamic-import hole via no-restricted-syntax ImportExpression selector (core no-restricted-imports is blind to import()); the ONE sanctioned crossing in +layout.svelte gets a scoped eslint-disable in 05-03
+- [Phase 05-02]: Premium state split pure-logic + thin browser/runes wrapper (tier/motion-logic pure and node-tested; motion.svelte.ts wires listeners with idempotent initMotion so re-entry never double-subscribes)
+- [Phase 05-02]: worldState.ts kept 100% SvelteKit-free (no app-state/app-paths imports) — the runes wrapper reading page/base arrives in 05-03; normalizeRoute proven for both dev and prod subpath shapes
 
 ### Pending Todos
 
@@ -125,6 +129,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-06T10:52:15.736Z
-Stopped at: Completed 05-01-dark-skin-scrims-PLAN.md
+Last session: 2026-07-06T10:55:55.775Z
+Stopped at: Completed 05-02-fence-guard-state-modules-PLAN.md
 Resume file: None
