@@ -40,10 +40,12 @@ mode must work, because an inaccessible disability-equity site is a contradictio
 - [x] Content parity — both modes present the same information and CTAs, nothing hidden in one — *Validated in Phase 5 (the Premium layer is a fixed backdrop behind the SAME barrel-sourced DOM; content is never forked, scrims keep text readable — 12/12 contrast pairs pass WCAG AA)*
 - [x] 3D assets lazy-loaded and code-split so Accessible mode never downloads WebGL payload — *Validated in Phase 5 (PREM-03/04/05; exactly one dynamic `import()` behind `premium && webgl`, accessible static-import closure proven WebGL-free by `scripts/check-premium-budget.mjs` in CI, premium chunk 187.7 KB gzip ≤ 500 KB budget, dispose-on-toggle proven by 20-flip stress E2E)*
 - [x] Responsive layout in Premium mode — *Validated in Phase 5 (viewport-fixed backdrop canvas with resize-reactive camera; content reflow unchanged from Phase 4 gates; PRM pause + no-WebGL skin-revert degrade paths E2E-proven, PREM-06)*
+- [x] Screen-reader tested (NVDA walkthrough) — *Validated in Phase 6 (QA-03; hybrid — automated cross-mode aria-snapshot parity + aria-live announcement tests in `tests/sr-parity.e2e.ts` and both-modes keyboard tests, PLUS a completed human NVDA-on-Windows walkthrough of all 5 pages × both modes, signed off PASS 2026-07-06. Canvas confirmed silent to NVDA in Premium. VoiceOver deferred to a future Apple-hardware pass.)*
+- [x] Automated accessibility + zero-WebGL gates in CI — *Validated in Phase 6 (QA-01 strict-0 axe both modes × 5 routes + post-toggle scans; QA-02 network-level zero-WebGL assertion; both run as a blocking `@ci` Playwright subset in deploy.yml before the Pages upload)*
 
 ### Active
 
-- [ ] Screen-reader tested (NVDA/VoiceOver smoke walkthrough) — deferred to Phase 6 QA (QA-03)
+- *(none — all v1 requirements validated)*
 
 ### Out of Scope
 
@@ -113,4 +115,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-07-06 — Phase 5 complete (Premium 3D layer: fully procedural crystalline world behind ONE dynamic import, dark skin + scrims, CI budget/zero-WebGL gate, 6 premium E2E tests; verification passed 5/5, art direction human-approved; 93/93 unit + 28/29 E2E green, sole failure is pre-existing Phase-4 demo debt. Next: Phase 6 verification-&-polish.)*
+*Last updated: 2026-07-06 — Phase 6 complete (Verification & Polish: strict-0 axe both modes, network-level zero-WebGL gate + blocking `@ci` E2E subset in deploy.yml, both-modes keyboard + cross-mode SR-parity tests, human NVDA walkthrough signed off PASS; demo route deleted + prettier re-baselined so `pnpm lint` is a standing green gate). Verification passed 3/3; full suite 45/45, unit 93/93, contrast 12/12. **v1 milestone build COMPLETE — all 38 requirements validated across 6 phases.** Remaining: milestone wrap-up (/gsd:complete-milestone) and the Eman content-capture pass, both user-triggered.)*
