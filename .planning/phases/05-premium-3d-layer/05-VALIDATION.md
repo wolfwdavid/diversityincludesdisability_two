@@ -48,9 +48,9 @@ created: 2026-07-06
 | 05-03-03 | 03 | 2 | PREM-03 (the one gate), Pitfall 5 stamp | build grep | `pnpm build` + entry/nodes signature-free + chunk exists | ✅ (bash one-liner in plan) | ⬜ pending |
 | 05-04-01 | 04 | 3 | PREM-03, D-07 (budget + partition) | build script | `pnpm build && node scripts/check-premium-budget.mjs` | ❌ script IS the deliverable | ⬜ pending |
 | 05-04-02 | 04 | 3 | PREM-03 (CI enforcement) | lint+awk | `pnpm lint` + step-order awk assertion | ✅ | ⬜ pending |
-| 05-05-01 | 05 | 3 | PREM-01/03/04 + Success Criteria 5 | e2e | `pnpm exec playwright test tests/premium.e2e.ts` (tests 1-3) | ❌ created by task | ⬜ pending |
-| 05-05-02 | 05 | 3 | PREM-02/05/06 | e2e | `pnpm exec playwright test tests/premium.e2e.ts tests/mode.e2e.ts` (tests 4-6) | ❌ created by task | ⬜ pending |
-| 05-05-03 | 05 | 3 | D-01/02/03/13/14 (art direction) | human checkpoint | manual walkthrough (see plan) | n/a | ⬜ pending |
+| 05-05-01 | 05 | 4 | PREM-01/03/04 + Success Criteria 5 | e2e | `pnpm exec playwright test tests/premium.e2e.ts` (tests 1-3) | ❌ created by task | ⬜ pending |
+| 05-05-02 | 05 | 4 | PREM-02/05/06 | e2e | `pnpm exec playwright test tests/premium.e2e.ts tests/mode.e2e.ts` (tests 4-6) | ❌ created by task | ⬜ pending |
+| 05-05-03 | 05 | 4 | D-01/02/03/13/14 (art direction) | human checkpoint | manual walkthrough (see plan) | n/a | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 

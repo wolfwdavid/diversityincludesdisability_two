@@ -2,8 +2,8 @@
 phase: 05-premium-3d-layer
 plan: 05
 type: execute
-wave: 3
-depends_on: ["05-03"]
+wave: 4
+depends_on: ["05-03", "05-04"]
 files_modified:
   - tests/premium.e2e.ts
 autonomous: false
