@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Phase 5 context gathered
-last_updated: "2026-07-06T09:46:35.653Z"
+stopped_at: Completed 05-01-dark-skin-scrims-PLAN.md
+last_updated: "2026-07-06T10:52:15.742Z"
 progress:
   total_phases: 6
   completed_phases: 4
-  total_plans: 16
-  completed_plans: 16
+  total_plans: 21
+  completed_plans: 17
 ---
 
 # Project State
@@ -19,12 +19,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-04)
 
 **Core value:** Every visitor gets a first-class experience of DID's work — the premium 3D showcase never comes at the cost of accessibility, and the Accessible mode is a genuine peer, not a degraded fallback.
-**Current focus:** Phase 04 — accessible-section-components
+**Current focus:** Phase 05 — premium-3d-layer
 
 ## Current Position
 
-Phase: 5
-Plan: Not started
+Phase: 05 (premium-3d-layer) — EXECUTING
+Plan: 2 of 5
 
 ## Performance Metrics
 
@@ -62,6 +62,7 @@ Plan: Not started
 | Phase 04 P02 | 17 | 3 tasks | 6 files |
 | Phase 04 P04 | 20 | 3 tasks | 6 files |
 | Phase 04 P06 | 31 | 3 tasks | 5 files |
+| Phase 05-premium-3d-layer P01 | 10 min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -105,6 +106,8 @@ Recent decisions affecting current work:
 - [Phase 04]: 04-04: about.mission retyped from as-const literal to Slot<Mission> union so consumers can branch on status (as const collapsed it, breaking every published guard; also unblocked sibling Mission.svelte)
 - [Phase 04]: 04-06: A11Y-08 zero-WebGL verified via precise runtime-signature scan (WebGLRenderer|@threlte|'three'|THREE.) — the naive 'three|threlte|webgl' grep false-positives on the accessibility statement's own 'zero WebGL' prose
 - [Phase 04]: 04-06: playwright.config gets reuseExistingServer:true so the suite reuses a running preview and can't hang on Windows webServer SIGTERM teardown
+- [Phase 05-premium-3d-layer]: 05-01: premium dark skin is a pure token remap behind :root[data-mode='premium']:not([data-webgl='no']) — scrim locked at rgb(7 28 51 / 0.94) so axe has a computable background; all 6 dark pairs machine-gated (12/12 PASS)
+- [Phase 05-premium-3d-layer]: 05-01: repo-wide prettier drift (78 files, pre-existing at HEAD) deferred to deferred-items.md — plan files formatted individually; re-baseline after parallel executors finish
 
 ### Pending Todos
 
@@ -122,6 +125,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-07-06T09:46:35.644Z
-Stopped at: Phase 5 context gathered
-Resume file: .planning/phases/05-premium-3d-layer/05-CONTEXT.md
+Last session: 2026-07-06T10:52:15.736Z
+Stopped at: Completed 05-01-dark-skin-scrims-PLAN.md
+Resume file: None

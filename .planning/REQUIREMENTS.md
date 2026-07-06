@@ -51,7 +51,7 @@
 
 ### Premium 3D
 
-- [ ] **PREM-01**: Premium mode renders an interactive WebGL hero scene (Threlte/Three.js)
+- [x] **PREM-01**: Premium mode renders an interactive WebGL hero scene (Threlte/Three.js)
 - [ ] **PREM-02**: Premium mode presents 3D-enhanced content across the main sections via a single shared Canvas
 - [ ] **PREM-03**: All Three.js/Threlte code is dynamically imported behind the Premium branch so the Accessible bundle ships zero WebGL bytes
 - [ ] **PREM-04**: 3D assets are lazy-loaded and the render loop pauses when the tab is hidden or mode is Accessible
@@ -131,7 +131,7 @@ Explicitly excluded from this project.
 | A11Y-05 | Phase 4 | Complete |
 | A11Y-07 | Phase 4 | Complete |
 | A11Y-08 | Phase 4 | Complete |
-| PREM-01 | Phase 5 | Pending |
+| PREM-01 | Phase 5 | Complete |
 | PREM-02 | Phase 5 | Pending |
 | PREM-03 | Phase 5 | Pending |
 | PREM-04 | Phase 5 | Pending |

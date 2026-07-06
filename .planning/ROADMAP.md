@@ -103,7 +103,7 @@ Plans:
 **Plans**: 5 plans
 
 Plans:
-- [ ] 05-01-dark-skin-scrims-PLAN.md — Premium dark skin + scrim tokens: night hex, contrast-gated dark pairs, [data-mode='premium'] overrides, stacking + hero treatment (PREM-01)
+- [x] 05-01-dark-skin-scrims-PLAN.md — Premium dark skin + scrim tokens: night hex, contrast-gated dark pairs, [data-mode='premium'] overrides, stacking + hero treatment (PREM-01)
 - [ ] 05-02-fence-guard-state-modules-PLAN.md — ESLint dynamic-import guard + TDD pure state modules: tier heuristic, motion truth table, route→world map (PREM-02/03/04/06)
 - [ ] 05-03-premium-world-entry-gate-PLAN.md — The crystalline world: Canvas host, camera rig, procedural objects + the ONE layout entry gate + data-webgl stamp (PREM-01..06)
 - [ ] 05-04-budget-gate-ci-PLAN.md — check-premium-budget.mjs: zero-WebGL closure proof + 500KB-gzip premium ceiling, wired into deploy.yml (PREM-03)
