@@ -7,7 +7,8 @@ export const palette = {
 	orange500: '#e8730c', // large-text / background accent; button background (with ink text)
 	orangeDeep: '#c85f08', // orange UI borders/accents on white
 	ink: '#12181f', // body text on white; text on an orange background
-	white: '#ffffff'
+	white: '#ffffff',
+	night: '#071c33' // premium scrim core; deepest night surface behind text panels (D-02, Pitfall 6)
 } as const;
 
 // Semantic tokens (map roles → palette keys) — consumed by CSS + components
@@ -18,5 +19,13 @@ export const semantic = {
 	accent: palette.orange500,
 	accentBorder: palette.orangeDeep,
 	focusRing: palette.blue900,
-	surface: palette.white
+	surface: palette.white,
+	// Premium dark-skin roles (Phase 5, D-02/D-16) — light-on-dark application of the same palette
+	textOnDark: palette.white,
+	linkOnDark: palette.orange500,
+	headingOnDark: palette.white,
+	accentBorderOnDark: palette.orangeDeep,
+	focusRingOnDark: palette.white,
+	surfaceDark: palette.blue900,
+	scrim: palette.night
 } as const;

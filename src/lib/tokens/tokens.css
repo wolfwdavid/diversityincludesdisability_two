@@ -6,6 +6,7 @@
 	--did-orange-deep: #c85f08;
 	--did-ink: #12181f;
 	--did-white: #ffffff;
+	--did-night: #071c33;
 
 	--color-text: var(--did-ink);
 	--color-link: var(--did-blue-900);
@@ -14,4 +15,18 @@
 	--color-accent-border: var(--did-orange-deep);
 	--color-focus-ring: var(--did-blue-900);
 	--color-surface: var(--did-white);
+}
+
+/* Premium dark skin (Phase 5, D-02/D-16). Gated :not([data-webgl='no']) so a stored-premium
+   visitor on a WebGL-dead browser reverts to the light accessible presentation (Pitfall 5).
+   All pairs below are gated by scripts/check-contrast.mjs (see pairs.ts). */
+:root[data-mode='premium']:not([data-webgl='no']) {
+	--color-text: var(--did-white);
+	--color-link: var(--did-orange-500);
+	--color-heading: var(--did-white);
+	--color-accent: var(--did-orange-500);
+	--color-accent-border: var(--did-orange-deep);
+	--color-focus-ring: var(--did-white);
+	--color-surface: var(--did-blue-900);
+	--color-scrim: rgb(7 28 51 / 0.94); /* night @ 0.94 — effectively opaque (Pitfall 6) */
 }
