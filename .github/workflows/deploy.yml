@@ -34,6 +34,15 @@ jobs:
         run: pnpm build
       - name: Premium chunk budget + zero-WebGL gate (PREM-03, D-07)
         run: node scripts/check-premium-budget.mjs
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+      - name: Install Playwright browser (chromium)
+        run: pnpm exec playwright install --with-deps chromium
+      - name: Critical E2E gate (QA-01 axe both modes, QA-02 zero-WebGL, toggle smoke — D-08/D-09)
+        run: pnpm exec playwright test --grep "@ci"
       - uses: actions/upload-pages-artifact@v5
         with:
           path: build/
