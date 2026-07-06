@@ -107,3 +107,103 @@ test('premium default mounts exactly one canvas (PREM-01)', async ({ page }) => 
 	// <canvas> as fallback content that would otherwise leak into the a11y tree.
 	await expect(page.locator('.premium-backdrop')).toHaveAttribute('aria-hidden', 'true');
 });
+
+test('PRM + manually chosen premium mounts canvas but pauses motion (PREM-06)', async ({
+	page
+}) => {
+	// Pitfall 4: a STORED premium choice bypasses the resolver's reduced-motion branch,
+	// so PREM-06 must be enforced in-canvas by the motion authority — the canvas still
+	// mounts (the user explicitly chose premium) but animation is paused.
+	await page.emulateMedia({ reducedMotion: 'reduce' });
+	await page.addInitScript(() => {
+		try {
+			localStorage.setItem('did2:mode', 'premium');
+		} catch {
+			/* ignore sandboxed storage */
+		}
+	});
+
+	await page.goto(HOME);
+
+	await expect(page.locator('.premium-backdrop canvas')).toBeVisible({ timeout: 15000 });
+	await expect(page.locator('.premium-backdrop')).toHaveAttribute('data-motion', 'paused');
+});
+
+test('one canvas persists across client-side navigation (PREM-02)', async ({ page }) => {
+	await page.addInitScript(() => {
+		try {
+			localStorage.setItem('did2:mode', 'premium');
+		} catch {
+			/* ignore sandboxed storage */
+		}
+	});
+
+	// Desktop viewport: the nav menu is a visible flex row (the mobile disclosure hides
+	// it below 48rem) — mirrors tests/pages.e2e.ts.
+	await page.setViewportSize({ width: 1280, height: 800 });
+	await page.goto(HOME);
+
+	await expect(page.locator('.premium-backdrop canvas')).toBeVisible({ timeout: 15000 });
+
+	// Tag the live canvas: if the SAME element survives navigation, the shared Canvas
+	// persisted in the layout (D-04) instead of being remounted per route.
+	await page.evaluate(() =>
+		document.querySelector('.premium-backdrop canvas')?.setAttribute('data-e2e-mark', '1')
+	);
+
+	const primary = page.getByRole('navigation', { name: /primary/i });
+	const hops: Array<{ label: string; url: string }> = [
+		{ label: 'Services', url: '**/services/' },
+		{ label: 'About', url: '**/about/' },
+		{ label: 'Contact', url: '**/contact/' }
+	];
+
+	for (const hop of hops) {
+		await primary.getByRole('link', { name: hop.label, exact: true }).click();
+		await page.waitForURL(hop.url);
+
+		// Still exactly ONE canvas after each client-side navigation...
+		expect(await page.locator('canvas').count()).toBe(1);
+		// ...and it is the SAME element we tagged on Home (never torn down/remounted).
+		await expect(page.locator('canvas[data-e2e-mark="1"]')).toHaveCount(1);
+	}
+});
+
+test('toggle stress: 20 rapid flips, no page errors, alive at the end (PREM-05)', async ({
+	page
+}) => {
+	const errors: string[] = [];
+	page.on('pageerror', (e) => errors.push(String(e)));
+
+	// Diagnostics only: surface WebGL context chatter (e.g. "too many active contexts")
+	// in the report if the stress run goes sideways.
+	const webglConsole: string[] = [];
+	page.on('console', (m) => {
+		if (m.text().includes('WebGL')) webglConsole.push(`${m.type()}: ${m.text()}`);
+	});
+
+	await page.addInitScript(() => {
+		try {
+			localStorage.setItem('did2:mode', 'premium');
+		} catch {
+			/* ignore sandboxed storage */
+		}
+	});
+
+	await page.goto(HOME);
+	await expect(page.locator('.premium-backdrop canvas')).toBeVisible({ timeout: 15000 });
+
+	// 20 rapid flips: each premium exit disposes the world (PREM-05); an even count
+	// starting from premium ends premium — the layer must come back alive every time.
+	const sw = page.getByRole('switch');
+	for (let i = 0; i < 20; i++) {
+		await sw.dispatchEvent('click');
+	}
+
+	await expect(page.locator('.premium-backdrop canvas')).toBeVisible({ timeout: 15000 });
+
+	if (webglConsole.length > 0) {
+		console.log('WebGL console diagnostics:\n' + webglConsole.join('\n'));
+	}
+	expect(errors).toEqual([]);
+});
